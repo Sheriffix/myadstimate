@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adstimate - Free Google Adsense Revenue Calculator</title>
+
+    <meta name="description"
+        content="Free Google AdSense Revenue Calculator - Estimate and improve your earnings based on pageviews, RPM, country, niche, etc. Get instant monthly and annual revenue projections.">
+
+    <meta name="robots" content="index, follow" />
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebApplication",
+              "name": "Adstimate AdSense Revenue Calculator",
+              "url": "https://adstimate.com/",
+              "description": "Calculate potential AdSense earnings with our 2026 RPM matrix, covering 2,500+ combinations.",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Any",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "Organization",
+              "name": "Adstimate",
+              "url": "https://adstimate.com/",
+              "logo": "https://adstimate.com/adstimate_logo.png"
+            },
+            {
+              "@type": "WebSite",
+              "url": "https://adstimate.com/",
+              "publisher": { "@type": "Organization", "name": "Adstimate" },
+              "significantLink": [
+                "https://adstimate.com/blog/",
+                "https://adstimate.com/blog/niche-country/",
+                "https://adstimate.com/guide.html", 
+                "https://adstimate.com/adsense-rpm-matrix.html"
+              ]
+            }
+          ]
+        }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="/fonts.css" />
+    <!-- Stylesheet  -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/custom.css">
+</head>
+
+<body>
+
+    <!-- Header From nav.js-->
+    <header class="header">
+        <div id="site-header"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="page-content home-page">
+        <div class="container">
+            <!-- Intro Section -->
+            <section class="intro">
+                <h2>Estimate and Maximize Your Ad Potential</h2>
+                <p>Calculate potential earnings using real-world RPM data, powered by 2026 industry benchmarks across
+                    30 niches and 84 global regions.</p>
+            </section>
+            <!-- Quick Start Presets -->
+            <section class="presets-section">
+                <h3 class="section-title">Quick Start Presets</h3>
+                <div class="presets-grid">
+                    <button class="preset-btn" data-preset="us-finance">
+                        <span class="preset-name">US Finance Blog</span>
+                    </button>
+                    <button class="preset-btn" data-preset="us-tech">
+                        <span class="preset-name">US Tech/How-To</span>
+                    </button>
+                    <button class="preset-btn" data-preset="eu-mixed">
+                        <span class="preset-name">EU/UK Mixed</span>
+                    </button>
+                    <button class="preset-btn" data-preset="india-gaming">
+                        <span class="preset-name">India Gaming</span>
+                    </button>
+                    <button class="preset-btn" data-preset="latam-app">
+                        <span class="preset-name">LatAm/SEA App</span>
+                    </button>
+                    <button class="preset-btn" data-preset="global-blog">
+                        <span class="preset-name">Personal Blog</span>
+                    </button>
+                    <button class="preset-btn" data-preset="premium-site">
+                        <span class="preset-name">Premium Authority</span>
+                    </button>
+                    <button class="preset-btn" data-preset="social-traffic">
+                        <span class="preset-name">Social Traffic</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Calculator Layout -->
+            <div class="calculator-layout">
+                <!-- Left Column - Inputs -->
+                <div class="calculator-inputs">
+                    <!-- Pageviews Input -->
+                    <div class="input-group">
+                        <label class="input-label" for="pageviews">
+                            Monthly Pageviews
+                            <span class="tooltip" data-tooltip="Total number of pages viewed on your site per month">
+                                <i class="material-icons theme-icon">info</i>
+                            </span>
+                        </label>
+                        <div class="input-with-slider">
+                            <input type="number" id="pageviews" class="input-field" value="100000" min="1000"
+                                max="10000000">
+                            <input type="range" id="pageviewsSlider" aria-label="Pageviews slider input" class="slider"
+                                min="3" max="7" step="0.01" value="5">
+                            <div class="slider-labels">
+                                <span>1K</span>
+                                <span>10K</span>
+                                <span>100K</span>
+                                <span>1M</span>
+                                <span>10M</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manual RPM Input (Hidden by default) -->
+                    <div class="input-group" id="manualRpmGroup" style="display: none;">
+                        <label class="input-label" for="manualRpm">
+                            Your Known RPM
+                            <span class="tooltip" data-tooltip="Enter your actual RPM from your AdSense dashboard">
+                                <i class="material-icons theme-icon">info</i>
+                            </span>
+                        </label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">$</span>
+                            <input type="number" id="manualRpm" class="input-field" value="15.00" min="0.01"
+                                step="0.01">
+                        </div>
+                    </div>
+
+                    <!-- Auto-Calculate Inputs Container -->
+                    <div id="autoCalculateInputs" class="visible">
+                        <!-- Country Selection -->
+                        <div class="input-group">
+                            <label class="input-label" for="country">
+                                Primary Traffic Country
+                                <span class="tooltip"
+                                    data-tooltip="Select your main traffic source country for accurate RPM estimation">
+                                    <i class="material-icons theme-icon">info</i>
+                                </span>
+                            </label>
+                            <select id="country" class="select-field">
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="NO">Norway</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="DE">Germany</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="IE">Ireland</option>
+                                <option value="SE">Sweden</option>
+                                <option value="AT">Austria</option>
+                                <option value="SG">Singapore</option>
+                                <option value="FR">France</option>
+                                <option value="BE">Belgium</option>
+                                <option value="JP">Japan</option>
+                                <option value="IT">Italy</option>
+                                <option value="IL">Israel</option>
+                                <option value="AE">UAE</option>
+                                <option value="ES">Spain</option>
+                                <option value="KR">South Korea</option>
+                                <option value="PL">Poland</option>
+                                <option value="TR">Turkey</option>
+                                <option value="CL">Chile</option>
+                                <option value="BR">Brazil</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="MX">Mexico</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="TH">Thailand</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IN">India</option>
+                                <option value="OTHER">Other Country</option>
+                            </select>
+                        </div>
+
+                        <!-- Niche Selection -->
+                        <div class="input-group">
+                            <label class="input-label" for="niche">
+                                Content Niche
+                                <span class="tooltip"
+                                    data-tooltip="Your site's primary category - Finance and Tech niches earn more">
+                                    <i class="material-icons theme-icon">info</i>
+                                </span>
+                            </label>
+                            <select id="niche" class="select-field">
+                                <option value="Finance">Finance</option>
+                                <option value="Insurance">Insurance</option>
+                                <option value="Legal">Legal</option>
+                                <option value="Real Estate">Real Estate</option>
+                                <option value="B2B Services">B2B Services</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Software/SaaS">Software/SaaS</option>
+                                <option value="Cryptocurrency">Cryptocurrency</option>
+                                <option value="Health & Medical">Health & Medical</option>
+                                <option value="Fitness & Wellness">Fitness & Wellness</option>
+                                <option value="Education">Education</option>
+                                <option value="Business">Business</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Career & Jobs">Career & Jobs</option>
+                                <option value="Automotive">Automotive</option>
+                                <option value="Home Improvement">Home Improvement</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Food & Cooking">Food & Cooking</option>
+                                <option value="Fashion & Beauty">Fashion & Beauty</option>
+                                <option value="Lifestyle" selected>Lifestyle</option>
+                                <option value="Parenting">Parenting</option>
+                                <option value="Pets">Pets</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Gaming">Gaming</option>
+                                <option value="Music">Music</option>
+                                <option value="Movies & TV">Movies & TV</option>
+                                <option value="Celebrity News">Celebrity News</option>
+                                <option value="Mobile Apps">Mobile Apps</option>
+                                <option value="News & Media">News & Media</option>
+                            </select>
+                        </div>
+
+                        <!-- Mobile Traffic Percentage -->
+                        <div class="input-group">
+                            <label class="input-label">
+                                Device Traffic Split
+                                <span class="tooltip"
+                                    data-tooltip="Mobile ads typically earn less than desktop. Adjust the slider to match your traffic.">
+                                    <i class="material-icons theme-icon">info</i>
+                                </span>
+                            </label>
+                            <input type="range" id="mobileSlider" aria-label="Mobile slider input" class="slider"
+                                min="0" max="100" value="60">
+                            <div class="device-split-display">
+                                <span>Mobile: <strong id="mobilePercent">60</strong>%</span>
+                                <span>Desktop: <strong id="desktopPercent">40</strong>%</span>
+                            </div>
+                        </div>
+
+                        <!-- Quality Tier Slider -->
+                        <div class="input-group">
+                            <label class="input-label">
+                                Content & Traffic Quality
+                                <span class="tooltip"
+                                    data-tooltip="Premium = authority sites like NerdWallet. Good = most established sites. Basic = new sites or social traffic">
+                                    <i class="material-icons theme-icon">info</i>
+                                </span>
+                            </label>
+                            <div class="quality-tier-container">
+                                <input type="range" id="qualitySlider" aria-label="Quality slider input"
+                                    class="slider quality-slider" min="0" max="2" value="1" step="1">
+                                <div class="quality-labels">
+                                    <span class="quality-label">Basic/New</span>
+                                    <span class="quality-label">Good</span>
+                                    <span class="quality-label">Premium</span>
+                                </div>
+                                <div class="quality-description" id="qualityDescription">
+                                    Most established sites
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seasonality Selection -->
+                        <div class="input-group">
+                            <div class="seasonality-labels">
+                                <label class="input-label">
+                                    Seasonal Quarter
+                                    <span class="tooltip"
+                                        data-tooltip="Ad earnings vary by quarter. Q4 (Oct-Dec) typically earns 30% more than Q1">
+                                        <i class="material-icons theme-icon">info</i>
+                                    </span>
+                                </label>
+                                <!-- Seasonality Toggle Checkbox -->
+                                <div style="margin-left: auto;">
+                                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                        <input type="checkbox" id="seasonalityToggle" checked style="cursor: pointer;">
+                                        <small>Enable</small>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="season-buttons">
+                                <button class="season-btn" data-quarter="Q1">
+                                    <span class="season-name">Q1</span>
+                                    <span class="season-months">Jan-Mar</span>
+                                </button>
+                                <button class="season-btn" data-quarter="Q2">
+                                    <span class="season-name">Q2</span>
+                                    <span class="season-months">Apr-Jun</span>
+                                </button>
+                                <button class="season-btn" data-quarter="Q3">
+                                    <span class="season-name">Q3</span>
+                                    <span class="season-months">Jul-Sep</span>
+                                </button>
+                                <button class="season-btn" data-quarter="Q4">
+                                    <span class="season-name">Q4</span>
+                                    <span class="season-months">Oct-Dec</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RPM Mode Toggle -->
+                    <div class="input-group rpm-mode-group">
+                        <label class="input-label">
+                            Set RPM Manually:
+                            <span class="tooltip"
+                                data-tooltip="Choose to enter your known RPM or let us calculate it based on your traffic characteristics">
+                                <i class="material-icons theme-icon">info</i>
+                            </span>
+                        </label>
+                        <div class="rpm-toggle">
+                            <button class="rpm-toggle-btn" data-mode="manual"
+                                aria-label="Toggle RPM Input Mode"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Results + Sidebar Ad -->
+                <div class="calculator-results-wrapper">
+                    <!-- Results Panel -->
+                    <div class="results-panel">
+                        <div class="est-title-wrap">
+                            <h3 class="results-title">Estimated Earnings</h3>
+                            <!-- Calculated RPM Display -->
+                            <div class="rpm-display" id="rpmDisplay">
+                                Est. RPM:<span class="rpm-value" id="calculatedRpm">$15.24</span>
+                            </div>
+                        </div>
+
+                        <!-- Revenue Scenarios -->
+                        <div class="scenarios">
+                            <div class="scenario">
+                                <div class="scenario-label">Conservative</div>
+                                <div class="scenario-value" id="conservativeMonthly">$1,067</div>
+                                <div class="scenario-sublabel">monthly</div>
+                                <div class="scenario-annual" id="conservativeAnnual">$12,804<span>annually</span></div>
+                            </div>
+                            <div class="scenario scenario-primary">
+                                <div class="scenario-label">Realistic</div>
+                                <div class="scenario-value" id="averageMonthly">$1,524</div>
+                                <div class="scenario-sublabel">monthly</div>
+                                <div class="scenario-annual" id="averageAnnual">$18,288<span>annually</span></div>
+                            </div>
+                            <div class="scenario">
+                                <div class="scenario-label">Optimistic</div>
+                                <div class="scenario-value" id="optimisticMonthly">$2,286</div>
+                                <div class="scenario-sublabel">monthly</div>
+                                <div class="scenario-annual" id="optimisticAnnual">$27,432<span>annually</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Tips -->
+                        <div class="tips-section">
+                            <h4 class="tips-title"><i class="material-icons theme-icon">lightbulb</i>Tips to Increase
+                                Your Earnings</h4>
+                            <ul class="tips-list" id="tipsList">
+                                <li>Test different ad placements - above-the-fold ads typically perform best</li>
+                            </ul>
+                        </div>
+
+                        <!-- Social Share -->
+                        <div class="share-section">
+                            <h4 class="share-title">Share Your Results</h4>
+                            <div class="share-buttons">
+                                <button class="share-btn twitter-btn" id="shareTwitter" aria-label="Share on Twitter">
+                                    <i class="material-icons theme-icon">share</i> Twitter
+                                </button>
+                                <button class="share-btn email-btn" id="shareEmail">
+                                    <i class="material-icons theme-icon">mail</i> Email
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div id="site-footer"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/deeplink_handler.js" defer></script>
+    <script src="/script.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+
+</html>

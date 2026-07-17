@@ -1,0 +1,416 @@
+{
+  "version": "1.0",
+  "generated": "2026-07-16",
+  "templates": {
+    "country-premium": {
+      "file": "templates/country/country-premium.html",
+      "type": "country",
+      "tier": "premium",
+      "word_count": "~900-1,000",
+      "description": "Used for top-tier countries (USA, UK, Germany, Canada, Australia, etc.)",
+      "variables": {
+        "content": [
+          "{{COUNTRY_NAME}}",
+          "{{COUNTRY_SLUG}}",
+          "{{COUNTRY_CODE}}",
+          "{{COUNTRY_RPM}}",
+          "{{COUNTRY_TIER}}",
+          "{{TIER_DESC}}",
+          "{{TOP_NICHE_1}}",
+          "{{TOP_NICHE_1_RPM}}",
+          "{{TOP_NICHE_2}}",
+          "{{TOP_NICHE_2_RPM}}",
+          "{{TOP_NICHE_3}}",
+          "{{TOP_NICHE_3_RPM}}",
+          "{{PEER_1_NAME}}",
+          "{{PEER_1_SLUG}}",
+          "{{PEER_1_RPM}}",
+          "{{PEER_1_TIER}}",
+          "{{PEER_2_NAME}}",
+          "{{PEER_2_SLUG}}",
+          "{{PEER_2_RPM}}",
+          "{{PEER_2_TIER}}",
+          "{{PEER_3_NAME}}",
+          "{{PEER_3_SLUG}}",
+          "{{PEER_3_RPM}}",
+          "{{PEER_3_TIER}}",
+          "{{COMPARATIVE_STRENGTH}}",
+          "{{EXAMPLE_NICHE}}",
+          "{{EXAMPLE_RPM}}",
+          "{{CALCULATED}}",
+          "{{CALCULATED_ANNUAL}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "country-standard": {
+      "file": "templates/country/country-standard.html",
+      "type": "country",
+      "tier": "standard",
+      "word_count": "~850-900",
+      "description": "Used for mid-tier countries (France, Italy, Spain, Netherlands, Sweden, etc.)",
+      "variables": {
+        "content": [
+          "{{COUNTRY_NAME}}",
+          "{{COUNTRY_SLUG}}",
+          "{{COUNTRY_CODE}}",
+          "{{COUNTRY_RPM}}",
+          "{{COUNTRY_TIER}}",
+          "{{TIER_DESC}}",
+          "{{TOP_NICHE_1}}",
+          "{{TOP_NICHE_1_RPM}}",
+          "{{TOP_NICHE_2}}",
+          "{{TOP_NICHE_3}}",
+          "{{TOP_NICHE_1_DIFF}}",
+          "{{TOP_NICHE_MULTIPLIER}}",
+          "{{TOP_NICHES_TABLE}}",
+          "{{NICHE_SPREAD}}",
+          "{{HIGH_RPM}}",
+          "{{PEER_LIST}}",
+          "{{PEER_COUNTRIES_TABLE}}",
+          "{{COMPARATIVE_STRENGTH}}",
+          "{{COUNTRY_OPPORTUNITY}}",
+          "{{COUNTRY_DEMAND}}",
+          "{{COUNTRY_PURCHASING_POWER}}",
+          "{{COUNTRY_DESCRIPTION}}",
+          "{{COMPARATIVE_POSITION}}",
+          "{{CALCULATED_10K}}",
+          "{{CALCULATED_50K}}",
+          "{{CALCULATED_100K}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "country-basic": {
+      "file": "templates/country/country-basic.html",
+      "type": "country",
+      "tier": "basic",
+      "word_count": "~850-900",
+      "description": "Used for lower-tier countries (Venezuela, Panama, Kazakhstan, Peru, etc.)",
+      "variables": {
+        "content": [
+          "{{COUNTRY_NAME}}",
+          "{{COUNTRY_SLUG}}",
+          "{{COUNTRY_CODE}}",
+          "{{COUNTRY_RPM}}",
+          "{{COUNTRY_TIER}}",
+          "{{TOP_NICHE_1}}",
+          "{{TOP_NICHE_1_RPM}}",
+          "{{TOP_NICHE_1_DIFF}}",
+          "{{TOP_NICHE_2}}",
+          "{{TOP_NICHE_3}}",
+          "{{TOP_NICHE_MULTIPLIER}}",
+          "{{TOP_NICHES_TABLE}}",
+          "{{NICHE_SPREAD}}",
+          "{{PEER_LIST}}",
+          "{{PEER_COUNTRIES_TABLE}}",
+          "{{COMPARATIVE_STRENGTH}}",
+          "{{COUNTRY_OPPORTUNITY}}",
+          "{{COUNTRY_DEMAND}}",
+          "{{COUNTRY_PURCHASING_POWER}}",
+          "{{COUNTRY_DESCRIPTION}}",
+          "{{COMPARATIVE_POSITION}}",
+          "{{CALCULATED_10K}}",
+          "{{CALCULATED_50K}}",
+          "{{CALCULATED_100K}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "niche-premium": {
+      "file": "templates/niche/niche-premium.html",
+      "type": "niche",
+      "tier": "premium",
+      "word_count": "~900-1,000",
+      "description": "Used for premium niches (Finance, Insurance, Legal, Cryptocurrency, etc.)",
+      "variables": {
+        "content": [
+          "{{NICHE_NAME}}",
+          "{{NICHE_SLUG}}",
+          "{{RPM_RANGE}}",
+          "{{CTR}}",
+          "{{CPC}}",
+          "{{MULTIPLIER}}",
+          "{{NICHE_TIER}}",
+          "{{PERFORMANCE_DESC}}",
+          "{{TOP_COUNTRIES_TABLE}}",
+          "{{PERCENT_DIFF}}",
+          "{{US_MULTIPLIER}}",
+          "{{TOP_COUNTRY}}",
+          "{{TOP_COUNTRY_RPM}}",
+          "{{CALCULATED_10K}}",
+          "{{CALCULATED_US_10K}}",
+          "{{TOP_SUB_NICHE_1}}",
+          "{{TOP_SUB_NICHE_2}}",
+          "{{TOP_SUB_NICHE_3}}",
+          "{{MULTIPLIER_SPREAD}}",
+          "{{RPM_HIGH}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "niche-standard": {
+      "file": "templates/niche/niche-standard.html",
+      "type": "niche",
+      "tier": "standard",
+      "word_count": "~850-900",
+      "description": "Used for standard niches (Health & Medical, Education, Business, Marketing, etc.)",
+      "variables": {
+        "content": [
+          "{{NICHE_NAME}}",
+          "{{NICHE_SLUG}}",
+          "{{RPM_RANGE}}",
+          "{{CTR}}",
+          "{{CPC}}",
+          "{{MULTIPLIER}}",
+          "{{NICHE_TIER}}",
+          "{{PERFORMANCE_DESC}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "niche-basic": {
+      "file": "templates/niche/niche-basic.html",
+      "type": "niche",
+      "tier": "basic",
+      "word_count": "~850-900",
+      "description": "Used for lower-tier niches (Celebrity News, Entertainment, Fashion & Beauty, etc.)",
+      "variables": {
+        "content": [
+          "{{NICHE_NAME}}",
+          "{{NICHE_SLUG}}",
+          "{{RPM_RANGE}}",
+          "{{CTR}}",
+          "{{CPC}}",
+          "{{MULTIPLIER}}",
+          "{{NICHE_TIER}}",
+          "{{PERFORMANCE_DESC}}",
+          "{{RPM_HIGH}}",
+          "{{RPM_LOW}}",
+          "{{TOP_COUNTRIES_TABLE}}",
+          "{{PERCENT_DIFF}}",
+          "{{US_MULTIPLIER}}",
+          "{{TOP_COUNTRY}}",
+          "{{TOP_COUNTRY_RPM}}",
+          "{{CALCULATED_10K}}",
+          "{{CALCULATED_50K}}",
+          "{{CALCULATED_100K}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "combo-premium": {
+      "file": "templates/combo/combo-premium.html",
+      "type": "niche-country",
+      "tier": "premium",
+      "word_count": "~900-1,000",
+      "description": "Used for premium niche-country combinations (Finance + Iceland, Insurance + US, etc.)",
+      "variables": {
+        "content": [
+          "{{NICHE_NAME}}",
+          "{{COUNTRY_NAME}}",
+          "{{COUNTRY_CODE}}",
+          "{{NICHE_SLUG}}",
+          "{{COUNTRY_SLUG}}",
+          "{{COMBINED_SLUG}}",
+          "{{BASE_RPM}}",
+          "{{MULTIPLIER}}",
+          "{{EXPECTED_RPM}}",
+          "{{NICHE_TIER}}",
+          "{{COUNTRY_TIER}}",
+          "{{CTR}}",
+          "{{CPC}}",
+          "{{PEER_COUNTRIES_TABLE}}",
+          "{{PEER_DIFF}}",
+          "{{COUNTRY_RANK}}",
+          "{{PEER_1_NAME}}",
+          "{{PEER_1_RPM}}",
+          "{{US_RPM}}",
+          "{{US_BOOST}}",
+          "{{SUB_NICHE_1}}",
+          "{{SUB_NICHE_2}}",
+          "{{NICHE_REASON}}",
+          "{{COUNTRY_STRENGTH}}",
+          "{{CALCULATED_10K}}",
+          "{{CALCULATED_50K}}",
+          "{{CALCULATED_100K}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "combo-standard": {
+      "file": "templates/combo/combo-standard.html",
+      "type": "niche-country",
+      "tier": "standard",
+      "word_count": "~850-900",
+      "description": "Used for standard niche-country combinations",
+      "variables": {
+        "content": [
+          "{{NICHE_NAME}}",
+          "{{COUNTRY_NAME}}",
+          "{{COUNTRY_CODE}}",
+          "{{NICHE_SLUG}}",
+          "{{COUNTRY_SLUG}}",
+          "{{COMBINED_SLUG}}",
+          "{{BASE_RPM}}",
+          "{{MULTIPLIER}}",
+          "{{EXPECTED_RPM}}",
+          "{{NICHE_TIER}}",
+          "{{COUNTRY_TIER}}",
+          "{{CTR}}",
+          "{{CPC}}",
+          "{{PEER_COUNTRIES_TABLE}}",
+          "{{PEER_DIFF}}",
+          "{{COUNTRY_RANK}}",
+          "{{PEER_1_NAME}}",
+          "{{PEER_1_RPM}}",
+          "{{US_BOOST}}",
+          "{{SUB_NICHE_1}}",
+          "{{SUB_NICHE_2}}",
+          "{{COMPARATIVE_STRENGTH}}",
+          "{{CALCULATED_10K}}",
+          "{{CALCULATED_50K}}",
+          "{{CALCULATED_100K}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    },
+    "combo-basic": {
+      "file": "templates/combo/combo-basic.html",
+      "type": "niche-country",
+      "tier": "basic",
+      "word_count": "~850-900",
+      "description": "Used for lower-tier niche-country combinations",
+      "variables": {
+        "content": [
+          "{{NICHE_NAME}}",
+          "{{COUNTRY_NAME}}",
+          "{{COUNTRY_CODE}}",
+          "{{NICHE_SLUG}}",
+          "{{COUNTRY_SLUG}}",
+          "{{COMBINED_SLUG}}",
+          "{{BASE_RPM}}",
+          "{{MULTIPLIER}}",
+          "{{EXPECTED_RPM}}",
+          "{{NICHE_TIER}}",
+          "{{COUNTRY_TIER}}",
+          "{{CTR}}",
+          "{{CPC}}",
+          "{{PEER_COUNTRIES_TABLE}}",
+          "{{PEER_DIFF}}",
+          "{{PEER_1_NAME}}",
+          "{{PEER_1_RPM}}",
+          "{{US_RPM}}",
+          "{{US_BOOST}}",
+          "{{COUNTRY_DESCRIPTION}}",
+          "{{SUB_NICHE_1}}",
+          "{{SUB_NICHE_2}}",
+          "{{CALCULATED_10K}}",
+          "{{CALCULATED_50K}}",
+          "{{CALCULATED_100K}}"
+        ],
+        "system": [
+          "{{INTRO}}",
+          "{{MINI_TABLE}}",
+          "{{CALLOUT_BOX}}",
+          "{{PUBLISH_DATE}}",
+          "{{MODIFIED_DATE}}",
+          "{{ARTICLE_ID}}"
+        ]
+      }
+    }
+  },
+  "common_system_variables": {
+    "description": "These variables are used across ALL templates",
+    "variables": [
+      "{{PUBLISH_DATE}}",
+      "{{MODIFIED_DATE}}",
+      "{{ARTICLE_ID}}",
+      "{{INTRO}}",
+      "{{MINI_TABLE}}",
+      "{{CALLOUT_BOX}}"
+    ]
+  },
+  "data_sources": {
+    "country_rpm.json": {
+      "description": "Base RPM by country code",
+      "key": "country_code",
+      "value": "base_rpm"
+    },
+    "niche_multiplier.json": {
+      "description": "Niche multiplier by niche name",
+      "key": "niche_name",
+      "value": "multiplier"
+    },
+    "ad_benchmarks.json": {
+      "description": "Ad performance benchmarks by niche",
+      "key": "niche_name",
+      "fields": ["ctr", "cpc", "typical_rpm_range"]
+    },
+    "intro_map.json": {
+      "description": "Dynamic introductions by tier combination",
+      "types": ["niche", "country", "niche_country"]
+    },
+    "country_names.json": {
+      "description": "Country code to full name mapping",
+      "key": "country_code",
+      "value": "full_name"
+    }
+  }
+}

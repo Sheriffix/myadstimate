@@ -1,0 +1,22 @@
+{
+  "Q1": {
+    "multiplier": 0.82,
+    "months": "January - March",
+    "description": "Post-holiday slowdown, lowest ad spending quarter"
+  },
+  "Q2": {
+    "multiplier": 0.95,
+    "months": "April - June",
+    "description": "Spring recovery, moderate ad spending"
+  },
+  "Q3": {
+    "multiplier": 1.1,
+    "months": "July - September",
+    "description": "Summer slowdown, back-to-school boost late quarter"
+  },
+  "Q4": {
+    "multiplier": 1.35,
+    "months": "October - December",
+    "description": "Holiday shopping season, highest ad spending of the year"
+  }
+}

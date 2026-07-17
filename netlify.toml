@@ -1,0 +1,21 @@
+[plugins]
+
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# =======================================================
+# REDIRECT FOR THE COUNTRY QUERY PARAMETER CALCULATOR
+# =======================================================
+
+[[redirects]]
+  from = "/adsense-rpm-calculator-matrix"
+  query = {country = ":country"}
+  to = "/adsense-rpm-calculator-matrix.html"
+  status = 301
+  force = true

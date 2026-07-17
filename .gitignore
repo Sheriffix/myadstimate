@@ -1,0 +1,8 @@
+# Ignore folders and files
+/drafts/
+/ignore/
+/templates/
+/adstimate-settings.json
+/manual_generator.js
+/pseo_generator.js
+

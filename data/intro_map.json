@@ -1,0 +1,91 @@
+{
+  "niche": {
+    "tier_1": [
+      "Running a {niche} website positions you in one of AdSense's most lucrative verticals. Industry data from 2026 shows {niche} sites achieving RPM ranges of ${rpm_range}, driven by intense advertiser competition and premium audience targeting. With a niche multiplier of {multiplier}x, this category consistently outperforms baseline web content.",
+      "The {niche} niche represents a premium opportunity for AdSense publishers seeking maximum revenue potential. Current benchmarks place typical earnings at ${rpm_range} RPM, reflecting the sector's {multiplier}x multiplier advantage. Advertisers in this vertical demonstrate sustained willingness to pay top rates for access to your audience.",
+      "Publishers in the {niche} space benefit from one of AdSense's strongest advertiser ecosystems. 2026 data reveals {niche} websites earning ${rpm_range} RPM on average, supported by a robust {multiplier}x niche multiplier. This performance tier reflects both advertiser demand intensity and audience value characteristics."
+    ],
+    "tier_2": [
+      "If you're running a {niche} website and monetizing with Google AdSense, understanding your revenue potential is essential for setting realistic expectations. Based on comprehensive 2026 industry data, {niche} websites typically achieve an RPM in the range of ${rpm_range}, making this a solid mid-tier monetization opportunity.",
+      "The {niche} niche offers reliable AdSense monetization potential for publishers who understand its dynamics. Current benchmarks show {niche} sites earning ${rpm_range} RPM, with a niche multiplier of {multiplier}x reflecting consistent advertiser interest. This positions the vertical as a dependable choice for sustainable revenue.",
+      "{niche} websites occupy a favorable position in the AdSense ecosystem, with 2026 data showing typical RPM performance of ${rpm_range}. The {multiplier}x niche multiplier indicates healthy advertiser demand, making this vertical a strategic choice for publishers focused on balanced growth and monetization."
+    ],
+    "tier_3": [
+      "Publishers operating {niche} websites can build viable AdSense revenue streams through smart optimization and audience development. Industry data from 2026 places {niche} sites at ${rpm_range} RPM, with a {multiplier}x multiplier reflecting moderate but stable advertiser participation in this content category.",
+      "The {niche} niche provides accessible entry points for AdSense publishers willing to focus on traffic quality and optimization. Current benchmarks indicate {niche} websites achieve ${rpm_range} RPM, supported by a {multiplier}x niche multiplier that reflects consistent baseline advertiser interest.",
+      "Running a {niche} website requires understanding realistic monetization expectations while maximizing available opportunities. 2026 data shows {niche} publishers earning ${rpm_range} RPM on average, with the {multiplier}x multiplier indicating steady advertiser demand that rewards strategic content development."
+    ],
+    "tier_4": [
+      "{niche} websites face unique monetization challenges but can still generate meaningful AdSense revenue through volume and optimization. Current industry data places {niche} sites at ${rpm_range} RPM, with a {multiplier}x niche multiplier reflecting the competitive landscape for advertiser attention in this vertical.",
+      "Publishers in the {niche} space must prioritize traffic volume and engagement to maximize AdSense returns. 2026 benchmarks show {niche} websites achieving ${rpm_range} RPM, supported by a {multiplier}x multiplier that reflects baseline advertiser participation. Success in this niche requires strategic optimization.",
+      "The {niche} niche demands careful attention to monetization fundamentals and traffic quality. Industry data from 2026 indicates {niche} sites earn ${rpm_range} RPM, with the {multiplier}x niche multiplier highlighting the importance of scale and optimization in this content category."
+    ],
+    "fallback": "If you're running a {niche} website and monetizing with Google AdSense, understanding your revenue potential is essential for setting realistic expectations and planning growth strategies. Based on comprehensive 2026 industry data, {niche} websites typically achieve an RPM (Revenue Per Mille, or revenue per 1,000 impressions) in the range of ${rpm_range}."
+  },
+  "country": {
+    "high_rpm": [
+      "Publishers targeting {country} traffic operate in one of AdSense's premium markets, where advertiser competition and purchasing power create exceptional monetization opportunities. 2026 industry data shows {country} publishers achieving an average RPM of ${rpm}, positioning this as a tier-1 market with sustained high-value advertiser demand.",
+      "{country} represents a top-tier opportunity for AdSense publishers seeking maximum revenue potential from their traffic. Current benchmarks place {country} at ${rpm} RPM, reflecting the market's strong advertiser ecosystem and high purchasing power. This performance level makes {country} traffic particularly valuable for optimization-focused publishers.",
+      "For publishers targeting {country} audiences, understanding the market's premium AdSense potential is crucial for strategic planning. 2026 data reveals {country} achieving ${rpm} RPM on average, driven by intense advertiser competition and mature digital advertising infrastructure that consistently delivers strong monetization results."
+    ],
+    "medium_rpm": [
+      "For publishers targeting {country} traffic, understanding AdSense revenue potential is crucial for building a sustainable monetization strategy. Based on 2026 industry data, websites serving audiences in {country} achieve an average RPM (Revenue Per Mille, or revenue per 1,000 impressions) of ${rpm}.",
+      "{country} presents solid mid-tier opportunities for AdSense publishers who understand regional market dynamics. Current industry benchmarks show {country} traffic generating ${rpm} RPM on average, reflecting balanced advertiser participation and steady market conditions that support reliable monetization strategies.",
+      "Publishers working with {country} audiences benefit from stable AdSense performance within the mid-tier market segment. 2026 data places {country} at ${rpm} RPM, indicating consistent advertiser interest and market maturity that creates dependable revenue opportunities for strategic publishers."
+    ],
+    "low_rpm": [
+      "{country} offers accessible entry points for AdSense publishers willing to focus on volume and optimization strategies. Industry data from 2026 shows {country} traffic generating ${rpm} RPM on average, reflecting developing market conditions where strategic content and niche selection significantly impact overall results.",
+      "Publishers targeting {country} audiences should approach monetization with realistic expectations while maximizing available opportunities. Current benchmarks place {country} at ${rpm} RPM, highlighting the importance of traffic volume and smart niche selection in emerging markets where optimization efforts yield substantial improvements.",
+      "Understanding {country}'s position in the global AdSense ecosystem helps publishers set appropriate revenue expectations and strategy. 2026 data indicates {country} traffic achieves ${rpm} RPM on average, reflecting market conditions where volume-focused approaches and premium niche selection become particularly important for success."
+    ],
+    "fallback": "For publishers targeting {country} traffic, understanding AdSense revenue potential is crucial for building a sustainable monetization strategy. Based on 2026 industry data, websites serving audiences in {country} achieve an average RPM (Revenue Per Mille, or revenue per 1,000 impressions) of ${rpm}."
+  },
+  "niche_country": {
+    "high_high": [
+      "Publishers operating {niche} websites targeting {country} traffic work at the intersection of two premium variables: top-tier niche demand and high-value geographic markets. This combination produces exceptional monetization dynamics, with 2026 data showing expected RPM of ${expected_rpm} (${base_rpm} base × {multiplier}x multiplier), representing elite-level AdSense performance.",
+      "The combination of {niche} content and {country} audiences creates one of AdSense's most lucrative publishing opportunities. Current industry data reveals {niche} publishers serving {country} traffic achieve approximately ${expected_rpm} RPM, calculated from {country}'s premium ${base_rpm} base rate multiplied by {niche}'s exceptional {multiplier}x demand factor.",
+      "{niche} websites targeting {country} audiences benefit from compounded premium factors that drive superior AdSense performance. 2026 benchmarks show this combination producing ${expected_rpm} RPM, reflecting both {country}'s ${base_rpm} tier-1 market value and {niche}'s {multiplier}x advertiser competition intensity."
+    ],
+    "high_medium": [
+      "Publishers running {niche} websites while targeting {country} traffic operate at a strategic intersection of premium niche demand and solid market fundamentals. This pairing generates strong monetization outcomes, with 2026 data indicating expected RPM of ${expected_rpm} ({country}'s ${base_rpm} base × {niche}'s {multiplier}x multiplier).",
+      "The {niche} niche combined with {country} traffic creates favorable AdSense dynamics that reward strategic publishers. Current benchmarks place this combination at ${expected_rpm} RPM, derived from {country}'s reliable ${base_rpm} market rate enhanced by {niche}'s premium {multiplier}x demand characteristics.",
+      "{niche} content targeting {country} audiences positions publishers for above-average AdSense performance. Industry data from 2026 shows this pairing achieving ${expected_rpm} RPM, reflecting {niche}'s {multiplier}x advertiser strength applied to {country}'s ${base_rpm} mid-tier market foundation."
+    ],
+    "high_low": [
+      "Publishers in the {niche} vertical targeting {country} traffic face an interesting monetization scenario where premium niche demand meets developing market conditions. 2026 data shows this combination producing ${expected_rpm} RPM ({country}'s ${base_rpm} base × {niche}'s {multiplier}x multiplier), demonstrating how niche selection significantly impacts earnings.",
+      "{niche} websites serving {country} audiences illustrate how strong niche positioning can elevate performance in developing markets. Current benchmarks indicate ${expected_rpm} RPM for this pairing, calculated from {country}'s ${base_rpm} baseline enhanced substantially by {niche}'s premium {multiplier}x advertiser demand.",
+      "The combination of {niche} content and {country} traffic shows how premium niche selection transforms monetization potential in emerging markets. 2026 industry data reveals ${expected_rpm} RPM for this pairing, where {niche}'s {multiplier}x multiplier elevates {country}'s ${base_rpm} base rate considerably."
+    ],
+    "medium_high": [
+      "Publishers running {niche} websites and targeting traffic from {country} operate at the intersection of solid niche fundamentals and premium market value. This combination produces reliable monetization dynamics, with 2026 data showing expected RPM of ${expected_rpm} (${base_rpm} base × {multiplier}x multiplier).",
+      "{niche} content paired with {country} audiences creates dependable AdSense opportunities that reward consistent optimization. Current industry benchmarks place this combination at ${expected_rpm} RPM, reflecting {country}'s strong ${base_rpm} market value enhanced by {niche}'s {multiplier}x demand characteristics.",
+      "The pairing of {niche} vertical and {country} traffic demonstrates how premium markets elevate mid-tier niche performance. 2026 data indicates ${expected_rpm} RPM for this combination, derived from {country}'s top-tier ${base_rpm} base rate multiplied by {niche}'s {multiplier}x factor."
+    ],
+    "medium_medium": [
+      "Publishers running {niche} websites and targeting traffic from {country} operate at the intersection of two key monetization variables: niche-specific advertiser demand and geographic market value. This combination produces specific revenue dynamics, with 2026 data showing expected RPM of ${expected_rpm} (${base_rpm} base × {multiplier}x multiplier).",
+      "{niche} content targeting {country} audiences represents a balanced AdSense opportunity where both variables contribute meaningfully to overall performance. Current benchmarks indicate ${expected_rpm} RPM for this pairing, calculated from {country}'s ${base_rpm} market rate enhanced by {niche}'s {multiplier}x demand factor.",
+      "The combination of {niche} websites and {country} traffic creates stable monetization dynamics that reward strategic optimization. Industry data from 2026 places this pairing at ${expected_rpm} RPM, reflecting the multiplicative effect of {country}'s ${base_rpm} baseline and {niche}'s {multiplier}x advertiser interest."
+    ],
+    "medium_low": [
+      "Publishers in the {niche} space targeting {country} traffic navigate a scenario where mid-tier niche strength meets developing market conditions. 2026 data shows this combination producing ${expected_rpm} RPM ({country}'s ${base_rpm} base × {niche}'s {multiplier}x multiplier), highlighting the value of strategic niche selection.",
+      "{niche} websites serving {country} audiences demonstrate how solid niche positioning impacts performance in emerging markets. Current benchmarks place this pairing at ${expected_rpm} RPM, derived from {country}'s ${base_rpm} baseline elevated by {niche}'s {multiplier}x advertiser demand.",
+      "The pairing of {niche} content and {country} traffic illustrates monetization dynamics where niche selection becomes crucial for optimization. Industry data from 2026 indicates ${expected_rpm} RPM for this combination, calculated from {country}'s ${base_rpm} base enhanced by {niche}'s {multiplier}x factor."
+    ],
+    "low_high": [
+      "Publishers running {niche} websites while targeting {country} traffic benefit from how premium market conditions can elevate entry-level niche performance. 2026 data reveals ${expected_rpm} RPM for this combination ({country}'s ${base_rpm} base × {niche}'s {multiplier}x multiplier), demonstrating the impact of strategic traffic targeting.",
+      "{niche} content paired with {country} audiences shows how tier-1 markets transform baseline niche monetization potential. Current industry benchmarks indicate ${expected_rpm} RPM for this pairing, where {country}'s premium ${base_rpm} market value substantially elevates {niche}'s {multiplier}x baseline characteristics.",
+      "The combination of {niche} vertical and {country} traffic illustrates how premium geographic targeting impacts overall AdSense performance. 2026 data places this pairing at ${expected_rpm} RPM, reflecting {country}'s strong ${base_rpm} base rate applied to {niche}'s {multiplier}x factor."
+    ],
+    "low_medium": [
+      "Publishers operating {niche} websites targeting {country} traffic navigate a balanced monetization scenario where both variables contribute to overall outcomes. Industry data from 2026 shows ${expected_rpm} RPM for this combination (${base_rpm} base × {multiplier}x multiplier), emphasizing the importance of optimization fundamentals.",
+      "{niche} content serving {country} audiences represents accessible AdSense opportunities where strategic execution matters significantly. Current benchmarks place this pairing at ${expected_rpm} RPM, calculated from {country}'s ${base_rpm} market rate multiplied by {niche}'s {multiplier}x demand level.",
+      "The pairing of {niche} websites and {country} traffic creates monetization dynamics where traffic volume and quality become particularly important. 2026 data indicates ${expected_rpm} RPM for this combination, derived from {country}'s ${base_rpm} baseline enhanced by {niche}'s {multiplier}x factor."
+    ],
+    "low_low": [
+      "Publishers in the {niche} vertical targeting {country} traffic must prioritize volume and optimization to maximize AdSense returns. 2026 industry data shows this combination producing ${expected_rpm} RPM ({country}'s ${base_rpm} base × {niche}'s {multiplier}x multiplier), highlighting opportunities for scale-focused strategies.",
+      "{niche} websites serving {country} audiences require careful attention to fundamentals where both traffic quality and niche optimization impact results. Current benchmarks place this pairing at ${expected_rpm} RPM, calculated from {country}'s ${base_rpm} baseline multiplied by {niche}'s {multiplier}x factor.",
+      "The combination of {niche} content and {country} traffic demonstrates how strategic volume approaches can build meaningful AdSense revenue. Industry data from 2026 indicates ${expected_rpm} RPM for this pairing, reflecting the multiplicative effect of {country}'s ${base_rpm} base and {niche}'s {multiplier}x characteristics."
+    ],
+    "fallback": "Publishers running {niche} websites and targeting traffic from {country} operate at the intersection of two key monetization variables: niche-specific advertiser demand and geographic market value. This combination produces specific revenue dynamics that differ from both the general {niche} niche average and the baseline {country} market rate."
+  }
+}
