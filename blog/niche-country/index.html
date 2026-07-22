@@ -7,25 +7,15 @@
     <!-- Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- 
-      ✅ SEO TITLE: 
-      Primary keyword: "Niche-Country RPM Guides"
-      Secondary keyword: "AdSense RPM by niche and country"
-      Year included for freshness signal.
-    -->
+    <!-- Title -->
     <title>Published Niche-Country RPM Guides (2026) | AdSense by Niche & Country</title>
-
-    <!-- 
-      ✅ META DESCRIPTION: 
-      Includes numbers (77 guides), key terms (RPM, niche, country), and a call-to-action.
-      This improves Click-Through Rate (CTR) from search results.
-    -->
+    <!-- Meta tags -->
     <meta name="description"
-        content="Browse 77 published niche-country AdSense RPM guides. Find expected RPM, CPC benchmarks, and optimization strategies for each combination. Updated for 2026." />
-
-    <link rel="canonical" href="https://adstimate.com/blog/niche-country/index.html" />
+        content="Browse our published niche-country AdSense RPM guides. Find expected RPM, CPC benchmarks, and optimization strategies for each combination. Updated for 2026." />
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://adstimate.com/blog/niche-country"/>
     <meta name="robots" content="index, follow" />
+    <!-- Google Icons -->
     <link
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,600;1,600&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
@@ -33,53 +23,16 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/custom.css" />
     <link rel="stylesheet" href="/blog.css" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Published Niche-Country RPM Guides (2026)" />
     <meta property="og:description"
-        content="Browse 77 published niche-country AdSense RPM guides. Find expected RPM, CPC benchmarks, and optimization strategies for each combination." />
+        content="Browse selected niche-country AdSense RPM guides. Find expected RPM, CPC benchmarks, and optimization strategies for each combination." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://adstimate.com/blog/niche-country/index.html" />
 
-    <!-- 
-      ✅ SCHEMA MARKUP: CollectionPage + ItemList
-      Tells Google this is a directory page with a list of items.
-      Helps with rich snippets and indexing.
-    -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://adstimate.com/blog/niche-country/index.html",
-            "url": "https://adstimate.com/blog/niche-country/index.html",
-            "headline": "Published Niche-Country RPM Guides (2026)",
-            "description": "Browse 77 published niche-country AdSense RPM guides. Find expected RPM, CPC benchmarks, and optimization strategies for each combination.",
-            "publisher": {
-                "@type": "Organization",
-                "name": "Adstimate",
-                "logo": { "@type": "ImageObject", "url": "https://adstimate.com/adstimate_logo.png" }
-            },
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adstimate.com/" },
-                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://adstimate.com/blog/" },
-                    { "@type": "ListItem", "position": 3, "name": "Niche-Country Guides", "item": "https://adstimate.com/blog/niche-country/index.html" }
-                ]
-            },
-            "mainEntity": {
-                "@type": "ItemList",
-                "itemListElement": {{DATA_ARRAY_SCHEMA}}
-            }
-        }
-    </script>
-
     <style>
-        /* 
-          ✅ Minimal CSS for interactive features only.
-          The main styling comes from /style.css and /blog.css.
-        */
+        /* Minimal CSS for interactive features only */
         #combinationsTable tbody tr {
             cursor: pointer;
             transition: background-color 0.2s ease;
@@ -93,225 +46,141 @@
             cursor: pointer;
             user-select: none;
             position: relative;
-            white-space: nowrap;
-        }
-
-        #combinationsTable th:hover {
-            background-color: #e9ecef;
+            text-wrap: nowrap;
         }
 
         .search-box {
             width: 100%;
-            max-width: 400px;
-            padding: 10px 16px;
+            padding: 12px 16px;
             font-size: 1rem;
             border: 1px solid #ddd;
-            border-radius: 6px;
-            margin: 16px 0;
+            border-radius: 4px;
+            margin: 20px 0;
             font-family: inherit;
         }
 
-        .search-box:focus {
+        #searchBox:focus {
             outline: none;
-            border-color: var(--accent-primary, #0066cc);
-            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+            border-color: var(--accent-primary);
         }
 
         .table-intro {
             background: #f8f9fa;
-            padding: 20px 24px;
+            padding: 20px;
             border-radius: 8px;
-            margin: 16px 0;
-        }
-
-        .table-intro p:last-child {
-            margin-bottom: 0;
-        }
-
-        .matrix-cta {
-            background: #e8f5e9;
-            padding: 16px 20px;
-            border-radius: 8px;
-            border-left: 4px solid #2e7d32;
-            margin: 16px 0;
-        }
-
-        .matrix-cta a {
-            font-weight: 600;
-            color: #2e7d32;
-        }
-
-        .matrix-cta a:hover {
-            text-decoration: underline;
-        }
-
-        .result-count {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 8px 0;
-        }
-
-        .result-count strong {
-            color: #333;
-        }
-
-        .col-rank {
-            width: 60px;
-            text-align: center;
-        }
-
-        .col-niche {
-            min-width: 140px;
-        }
-
-        .col-country {
-            min-width: 120px;
-        }
-
-        .col-base-rpm {
-            text-align: center;
-            min-width: 100px;
-        }
-
-        .col-multiplier {
-            text-align: center;
-            min-width: 100px;
-        }
-
-        .col-expected-rpm {
-            text-align: center;
-            min-width: 120px;
-            font-weight: 600;
-            color: #0066cc;
-        }
-
-        @media (max-width: 640px) {
-            .col-rank {
-                width: 40px;
-            }
-
-            .col-niche {
-                min-width: 100px;
-            }
-
-            .col-country {
-                min-width: 80px;
-            }
-
-            .col-base-rpm {
-                min-width: 70px;
-            }
-
-            .col-multiplier {
-                min-width: 70px;
-            }
-
-            .col-expected-rpm {
-                min-width: 80px;
-            }
+            margin: 20px 0;
         }
     </style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "CollectionPage",
+            "@id": "https://adstimate.com/blog/niche-country/index.html",
+            "url": "https://adstimate.com/blog/niche-country/index.html",
+            "headline": "Selected Niche-Country Combinations for AdSense Revenue (2026 Data)",
+            "description": "Comprehensive index of the highest-earning niche-country combinations for AdSense publishers, with detailed RPM calculations.",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Adstimate",
+                "logo": { "@type": "ImageObject", "url": "https://adstimate.com/adstimate_logo.png" }
+            },
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adstimate.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://adstimate.com/blog/" },
+                    { "@type": "ListItem", "position": 3, "name": "Niche-Country Matrix", "item": "https://adstimate.com/blog/niche-country/" }
+                ]
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Which niche-country combination pays the most AdSense revenue?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The highest-earning combinations typically involve Finance, Insurance, or SaaS niches targeted at Tier 1 countries like the USA, UK, and Canada, often exceeding $60-80 RPM."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How is the 2026 AdSense Matrix calculated?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Our matrix cross-references 30 niches with 84 countries using real-time CPC multipliers and geographic tiers to provide 2,500+ unique revenue benchmarks."
+                    }
+                }
+            ]
+        }
+    ]
+}
+</script>
+
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header From nav.js-->
     <header class="header">
-        <div id="site-header"></div>
+        <div id="site-header">
+        </div>
     </header>
 
     <main class="page-content blog-page">
         <div class="container" style="max-width: 60rem;">
-
-            <!-- Breadcrumb Navigation -->
             <section class="blog-hero">
                 <nav class="breadcrumb-nav">
-                    <a href="/">Home</a>
-                    <i class="material-icons theme-icon">chevron_right</i>
-                    <a href="/blog/index.html">Blog</a>
-                    <i class="material-icons theme-icon">chevron_right</i>
-                    <span>Niche-Country Guides</span>
+                    <a href="/">Home</a> <i class="material-icons theme-icon">chevron_right</i>
+                    <a href="/blog/index.html">Blog</a> <i class="material-icons theme-icon">chevron_right</i>
+                    <span>Niche-Country Index</span>
                 </nav>
-
-                <!-- 
-                  ✅ H1: Primary keyword targeting.
-                  "Published Niche-Country RPM Guides" is the primary keyword.
-                -->
-                <h1>Published Niche-Country RPM Guides</h1>
-                <p class="post-meta">Updated: {{MODIFIED_DATE}} • {{TOTAL_COMBOS}} guides published</p>
+                <h1>Our Published Niche-Country Combinations for AdSense Revenue (2026)</h1>
+                <p class="post-meta">Updated: 2026-07-22</p>
             </section>
 
             <article class="main-article-text">
-
-                <!-- 
-                  ✅ INTRODUCTION: 200+ words explaining the page.
-                  This helps Google understand the page's purpose and provides context.
-                -->
                 <div class="table-intro">
                     <p>
-                        Welcome to our <strong>published niche-country AdSense RPM guides</strong>.
-                        Each page in this directory analyzes a specific <strong>niche + country</strong> combination,
-                        breaking down the expected RPM, CPC benchmarks, and optimization strategies for publishers
-                        targeting that audience.
+                        The table below ranks the <strong>top 200 niche-country combinations</strong> by projected
+                        AdSense RPM —
+                        calculated by multiplying each country's base RPM by its niche multiplier.
                     </p>
+
                     <p>
-                        <strong>How to use this page:</strong> Browse the table below to find a niche-country
-                        combination that interests you. Click any row to read the full analysis, including
-                        how the RPM is calculated, which sub-niches perform best, and how to maximize your
-                        earnings from that traffic source.
+                        Each row links to a dedicated earnings page with full benchmarks and publisher data. The
+                        highest-scoring
+                        combinations — like
+                        <a href="/blog/niche-country/finance-iceland-adsense-rpm.html">Finance in Iceland</a>,
+                        <a href="/blog/niche-country/legal-luxembourg-adsense-rpm.html">Legal in Luxembourg</a>, and
+                        <a href="/blog/niche-country/insurance-united-states-adsense-rpm.html">Insurance in the United
+                            States</a>
+                        — represent the strongest content opportunities available to publishers right now.
                     </p>
+
                     <p>
-                        <strong>What is RPM?</strong> RPM stands for <strong>Revenue Per Mille</strong> (revenue per
-                        1,000 pageviews). It's the standard metric used by AdSense publishers to measure earnings
-                        performance. A higher RPM means more revenue per visitor.
-                    </p>
-                    <p>
-                        The data in these guides is based on <strong>2026 industry benchmarks</strong>, combining
-                        country-specific base RPMs with niche-specific multipliers. The result is a realistic
-                        estimate of what publishers can expect to earn from each combination.
+                        Click any row to open the full analysis. Sort by any column header. Use the search box to filter
+                        by niche or country, and use the table headings to sort.
                     </p>
                 </div>
 
-                <!-- 
-                  ✅ LINK TO MATRIX: Clear differentiation.
-                  This tells users where to go if they want to see ALL possible combinations.
-                -->
-                <div class="matrix-cta">
-                    <p style="margin: 0;">
-                        <strong>🔍 Looking for more options?</strong>
-                        Explore <strong>all 2,520 possible niche-country combinations</strong> in our
-                        <a href="/adsense-rpm-matrix.html">RPM Revenue Matrix</a>.
-                        Filter, sort, and discover the highest-value content opportunities.
-                    </p>
-                </div>
-
-                <!-- 
-                  ✅ SEARCH BOX: User experience + dwell time.
-                  Allows users to filter the table by niche or country.
-                -->
-                <input type="text" id="searchBox" class="search-box" placeholder="Search by niche or country..."
-                    aria-label="Search guides" />
-
-                <div class="result-count" id="resultCount">
-                    Showing <strong id="visibleCount">{{TOTAL_COMBOS}}</strong> of <strong>{{TOTAL_COMBOS}}</strong>
-                    guides
-                </div>
-
-                <!-- 
-                  ✅ TABLE: The main content.
-                  Each row links to a combo page.
-                -->
+                <input type="text" id="searchBox" class="search-box" placeholder="Search by niche or country..." />
                 <div class="table-wrap">
                     <table id="combinationsTable">
                         <thead>
                             <tr>
-                                <th class="col-rank" data-sort="rank" onclick="sortTable(0)">Rank ↕</th>
-                                <th class="col-niche" data-sort="niche" onclick="sortTable(1)">Niche ↕</th>
-                                <th class="col-country" data-sort="country" onclick="sortTable(2)">Country ↕</th>
-                                <th class="col-base-rpm" data-sort="baseRpm" onclick="sortTable(3)">Base RPM ↕</th>
-                                <th class="col-multiplier" data-sort="multiplier" onclick="sortTable(4)">Multiplier ↕
-                                </th>
-                                <th class="col-expected-rpm" data-sort="expectedRpm" onclick="sortTable(5)">Expected RPM
-                                    ↕</th>
+                                <th class="col-rank" onclick="sortTable(0)">Rank ↕</th>
+                                <th class="col-niche" onclick="sortTable(1)">Niche ↕</th>
+                                <th class="col-country" onclick="sortTable(2)">Country ↕</th>
+                                <th class="col-base-rpm" onclick="sortTable(3)">Base RPM ↕</th>
+                                <th class="col-multiplier" onclick="sortTable(4)">Multiplier ↕</th>
+                                <th class="col-expected-rpm" onclick="sortTable(5)">Expected RPM ↕</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -319,70 +188,9 @@
                         </tbody>
                     </table>
                 </div>
-
-                <!-- 
-                  ✅ FAQ SECTION: Targets "People Also Ask" boxes.
-                  Answers common questions about niche-country RPM guides.
-                -->
-                <h2>Frequently Asked Questions</h2>
-
-                <div style="margin: 20px 0;">
-                    <div style="border-bottom: 1px solid #e9ecef; padding: 12px 0;">
-                        <h3 style="font-size: 1rem; margin: 0 0 6px 0;">What is a niche-country RPM guide?</h3>
-                        <p style="margin: 0; color: #555;">
-                            It's a detailed analysis of AdSense earning potential for a specific content niche
-                            (like Finance or Insurance) targeting traffic from a specific country (like the US or
-                            Iceland).
-                            Each guide breaks down the expected RPM, CPC, and optimization strategies.
-                        </p>
-                    </div>
-                    <div style="border-bottom: 1px solid #e9ecef; padding: 12px 0;">
-                        <h3 style="font-size: 1rem; margin: 0 0 6px 0;">How is Expected RPM calculated?</h3>
-                        <p style="margin: 0; color: #555;">
-                            Expected RPM = <strong>Country Base RPM</strong> × <strong>Niche Multiplier</strong>.
-                            The country base RPM reflects advertiser demand in that market, while the niche multiplier
-                            reflects how much advertisers are willing to pay for that content vertical.
-                        </p>
-                    </div>
-                    <div style="border-bottom: 1px solid #e9ecef; padding: 12px 0;">
-                        <h3 style="font-size: 1rem; margin: 0 0 6px 0;">Which niche-country combination pays the most?
-                        </h3>
-                        <p style="margin: 0; color: #555;">
-                            Finance in Iceland typically pays the highest RPM due to Iceland's high base RPM ($24.00)
-                            combined with Finance's strong 3.0x multiplier. Check the table above for the full ranking.
-                        </p>
-                    </div>
-                    <div style="padding: 12px 0;">
-                        <h3 style="font-size: 1rem; margin: 0 0 6px 0;">Why aren't all 2,520 combinations listed here?
-                        </h3>
-                        <p style="margin: 0; color: #555;">
-                            This page lists only the combinations we've published in-depth guides for.
-                            To explore all possible niche-country combinations, visit our
-                            <a href="/adsense-rpm-matrix.html">RPM Revenue Matrix</a>.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 
-                  ✅ CONCLUSION: Summarizes the page and encourages action.
-                -->
-                <h2>Start Exploring</h2>
-
-                <p>
-                    Browse the table above to find a niche-country combination that matches your content strategy.
-                    Each guide provides actionable insights to help you maximize your AdSense revenue in 2026.
-                </p>
-
-                <p>
-                    <strong>Can't find what you're looking for?</strong>
-                    Visit our <a href="/adsense-rpm-matrix.html">RPM Revenue Matrix</a> to explore all
-                    2,520 possible niche-country combinations and discover high-value opportunities
-                    you might have missed.
-                </p>
-
             </article>
 
-        </div>
+        </div> <!-- End of container -->
     </main>
 
     <!-- Footer -->
@@ -394,798 +202,14 @@
     <script src="/script.js" defer></script>
     <script src="/nav.js" defer></script>
 
-    <!-- 
-      ✅ DATA + JAVASCRIPT
-      The data is injected by the generator as [
-          {
-                    "rank": 1,
-                    "niche": "Automotive",
-                    "nicheSlug": "automotive",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 1.3,
-                    "expectedRpm": "28.60"
-          },
-          {
-                    "rank": 2,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 2,
-                    "expectedRpm": "36.00"
-          },
-          {
-                    "rank": 3,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Germany",
-                    "countrySlug": "germany",
-                    "baseRpm": "14.00",
-                    "multiplier": 2,
-                    "expectedRpm": "28.00"
-          },
-          {
-                    "rank": 4,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2,
-                    "expectedRpm": "48.00"
-          },
-          {
-                    "rank": 5,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 2,
-                    "expectedRpm": "44.00"
-          },
-          {
-                    "rank": 6,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2,
-                    "expectedRpm": "38.00"
-          },
-          {
-                    "rank": 7,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Switzerland",
-                    "countrySlug": "switzerland",
-                    "baseRpm": "21.00",
-                    "multiplier": 2,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 8,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 2,
-                    "expectedRpm": "40.00"
-          },
-          {
-                    "rank": 9,
-                    "niche": "Business",
-                    "nicheSlug": "business",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "36.00"
-          },
-          {
-                    "rank": 10,
-                    "niche": "Business",
-                    "nicheSlug": "business",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "28.50"
-          },
-          {
-                    "rank": 11,
-                    "niche": "Business",
-                    "nicheSlug": "business",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 1.5,
-                    "expectedRpm": "27.75"
-          },
-          {
-                    "rank": 12,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "46.80"
-          },
-          {
-                    "rank": 13,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Germany",
-                    "countrySlug": "germany",
-                    "baseRpm": "14.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "36.40"
-          },
-          {
-                    "rank": 14,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "62.40"
-          },
-          {
-                    "rank": 15,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "40.30"
-          },
-          {
-                    "rank": 16,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Israel",
-                    "countrySlug": "israel",
-                    "baseRpm": "10.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "27.30"
-          },
-          {
-                    "rank": 17,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "35.10"
-          },
-          {
-                    "rank": 18,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "49.40"
-          },
-          {
-                    "rank": 19,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "48.10"
-          },
-          {
-                    "rank": 20,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "United Kingdom",
-                    "countrySlug": "united-kingdom",
-                    "baseRpm": "16.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "41.60"
-          },
-          {
-                    "rank": 21,
-                    "niche": "Education",
-                    "nicheSlug": "education",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "36.00"
-          },
-          {
-                    "rank": 22,
-                    "niche": "Education",
-                    "nicheSlug": "education",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "30.00"
-          },
-          {
-                    "rank": 23,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 3,
-                    "expectedRpm": "52.50"
-          },
-          {
-                    "rank": 24,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Belgium",
-                    "countrySlug": "belgium",
-                    "baseRpm": "11.50",
-                    "multiplier": 3,
-                    "expectedRpm": "34.50"
-          },
-          {
-                    "rank": 25,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 3,
-                    "expectedRpm": "54.00"
-          },
-          {
-                    "rank": 26,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Denmark",
-                    "countrySlug": "denmark",
-                    "baseRpm": "13.00",
-                    "multiplier": 3,
-                    "expectedRpm": "39.00"
-          },
-          {
-                    "rank": 27,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Germany",
-                    "countrySlug": "germany",
-                    "baseRpm": "14.00",
-                    "multiplier": 3,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 28,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 3,
-                    "expectedRpm": "72.00"
-          },
-          {
-                    "rank": 29,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 3,
-                    "expectedRpm": "66.00"
-          },
-          {
-                    "rank": 30,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "New Zealand",
-                    "countrySlug": "new-zealand",
-                    "baseRpm": "14.00",
-                    "multiplier": 3,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 31,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Norway",
-                    "countrySlug": "norway",
-                    "baseRpm": "14.50",
-                    "multiplier": 3,
-                    "expectedRpm": "43.50"
-          },
-          {
-                    "rank": 32,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 3,
-                    "expectedRpm": "57.00"
-          },
-          {
-                    "rank": 33,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Saudi Arabia",
-                    "countrySlug": "saudi-arabia",
-                    "baseRpm": "9.00",
-                    "multiplier": 3,
-                    "expectedRpm": "27.00"
-          },
-          {
-                    "rank": 34,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Singapore",
-                    "countrySlug": "singapore",
-                    "baseRpm": "17.00",
-                    "multiplier": 3,
-                    "expectedRpm": "51.00"
-          },
-          {
-                    "rank": 35,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 3,
-                    "expectedRpm": "55.50"
-          },
-          {
-                    "rank": 36,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 3,
-                    "expectedRpm": "60.00"
-          },
-          {
-                    "rank": 37,
-                    "niche": "Fitness & Wellness",
-                    "nicheSlug": "fitness-wellness",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.4,
-                    "expectedRpm": "33.60"
-          },
-          {
-                    "rank": 38,
-                    "niche": "Fitness & Wellness",
-                    "nicheSlug": "fitness-wellness",
-                    "country": "Switzerland",
-                    "countrySlug": "switzerland",
-                    "baseRpm": "21.00",
-                    "multiplier": 1.4,
-                    "expectedRpm": "29.40"
-          },
-          {
-                    "rank": 39,
-                    "niche": "Health & Medical",
-                    "nicheSlug": "health-medical",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 1.6,
-                    "expectedRpm": "28.00"
-          },
-          {
-                    "rank": 40,
-                    "niche": "Health & Medical",
-                    "nicheSlug": "health-medical",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 1.6,
-                    "expectedRpm": "35.20"
-          },
-          {
-                    "rank": 41,
-                    "niche": "Health & Medical",
-                    "nicheSlug": "health-medical",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 1.6,
-                    "expectedRpm": "32.00"
-          },
-          {
-                    "rank": 42,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "37.20"
-          },
-          {
-                    "rank": 43,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "32.40"
-          },
-          {
-                    "rank": 44,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Norway",
-                    "countrySlug": "norway",
-                    "baseRpm": "14.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "34.80"
-          },
-          {
-                    "rank": 45,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "45.60"
-          },
-          {
-                    "rank": 46,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "48.00"
-          },
-          {
-                    "rank": 47,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 2.3,
-                    "expectedRpm": "40.25"
-          },
-          {
-                    "rank": 48,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "41.40"
-          },
-          {
-                    "rank": 49,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "55.20"
-          },
-          {
-                    "rank": 50,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "50.60"
-          },
-          {
-                    "rank": 51,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.3,
-                    "expectedRpm": "31.05"
-          },
-          {
-                    "rank": 52,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Singapore",
-                    "countrySlug": "singapore",
-                    "baseRpm": "17.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "39.10"
-          },
-          {
-                    "rank": 53,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 2.3,
-                    "expectedRpm": "42.55"
-          },
-          {
-                    "rank": 54,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "United Kingdom",
-                    "countrySlug": "united-kingdom",
-                    "baseRpm": "16.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "36.80"
-          },
-          {
-                    "rank": 55,
-                    "niche": "Marketing",
-                    "nicheSlug": "marketing",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 1.6,
-                    "expectedRpm": "28.00"
-          },
-          {
-                    "rank": 56,
-                    "niche": "Marketing",
-                    "nicheSlug": "marketing",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.6,
-                    "expectedRpm": "38.40"
-          },
-          {
-                    "rank": 57,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 2.2,
-                    "expectedRpm": "38.50"
-          },
-          {
-                    "rank": 58,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "52.80"
-          },
-          {
-                    "rank": 59,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.2,
-                    "expectedRpm": "34.10"
-          },
-          {
-                    "rank": 60,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.2,
-                    "expectedRpm": "29.70"
-          },
-          {
-                    "rank": 61,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "41.80"
-          },
-          {
-                    "rank": 62,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Sweden",
-                    "countrySlug": "sweden",
-                    "baseRpm": "13.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "28.60"
-          },
-          {
-                    "rank": 63,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "United Kingdom",
-                    "countrySlug": "united-kingdom",
-                    "baseRpm": "16.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "35.20"
-          },
-          {
-                    "rank": 64,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 65,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Austria",
-                    "countrySlug": "austria",
-                    "baseRpm": "12.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "30.00"
-          },
-          {
-                    "rank": 66,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Belgium",
-                    "countrySlug": "belgium",
-                    "baseRpm": "11.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "27.60"
-          },
-          {
-                    "rank": 67,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "57.60"
-          },
-          {
-                    "rank": 68,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "37.20"
-          },
-          {
-                    "rank": 69,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Norway",
-                    "countrySlug": "norway",
-                    "baseRpm": "14.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "34.80"
-          },
-          {
-                    "rank": 70,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "45.60"
-          },
-          {
-                    "rank": 71,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Singapore",
-                    "countrySlug": "singapore",
-                    "baseRpm": "17.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "40.80"
-          },
-          {
-                    "rank": 72,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Sweden",
-                    "countrySlug": "sweden",
-                    "baseRpm": "13.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "31.20"
-          },
-          {
-                    "rank": 73,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "48.00"
-          },
-          {
-                    "rank": 74,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "43.20"
-          },
-          {
-                    "rank": 75,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "39.60"
-          },
-          {
-                    "rank": 76,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "34.20"
-          },
-          {
-                    "rank": 77,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Switzerland",
-                    "countrySlug": "switzerland",
-                    "baseRpm": "21.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "37.80"
-          },
-          {
-                    "rank": 78,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "36.00"
-          }
-].
-      The JavaScript handles sorting, searching, rendering, and click navigation.
-    -->
+    <!-- Index Page Data and Functions -->
     <script>
         // ─────────────────────────────────────────────
-        // DATA (injected by generator)
+        // DATA & STATE
         // ─────────────────────────────────────────────
 
-        // ⚠️ This is a placeholder. The generator will replace [
+        // The original full array injected by pseo_generator.js — never modified
+        const topCombinations = [
           {
                     "rank": 1,
                     "niche": "Automotive",
@@ -1388,6 +412,16 @@
           },
           {
                     "rank": 21,
+                    "niche": "Cryptocurrency",
+                    "nicheSlug": "cryptocurrency",
+                    "country": "United States",
+                    "countrySlug": "united-states",
+                    "baseRpm": "20.00",
+                    "multiplier": 2.6,
+                    "expectedRpm": "52.00"
+          },
+          {
+                    "rank": 22,
                     "niche": "Education",
                     "nicheSlug": "education",
                     "country": "Iceland",
@@ -1397,7 +431,7 @@
                     "expectedRpm": "36.00"
           },
           {
-                    "rank": 22,
+                    "rank": 23,
                     "niche": "Education",
                     "nicheSlug": "education",
                     "country": "United States",
@@ -1407,7 +441,7 @@
                     "expectedRpm": "30.00"
           },
           {
-                    "rank": 23,
+                    "rank": 24,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Australia",
@@ -1417,7 +451,7 @@
                     "expectedRpm": "52.50"
           },
           {
-                    "rank": 24,
+                    "rank": 25,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Belgium",
@@ -1427,7 +461,7 @@
                     "expectedRpm": "34.50"
           },
           {
-                    "rank": 25,
+                    "rank": 26,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Canada",
@@ -1437,7 +471,7 @@
                     "expectedRpm": "54.00"
           },
           {
-                    "rank": 26,
+                    "rank": 27,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Denmark",
@@ -1447,7 +481,7 @@
                     "expectedRpm": "39.00"
           },
           {
-                    "rank": 27,
+                    "rank": 28,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Germany",
@@ -1457,7 +491,7 @@
                     "expectedRpm": "42.00"
           },
           {
-                    "rank": 28,
+                    "rank": 29,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Iceland",
@@ -1467,7 +501,7 @@
                     "expectedRpm": "72.00"
           },
           {
-                    "rank": 29,
+                    "rank": 30,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Luxembourg",
@@ -1477,7 +511,7 @@
                     "expectedRpm": "66.00"
           },
           {
-                    "rank": 30,
+                    "rank": 31,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "New Zealand",
@@ -1487,7 +521,7 @@
                     "expectedRpm": "42.00"
           },
           {
-                    "rank": 31,
+                    "rank": 32,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Norway",
@@ -1497,7 +531,7 @@
                     "expectedRpm": "43.50"
           },
           {
-                    "rank": 32,
+                    "rank": 33,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Qatar",
@@ -1507,7 +541,7 @@
                     "expectedRpm": "57.00"
           },
           {
-                    "rank": 33,
+                    "rank": 34,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Saudi Arabia",
@@ -1517,7 +551,7 @@
                     "expectedRpm": "27.00"
           },
           {
-                    "rank": 34,
+                    "rank": 35,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "Singapore",
@@ -1527,7 +561,17 @@
                     "expectedRpm": "51.00"
           },
           {
-                    "rank": 35,
+                    "rank": 36,
+                    "niche": "Finance",
+                    "nicheSlug": "finance",
+                    "country": "Switzerland",
+                    "countrySlug": "switzerland",
+                    "baseRpm": "21.00",
+                    "multiplier": 3,
+                    "expectedRpm": "63.00"
+          },
+          {
+                    "rank": 37,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "United Arab Emirates",
@@ -1537,7 +581,7 @@
                     "expectedRpm": "55.50"
           },
           {
-                    "rank": 36,
+                    "rank": 38,
                     "niche": "Finance",
                     "nicheSlug": "finance",
                     "country": "United States",
@@ -1547,7 +591,7 @@
                     "expectedRpm": "60.00"
           },
           {
-                    "rank": 37,
+                    "rank": 39,
                     "niche": "Fitness & Wellness",
                     "nicheSlug": "fitness-wellness",
                     "country": "Iceland",
@@ -1557,7 +601,7 @@
                     "expectedRpm": "33.60"
           },
           {
-                    "rank": 38,
+                    "rank": 40,
                     "niche": "Fitness & Wellness",
                     "nicheSlug": "fitness-wellness",
                     "country": "Switzerland",
@@ -1567,7 +611,7 @@
                     "expectedRpm": "29.40"
           },
           {
-                    "rank": 39,
+                    "rank": 41,
                     "niche": "Health & Medical",
                     "nicheSlug": "health-medical",
                     "country": "Australia",
@@ -1577,7 +621,7 @@
                     "expectedRpm": "28.00"
           },
           {
-                    "rank": 40,
+                    "rank": 42,
                     "niche": "Health & Medical",
                     "nicheSlug": "health-medical",
                     "country": "Luxembourg",
@@ -1587,7 +631,7 @@
                     "expectedRpm": "35.20"
           },
           {
-                    "rank": 41,
+                    "rank": 43,
                     "niche": "Health & Medical",
                     "nicheSlug": "health-medical",
                     "country": "United States",
@@ -1597,7 +641,17 @@
                     "expectedRpm": "32.00"
           },
           {
-                    "rank": 42,
+                    "rank": 44,
+                    "niche": "Insurance",
+                    "nicheSlug": "insurance",
+                    "country": "Iceland",
+                    "countrySlug": "iceland",
+                    "baseRpm": "24.00",
+                    "multiplier": 2.4,
+                    "expectedRpm": "57.60"
+          },
+          {
+                    "rank": 45,
                     "niche": "Insurance",
                     "nicheSlug": "insurance",
                     "country": "Ireland",
@@ -1607,7 +661,7 @@
                     "expectedRpm": "37.20"
           },
           {
-                    "rank": 43,
+                    "rank": 46,
                     "niche": "Insurance",
                     "nicheSlug": "insurance",
                     "country": "Netherlands",
@@ -1617,7 +671,7 @@
                     "expectedRpm": "32.40"
           },
           {
-                    "rank": 44,
+                    "rank": 47,
                     "niche": "Insurance",
                     "nicheSlug": "insurance",
                     "country": "Norway",
@@ -1627,7 +681,7 @@
                     "expectedRpm": "34.80"
           },
           {
-                    "rank": 45,
+                    "rank": 48,
                     "niche": "Insurance",
                     "nicheSlug": "insurance",
                     "country": "Qatar",
@@ -1637,7 +691,7 @@
                     "expectedRpm": "45.60"
           },
           {
-                    "rank": 46,
+                    "rank": 49,
                     "niche": "Insurance",
                     "nicheSlug": "insurance",
                     "country": "United States",
@@ -1647,7 +701,7 @@
                     "expectedRpm": "48.00"
           },
           {
-                    "rank": 47,
+                    "rank": 50,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "Australia",
@@ -1657,7 +711,7 @@
                     "expectedRpm": "40.25"
           },
           {
-                    "rank": 48,
+                    "rank": 51,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "Canada",
@@ -1667,7 +721,7 @@
                     "expectedRpm": "41.40"
           },
           {
-                    "rank": 49,
+                    "rank": 52,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "Iceland",
@@ -1677,7 +731,7 @@
                     "expectedRpm": "55.20"
           },
           {
-                    "rank": 50,
+                    "rank": 53,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "Luxembourg",
@@ -1687,7 +741,7 @@
                     "expectedRpm": "50.60"
           },
           {
-                    "rank": 51,
+                    "rank": 54,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "Netherlands",
@@ -1697,7 +751,7 @@
                     "expectedRpm": "31.05"
           },
           {
-                    "rank": 52,
+                    "rank": 55,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "Singapore",
@@ -1707,7 +761,7 @@
                     "expectedRpm": "39.10"
           },
           {
-                    "rank": 53,
+                    "rank": 56,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "United Arab Emirates",
@@ -1717,7 +771,7 @@
                     "expectedRpm": "42.55"
           },
           {
-                    "rank": 54,
+                    "rank": 57,
                     "niche": "Legal",
                     "nicheSlug": "legal",
                     "country": "United Kingdom",
@@ -1727,7 +781,17 @@
                     "expectedRpm": "36.80"
           },
           {
-                    "rank": 55,
+                    "rank": 58,
+                    "niche": "Legal",
+                    "nicheSlug": "legal",
+                    "country": "United States",
+                    "countrySlug": "united-states",
+                    "baseRpm": "20.00",
+                    "multiplier": 2.3,
+                    "expectedRpm": "46.00"
+          },
+          {
+                    "rank": 59,
                     "niche": "Marketing",
                     "nicheSlug": "marketing",
                     "country": "Australia",
@@ -1737,7 +801,7 @@
                     "expectedRpm": "28.00"
           },
           {
-                    "rank": 56,
+                    "rank": 60,
                     "niche": "Marketing",
                     "nicheSlug": "marketing",
                     "country": "Iceland",
@@ -1747,7 +811,7 @@
                     "expectedRpm": "38.40"
           },
           {
-                    "rank": 57,
+                    "rank": 61,
                     "niche": "Real Estate",
                     "nicheSlug": "real-estate",
                     "country": "Australia",
@@ -1757,7 +821,7 @@
                     "expectedRpm": "38.50"
           },
           {
-                    "rank": 58,
+                    "rank": 62,
                     "niche": "Real Estate",
                     "nicheSlug": "real-estate",
                     "country": "Iceland",
@@ -1767,7 +831,7 @@
                     "expectedRpm": "52.80"
           },
           {
-                    "rank": 59,
+                    "rank": 63,
                     "niche": "Real Estate",
                     "nicheSlug": "real-estate",
                     "country": "Ireland",
@@ -1777,7 +841,7 @@
                     "expectedRpm": "34.10"
           },
           {
-                    "rank": 60,
+                    "rank": 64,
                     "niche": "Real Estate",
                     "nicheSlug": "real-estate",
                     "country": "Netherlands",
@@ -1787,7 +851,7 @@
                     "expectedRpm": "29.70"
           },
           {
-                    "rank": 61,
+                    "rank": 65,
                     "niche": "Real Estate",
                     "nicheSlug": "real-estate",
                     "country": "Qatar",
@@ -1797,7 +861,7 @@
                     "expectedRpm": "41.80"
           },
           {
-                    "rank": 62,
+                    "rank": 66,
                     "niche": "Real Estate",
                     "nicheSlug": "real-estate",
                     "country": "Sweden",
@@ -1807,7 +871,7 @@
                     "expectedRpm": "28.60"
           },
           {
-                    "rank": 63,
+                    "rank": 67,
                     "niche": "Real Estate",
                     "nicheSlug": "real-estate",
                     "country": "United Kingdom",
@@ -1817,790 +881,17 @@
                     "expectedRpm": "35.20"
           },
           {
-                    "rank": 64,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 65,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Austria",
-                    "countrySlug": "austria",
-                    "baseRpm": "12.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "30.00"
-          },
-          {
-                    "rank": 66,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Belgium",
-                    "countrySlug": "belgium",
-                    "baseRpm": "11.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "27.60"
-          },
-          {
-                    "rank": 67,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "57.60"
-          },
-          {
                     "rank": 68,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "37.20"
-          },
-          {
-                    "rank": 69,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Norway",
-                    "countrySlug": "norway",
-                    "baseRpm": "14.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "34.80"
-          },
-          {
-                    "rank": 70,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "45.60"
-          },
-          {
-                    "rank": 71,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Singapore",
-                    "countrySlug": "singapore",
-                    "baseRpm": "17.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "40.80"
-          },
-          {
-                    "rank": 72,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
-                    "country": "Sweden",
-                    "countrySlug": "sweden",
-                    "baseRpm": "13.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "31.20"
-          },
-          {
-                    "rank": 73,
-                    "niche": "Software/SaaS",
-                    "nicheSlug": "software-saas",
+                    "niche": "Real Estate",
+                    "nicheSlug": "real-estate",
                     "country": "United States",
                     "countrySlug": "united-states",
                     "baseRpm": "20.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "48.00"
-          },
-          {
-                    "rank": 74,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "43.20"
-          },
-          {
-                    "rank": 75,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "39.60"
-          },
-          {
-                    "rank": 76,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "34.20"
-          },
-          {
-                    "rank": 77,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "Switzerland",
-                    "countrySlug": "switzerland",
-                    "baseRpm": "21.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "37.80"
-          },
-          {
-                    "rank": 78,
-                    "niche": "Technology",
-                    "nicheSlug": "technology",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 1.8,
-                    "expectedRpm": "36.00"
-          }
-]
-        // with the actual JSON array of all 77 combinations.
-        const allCombos = [
-          {
-                    "rank": 1,
-                    "niche": "Automotive",
-                    "nicheSlug": "automotive",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 1.3,
-                    "expectedRpm": "28.60"
-          },
-          {
-                    "rank": 2,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 2,
-                    "expectedRpm": "36.00"
-          },
-          {
-                    "rank": 3,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Germany",
-                    "countrySlug": "germany",
-                    "baseRpm": "14.00",
-                    "multiplier": 2,
-                    "expectedRpm": "28.00"
-          },
-          {
-                    "rank": 4,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2,
-                    "expectedRpm": "48.00"
-          },
-          {
-                    "rank": 5,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 2,
+                    "multiplier": 2.2,
                     "expectedRpm": "44.00"
           },
           {
-                    "rank": 6,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2,
-                    "expectedRpm": "38.00"
-          },
-          {
-                    "rank": 7,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "Switzerland",
-                    "countrySlug": "switzerland",
-                    "baseRpm": "21.00",
-                    "multiplier": 2,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 8,
-                    "niche": "B2B Services",
-                    "nicheSlug": "b2b-services",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 2,
-                    "expectedRpm": "40.00"
-          },
-          {
-                    "rank": 9,
-                    "niche": "Business",
-                    "nicheSlug": "business",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "36.00"
-          },
-          {
-                    "rank": 10,
-                    "niche": "Business",
-                    "nicheSlug": "business",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "28.50"
-          },
-          {
-                    "rank": 11,
-                    "niche": "Business",
-                    "nicheSlug": "business",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 1.5,
-                    "expectedRpm": "27.75"
-          },
-          {
-                    "rank": 12,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "46.80"
-          },
-          {
-                    "rank": 13,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Germany",
-                    "countrySlug": "germany",
-                    "baseRpm": "14.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "36.40"
-          },
-          {
-                    "rank": 14,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "62.40"
-          },
-          {
-                    "rank": 15,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "40.30"
-          },
-          {
-                    "rank": 16,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Israel",
-                    "countrySlug": "israel",
-                    "baseRpm": "10.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "27.30"
-          },
-          {
-                    "rank": 17,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "35.10"
-          },
-          {
-                    "rank": 18,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "49.40"
-          },
-          {
-                    "rank": 19,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 2.6,
-                    "expectedRpm": "48.10"
-          },
-          {
-                    "rank": 20,
-                    "niche": "Cryptocurrency",
-                    "nicheSlug": "cryptocurrency",
-                    "country": "United Kingdom",
-                    "countrySlug": "united-kingdom",
-                    "baseRpm": "16.00",
-                    "multiplier": 2.6,
-                    "expectedRpm": "41.60"
-          },
-          {
-                    "rank": 21,
-                    "niche": "Education",
-                    "nicheSlug": "education",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "36.00"
-          },
-          {
-                    "rank": 22,
-                    "niche": "Education",
-                    "nicheSlug": "education",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 1.5,
-                    "expectedRpm": "30.00"
-          },
-          {
-                    "rank": 23,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 3,
-                    "expectedRpm": "52.50"
-          },
-          {
-                    "rank": 24,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Belgium",
-                    "countrySlug": "belgium",
-                    "baseRpm": "11.50",
-                    "multiplier": 3,
-                    "expectedRpm": "34.50"
-          },
-          {
-                    "rank": 25,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 3,
-                    "expectedRpm": "54.00"
-          },
-          {
-                    "rank": 26,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Denmark",
-                    "countrySlug": "denmark",
-                    "baseRpm": "13.00",
-                    "multiplier": 3,
-                    "expectedRpm": "39.00"
-          },
-          {
-                    "rank": 27,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Germany",
-                    "countrySlug": "germany",
-                    "baseRpm": "14.00",
-                    "multiplier": 3,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 28,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 3,
-                    "expectedRpm": "72.00"
-          },
-          {
-                    "rank": 29,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 3,
-                    "expectedRpm": "66.00"
-          },
-          {
-                    "rank": 30,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "New Zealand",
-                    "countrySlug": "new-zealand",
-                    "baseRpm": "14.00",
-                    "multiplier": 3,
-                    "expectedRpm": "42.00"
-          },
-          {
-                    "rank": 31,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Norway",
-                    "countrySlug": "norway",
-                    "baseRpm": "14.50",
-                    "multiplier": 3,
-                    "expectedRpm": "43.50"
-          },
-          {
-                    "rank": 32,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 3,
-                    "expectedRpm": "57.00"
-          },
-          {
-                    "rank": 33,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Saudi Arabia",
-                    "countrySlug": "saudi-arabia",
-                    "baseRpm": "9.00",
-                    "multiplier": 3,
-                    "expectedRpm": "27.00"
-          },
-          {
-                    "rank": 34,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "Singapore",
-                    "countrySlug": "singapore",
-                    "baseRpm": "17.00",
-                    "multiplier": 3,
-                    "expectedRpm": "51.00"
-          },
-          {
-                    "rank": 35,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 3,
-                    "expectedRpm": "55.50"
-          },
-          {
-                    "rank": 36,
-                    "niche": "Finance",
-                    "nicheSlug": "finance",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 3,
-                    "expectedRpm": "60.00"
-          },
-          {
-                    "rank": 37,
-                    "niche": "Fitness & Wellness",
-                    "nicheSlug": "fitness-wellness",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.4,
-                    "expectedRpm": "33.60"
-          },
-          {
-                    "rank": 38,
-                    "niche": "Fitness & Wellness",
-                    "nicheSlug": "fitness-wellness",
-                    "country": "Switzerland",
-                    "countrySlug": "switzerland",
-                    "baseRpm": "21.00",
-                    "multiplier": 1.4,
-                    "expectedRpm": "29.40"
-          },
-          {
-                    "rank": 39,
-                    "niche": "Health & Medical",
-                    "nicheSlug": "health-medical",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 1.6,
-                    "expectedRpm": "28.00"
-          },
-          {
-                    "rank": 40,
-                    "niche": "Health & Medical",
-                    "nicheSlug": "health-medical",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 1.6,
-                    "expectedRpm": "35.20"
-          },
-          {
-                    "rank": 41,
-                    "niche": "Health & Medical",
-                    "nicheSlug": "health-medical",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 1.6,
-                    "expectedRpm": "32.00"
-          },
-          {
-                    "rank": 42,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "37.20"
-          },
-          {
-                    "rank": 43,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "32.40"
-          },
-          {
-                    "rank": 44,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Norway",
-                    "countrySlug": "norway",
-                    "baseRpm": "14.50",
-                    "multiplier": 2.4,
-                    "expectedRpm": "34.80"
-          },
-          {
-                    "rank": 45,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "45.60"
-          },
-          {
-                    "rank": 46,
-                    "niche": "Insurance",
-                    "nicheSlug": "insurance",
-                    "country": "United States",
-                    "countrySlug": "united-states",
-                    "baseRpm": "20.00",
-                    "multiplier": 2.4,
-                    "expectedRpm": "48.00"
-          },
-          {
-                    "rank": 47,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 2.3,
-                    "expectedRpm": "40.25"
-          },
-          {
-                    "rank": 48,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Canada",
-                    "countrySlug": "canada",
-                    "baseRpm": "18.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "41.40"
-          },
-          {
-                    "rank": 49,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "55.20"
-          },
-          {
-                    "rank": 50,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Luxembourg",
-                    "countrySlug": "luxembourg",
-                    "baseRpm": "22.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "50.60"
-          },
-          {
-                    "rank": 51,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.3,
-                    "expectedRpm": "31.05"
-          },
-          {
-                    "rank": 52,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "Singapore",
-                    "countrySlug": "singapore",
-                    "baseRpm": "17.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "39.10"
-          },
-          {
-                    "rank": 53,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "United Arab Emirates",
-                    "countrySlug": "united-arab-emirates",
-                    "baseRpm": "18.50",
-                    "multiplier": 2.3,
-                    "expectedRpm": "42.55"
-          },
-          {
-                    "rank": 54,
-                    "niche": "Legal",
-                    "nicheSlug": "legal",
-                    "country": "United Kingdom",
-                    "countrySlug": "united-kingdom",
-                    "baseRpm": "16.00",
-                    "multiplier": 2.3,
-                    "expectedRpm": "36.80"
-          },
-          {
-                    "rank": 55,
-                    "niche": "Marketing",
-                    "nicheSlug": "marketing",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 1.6,
-                    "expectedRpm": "28.00"
-          },
-          {
-                    "rank": 56,
-                    "niche": "Marketing",
-                    "nicheSlug": "marketing",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 1.6,
-                    "expectedRpm": "38.40"
-          },
-          {
-                    "rank": 57,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Australia",
-                    "countrySlug": "australia",
-                    "baseRpm": "17.50",
-                    "multiplier": 2.2,
-                    "expectedRpm": "38.50"
-          },
-          {
-                    "rank": 58,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Iceland",
-                    "countrySlug": "iceland",
-                    "baseRpm": "24.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "52.80"
-          },
-          {
-                    "rank": 59,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Ireland",
-                    "countrySlug": "ireland",
-                    "baseRpm": "15.50",
-                    "multiplier": 2.2,
-                    "expectedRpm": "34.10"
-          },
-          {
-                    "rank": 60,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Netherlands",
-                    "countrySlug": "netherlands",
-                    "baseRpm": "13.50",
-                    "multiplier": 2.2,
-                    "expectedRpm": "29.70"
-          },
-          {
-                    "rank": 61,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Qatar",
-                    "countrySlug": "qatar",
-                    "baseRpm": "19.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "41.80"
-          },
-          {
-                    "rank": 62,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "Sweden",
-                    "countrySlug": "sweden",
-                    "baseRpm": "13.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "28.60"
-          },
-          {
-                    "rank": 63,
-                    "niche": "Real Estate",
-                    "nicheSlug": "real-estate",
-                    "country": "United Kingdom",
-                    "countrySlug": "united-kingdom",
-                    "baseRpm": "16.00",
-                    "multiplier": 2.2,
-                    "expectedRpm": "35.20"
-          },
-          {
-                    "rank": 64,
+                    "rank": 69,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Australia",
@@ -2610,7 +901,7 @@
                     "expectedRpm": "42.00"
           },
           {
-                    "rank": 65,
+                    "rank": 70,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Austria",
@@ -2620,7 +911,7 @@
                     "expectedRpm": "30.00"
           },
           {
-                    "rank": 66,
+                    "rank": 71,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Belgium",
@@ -2630,7 +921,7 @@
                     "expectedRpm": "27.60"
           },
           {
-                    "rank": 67,
+                    "rank": 72,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Iceland",
@@ -2640,7 +931,7 @@
                     "expectedRpm": "57.60"
           },
           {
-                    "rank": 68,
+                    "rank": 73,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Ireland",
@@ -2650,7 +941,7 @@
                     "expectedRpm": "37.20"
           },
           {
-                    "rank": 69,
+                    "rank": 74,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Norway",
@@ -2660,7 +951,7 @@
                     "expectedRpm": "34.80"
           },
           {
-                    "rank": 70,
+                    "rank": 75,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Qatar",
@@ -2670,7 +961,7 @@
                     "expectedRpm": "45.60"
           },
           {
-                    "rank": 71,
+                    "rank": 76,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Singapore",
@@ -2680,7 +971,7 @@
                     "expectedRpm": "40.80"
           },
           {
-                    "rank": 72,
+                    "rank": 77,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "Sweden",
@@ -2690,7 +981,7 @@
                     "expectedRpm": "31.20"
           },
           {
-                    "rank": 73,
+                    "rank": 78,
                     "niche": "Software/SaaS",
                     "nicheSlug": "software-saas",
                     "country": "United States",
@@ -2700,7 +991,7 @@
                     "expectedRpm": "48.00"
           },
           {
-                    "rank": 74,
+                    "rank": 79,
                     "niche": "Technology",
                     "nicheSlug": "technology",
                     "country": "Iceland",
@@ -2710,7 +1001,7 @@
                     "expectedRpm": "43.20"
           },
           {
-                    "rank": 75,
+                    "rank": 80,
                     "niche": "Technology",
                     "nicheSlug": "technology",
                     "country": "Luxembourg",
@@ -2720,7 +1011,7 @@
                     "expectedRpm": "39.60"
           },
           {
-                    "rank": 76,
+                    "rank": 81,
                     "niche": "Technology",
                     "nicheSlug": "technology",
                     "country": "Qatar",
@@ -2730,7 +1021,7 @@
                     "expectedRpm": "34.20"
           },
           {
-                    "rank": 77,
+                    "rank": 82,
                     "niche": "Technology",
                     "nicheSlug": "technology",
                     "country": "Switzerland",
@@ -2740,7 +1031,7 @@
                     "expectedRpm": "37.80"
           },
           {
-                    "rank": 78,
+                    "rank": 83,
                     "niche": "Technology",
                     "nicheSlug": "technology",
                     "country": "United States",
@@ -2751,27 +1042,37 @@
           }
 ];
 
-        // ─────────────────────────────────────────────
-        // STATE
-        // ─────────────────────────────────────────────
+        // Tracks which column is sorted and in which direction
+        let currentSort = { column: 0, ascending: true };
 
-        let currentSort = { column: 0, ascending: false }; // Default: Rank descending (1=highest)
+        // Tracks whatever the user has typed in the search box
         let currentQuery = '';
+
+        // The working list: filtered by search, sorted by column — this is what gets rendered
         let displayData = [];
 
-        // ─────────────────────────────────────────────
-        // FUNCTIONS
-        // ─────────────────────────────────────────────
 
+        // ─────────────────────────────────────────────
+        // STEP 1 — FILTER
+        // Reads from topCombinations, applies currentQuery, returns a new array
+        // ─────────────────────────────────────────────
         function getFilteredData() {
             const query = currentQuery.toLowerCase().trim();
-            if (!query) return [...allCombos];
-            return allCombos.filter(item => {
+
+            // If the search box is empty, return everything
+            if (!query) return [...topCombinations];
+
+            return topCombinations.filter(item => {
                 return item.niche.toLowerCase().includes(query) ||
                     item.country.toLowerCase().includes(query);
             });
         }
 
+
+        // ─────────────────────────────────────────────
+        // STEP 2 — SORT
+        // Takes the filtered array, sorts it by currentSort settings, returns it
+        // ─────────────────────────────────────────────
         function getSortedData(data) {
             const keys = ['rank', 'niche', 'country', 'baseRpm', 'multiplier', 'expectedRpm'];
             const key = keys[currentSort.column];
@@ -2781,10 +1082,12 @@
                 let valA = a[key];
                 let valB = b[key];
 
+                // Numeric columns: convert to numbers for correct comparison
                 if (['rank', 'baseRpm', 'multiplier', 'expectedRpm'].includes(key)) {
                     valA = parseFloat(valA);
                     valB = parseFloat(valB);
                 } else {
+                    // Text columns: case-insensitive comparison
                     valA = valA.toLowerCase();
                     valB = valB.toLowerCase();
                 }
@@ -2795,21 +1098,26 @@
             });
         }
 
-        function renderTable() {
+        // ─────────────────────────────────────────────
+        // STEP 3 — RENDER
+        // Reads displayData and draws the table rows — nothing else
+        // ─────────────────────────────────────────────
+
+        function buildTable() {
             const tbody = document.querySelector('#combinationsTable tbody');
             tbody.innerHTML = '';
 
             displayData.forEach(item => {
                 const row = tbody.insertRow();
-                row.onclick = () => navigateToCombo(item);
+                row.onclick = () => navigateToArticle(item.nicheSlug, item.countrySlug);
 
                 const cells = [
                     { class: 'col-rank', value: item.rank },
                     { class: 'col-niche', value: item.niche },
                     { class: 'col-country', value: item.country },
-                    { class: 'col-base-rpm', value: '$' + item.baseRpm.toFixed(2) },
+                    { class: 'col-base-rpm', value: '$' + item.baseRpm },
                     { class: 'col-multiplier', value: item.multiplier + '×' },
-                    { class: 'col-expected-rpm', value: '$' + item.expectedRpm.toFixed(2) },
+                    { class: 'col-expected-rpm', value: '$' + item.expectedRpm },
                 ];
 
                 cells.forEach(({ class: className, value }) => {
@@ -2818,48 +1126,59 @@
                     td.textContent = value;
                 });
             });
-
-            // Update result count
-            const visibleCount = document.getElementById('visibleCount');
-            if (visibleCount) {
-                visibleCount.textContent = displayData.length;
-            }
         }
 
-        function updateDisplay() {
-            const filtered = getFilteredData();
-            displayData = getSortedData(filtered);
-            renderTable();
+        // ─────────────────────────────────────────────
+        // THE PIPELINE — called by both search and sort
+        // Always runs all three steps in the correct order
+        // ─────────────────────────────────────────────
+        function applyFiltersAndRender() {
+            const filtered = getFilteredData();   // Step 1: apply search
+            displayData = getSortedData(filtered); // Step 2: apply sort to that result
+            buildTable();                          // Step 3: draw only those rows
         }
 
+
+        // ─────────────────────────────────────────────
+        // EVENT HANDLERS
+        // Both update their piece of state, then hand off to the pipeline
+        // ─────────────────────────────────────────────
+
+        // Called when user types in the search box
+        function searchTable() {
+            currentQuery = document.getElementById('searchBox').value;
+            // Sort direction is preserved — applyFiltersAndRender will re-apply it
+            applyFiltersAndRender();
+        }
+
+        // Called when user clicks a column header
         function sortTable(columnIndex) {
+            // If clicking the same column, flip direction; otherwise start ascending
             if (currentSort.column === columnIndex) {
                 currentSort.ascending = !currentSort.ascending;
             } else {
                 currentSort.column = columnIndex;
-                currentSort.ascending = (columnIndex === 0) ? false : true; // Rank starts high
+                currentSort.ascending = true;
             }
-            updateDisplay();
+            // Search query is preserved — applyFiltersAndRender will re-apply it
+            applyFiltersAndRender();
         }
 
-        function searchTable() {
-            currentQuery = document.getElementById('searchBox').value;
-            updateDisplay();
+        // Navigate to a specific article page
+        function navigateToArticle(nicheSlug, countrySlug) {
+            window.location.href = `/blog/niche-country/${nicheSlug}-${countrySlug}-adsense-rpm.html`;
         }
 
-        function navigateToCombo(item) {
-            window.location.href = item.url;
-        }
 
         // ─────────────────────────────────────────────
-        // INIT
+        // INIT — run once when the page loads
         // ─────────────────────────────────────────────
-
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('searchBox').addEventListener('input', searchTable);
-            updateDisplay();
+            applyFiltersAndRender(); // Draw the full table on first load
         });
     </script>
+
 
 </body>
 

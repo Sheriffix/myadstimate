@@ -1,0 +1,23 @@
+{
+  "country_multiplier_lever_box": [
+    "The multiplier is the lever. A publisher earning the ${{COUNTRY_RPM}} average could <strong>double or triple their RPM</strong> by pivoting to {{TOP_NICHE_1}} or {{TOP_NICHE_2}}. That's the difference between a side hustle and a serious income stream.",
+    "Niche selection is where the real upside lives. A site earning the ${{COUNTRY_RPM}} {{COUNTRY_NAME}} average could see RPM climb significantly by shifting focus toward {{TOP_NICHE_1}} or {{TOP_NICHE_2}} — often the single biggest lever a publisher can pull.",
+    "Don't underestimate how much niche choice matters here. Moving from general content toward {{TOP_NICHE_1}} or {{TOP_NICHE_2}} can meaningfully lift RPM above the ${{COUNTRY_RPM}} {{COUNTRY_NAME}} baseline — sometimes enough to double it.",
+    "If there's one variable worth optimizing first, it's niche. Publishers sitting at the ${{COUNTRY_RPM}} average in {{COUNTRY_NAME}} often see the fastest gains by leaning into {{TOP_NICHE_1}} or {{TOP_NICHE_2}} content.",
+    "The gap between an average site and a high-earning one usually comes down to niche, not traffic volume. At the ${{COUNTRY_RPM}} {{COUNTRY_NAME}} average, pivoting toward {{TOP_NICHE_1}} or {{TOP_NICHE_2}} is where the real RPM jump happens."
+  ],
+  "country_eighty_twenty_box": [
+    "The 80/20 rule applies here. Spend 80% of your effort on <strong>niche selection</strong> ({{TOP_NICHE_1}} or {{TOP_NICHE_2}}) and 20% on <strong>content depth</strong>. That's how publishers hit <strong>2-3x the average RPM</strong> in {{COUNTRY_NAME}}.",
+    "Effort spent wisely beats effort spent broadly. Publishers who focus most of their energy on niche selection — {{TOP_NICHE_1}} or {{TOP_NICHE_2}} — before worrying about content polish tend to see the biggest RPM gains in {{COUNTRY_NAME}}.",
+    "Prioritize niche over everything else, at least at first. In {{COUNTRY_NAME}}, publishers who lead with {{TOP_NICHE_1}} or {{TOP_NICHE_2}} content typically outperform those who spread effort evenly across many topics.",
+    "Where you point your traffic matters more than how polished each page is. Publishers who commit most of their effort to {{TOP_NICHE_1}} or {{TOP_NICHE_2}} content see the strongest RPM results in {{COUNTRY_NAME}}.",
+    "Not all effort pays off equally. In {{COUNTRY_NAME}}, publishers see the best returns by concentrating on {{TOP_NICHE_1}} or {{TOP_NICHE_2}} first, then refining content quality second."
+  ],
+  "combo_most_sites_stop_box": [
+    "Most sites stop at the RPM number. The real question is <em>what traffic mix</em> you have. {{COUNTRY_NAME}} traffic is {{COUNTRY_TIER}}—reliable, but US traffic will always pay more.",
+    "The RPM figure alone doesn't tell the full story. What actually matters is where your traffic is coming from — {{COUNTRY_NAME}} traffic ({{COUNTRY_TIER}}) is solid, but a shift toward US visitors will always push earnings higher.",
+    "Publishers often fixate on the RPM number and stop there. But traffic source matters just as much: {{COUNTRY_NAME}} ({{COUNTRY_TIER}}) is dependable, though US traffic consistently commands a higher rate.",
+    "An RPM figure is only half the picture — traffic geography is the other half. {{COUNTRY_NAME}} ({{COUNTRY_TIER}}) traffic performs reliably, but nothing beats US traffic for raw earning power.",
+    "It's easy to look at RPM and call it done, but traffic mix deserves equal attention. {{COUNTRY_NAME}} falls in the {{COUNTRY_TIER}} bracket — solid, though US visitors will typically out-earn it."
+  ]
+}
