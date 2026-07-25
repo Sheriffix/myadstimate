@@ -371,7 +371,6 @@ body.dark-mode {
   h1 {
     line-height: 1.4;
     margin-block: var(--spacing-xs);
-    text-transform: uppercase;
   }
 }
 

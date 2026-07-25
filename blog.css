@@ -55,10 +55,6 @@ a.c-link,
   max-width: 32rem;
   margin-inline: auto;
 
-  h1.title {
-    text-transform: uppercase;
-  }
-
   h1.title span {
     display: block;
   }
@@ -84,6 +80,8 @@ a.c-link,
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
+  font-weight: 400;
 
   .material-icons.theme-icon {
     font-size: 1.25rem;
@@ -115,7 +113,7 @@ a.c-link,
 .post-tip,
 .mini-calculator-box,
 .mini-calc-cta {
-  padding: 1.5rem max(1.5rem, 10%) 1.5rem 1.5rem;
+  padding: 2rem max(1.5rem, 10%) 2rem 1.5rem;
   font-style: italic;
   background: var(--bg-tertiary);
   margin-top: 2rem;
@@ -129,7 +127,9 @@ a.c-link,
     font-size: 18px;
     font-style: normal;
   }
+}
 
+.post-tip {
   div {
     border-bottom: 1px solid #c8c8c8;
     padding-block: 10px;

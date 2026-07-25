@@ -1,0 +1,20 @@
+{
+  "why_this_number": [
+    "{country} sits in our {country_tier} market bracket, reflecting real advertiser spend and audience purchasing power. {niche} adds the multiplier: advertisers here bid an average CPC of ${cpc} with a {ctr}% click-through rate, which is what pushes the {multiplier}x above the content-wide average.",
+    "The ${base_rpm} base comes from {country}'s {country_tier} standing — a measure of how much local advertiser demand exists regardless of topic. {niche}'s {multiplier}x multiplier layers on top of that, driven by an average CPC of ${cpc} in this category.",
+    "Two separate forces are at work here. {country}'s {country_tier} classification sets the ${base_rpm} floor. {niche}'s advertiser competition — averaging ${cpc} CPC and a {ctr}% CTR — is what multiplies it by {multiplier}x.",
+    "{niche} content in {country} benefits from a combination effect: a {country_tier} market (${base_rpm} base) paired with a niche where advertisers are actively bidding (${cpc} average CPC), producing the {multiplier}x multiplier."
+  ],
+  "what_this_number_basic": [
+    "{country} is a {country_tier} market, and {niche} is a {niche_tier} niche — together, that puts this pairing on the lower end of our RPM range. That doesn't mean it's not worth publishing here; it means the realistic path to revenue is through traffic volume and consistent output, not premium per-visitor rates.",
+    "This pairing sits at the modest end of our range: {country} is classified {country_tier}, and {niche} is a {niche_tier} niche. Revenue here is driven more by how much traffic you can bring than by the per-visitor rate itself.",
+    "Neither {country}'s {country_tier} market nor {niche}'s {niche_tier} niche status pushes RPM particularly high on its own. The practical takeaway: this is a volume play, not a premium-rate play.",
+    "{niche} in {country} lands in {niche_tier}-niche, {country_tier}-market territory — a combination that rewards consistent traffic growth more than it rewards chasing a higher per-visitor number."
+  ],
+  "bottom_line": [
+    "{niche} AdSense RPM in {country} is ${expected_rpm} in 2026 — a {country_tier} market combined with a {multiplier}x niche multiplier.",
+    "In 2026, {niche} content targeting {country} traffic lands at ${expected_rpm} RPM, the product of a {country_tier} market and a {multiplier}x multiplier for this niche.",
+    "The {niche} + {country} pairing works out to ${expected_rpm} RPM in 2026, reflecting {country}'s {country_tier} status and {niche}'s {multiplier}x demand multiplier.",
+    "${expected_rpm} RPM is where {niche} and {country} land together in 2026 — {country}'s {country_tier} base rate multiplied by {niche}'s {multiplier}x."
+  ]
+}
