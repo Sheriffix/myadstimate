@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us - Adstimate</title>
+
+    <meta name="description"
+        content="Free Google AdSense Revenue Calculator - Estimate your ad earnings based on pageviews, RPM, country, niche, and device mix. Get instant monthly and annual revenue projections.">
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="/fonts.css" />
+    <!-- Stylesheet  -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/custom.css">
+    <link rel="stylesheet" href="/blog.css">
+    <!-- Title  -->
+    <title>How Adstimate Works - AdSense Revenue Calculator Guide</title>
+
+    <style>
+        #contact-form {
+            max-width: 25rem;
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 8px 10px;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background: transparent;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .btn-success {
+            cursor: pointer;
+            background: var(--accent-success);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 200ms linear;
+        }
+
+        .btn-success:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header From nav.js-->
+    <header class="header">
+        <div id="site-header"></div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="page-content web-page">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Feel free to contact us via this form</p>
+            <div class="contact-form">
+                <form action="/success" name="adstimate-contacts" method="POST" id="contact-form"
+                    netlify-honeypot="bot-field" data-netlify="true">
+
+                    <!-- For Honeypot Antibot Field -->
+                    <input name="bot-field"
+                        style="display: none !important;visibility: hidden !important;position: absolute !important;left: -9999px !important;">
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-group flex">
+                        <label for="reason">Reason:</label>
+                        <select id="reason" name="reason" class="select-field">
+                            <option value="">Choose Reason</option>
+                            <option value="Sponsor">Sponsorship</option>
+                            <option value="Affiliate">Affiliate</option>
+                            <option value="Business">Business</option>
+                            <option value="Partnership">Partnership</option>
+                            <option value="Inquiry">General Inquiry</option>
+                            <option value="Others">Other (please specify)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" rows="8" id="message" required></textarea>
+                    </div>
+
+                    <div class="form-group submit">
+                        <input type="submit" value="Send" class="btn-success">
+                    </div>
+                </form>
+            </div>
+
+            <div class="contact-email">
+                <h2>Email us</h2>
+                <p style="display: flex;gap: 8px;align-items: center;">
+                    <i class="material-icons theme-icon">mail</i> <a href="mailto:buffetgame@gmail.com"><span
+                            id="pc_pc"></span></a>
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div id="site-footer"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/script.js"></script>
+    <script src="/nav.js"></script>
+
+
+
+    <script>
+        // Simple obfuscation
+        const aa = "buffetgame";
+        const bb = "gmail";
+        const cc = "com";
+        document.getElementById("pc_pc").innerHTML =
+            `<a href="mailto:${aa}@${bb}.${cc}">${aa}@${bb}.${cc}</a>`;
+    </script>
+
+</body>
+
+</html>

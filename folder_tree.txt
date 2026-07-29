@@ -1,0 +1,339 @@
+
+C:\Users\Sheriff\Desktop\adstimate
+
+
+
+C:.
+│   .gitignore
+│   manual_generator.js
+│   netlify.toml
+│   pseo_generator.js
+│
+├───drafts
+│       ad-density-rpm-guide.html
+│       ad-serving-limits.html
+│       adsense-alternatives-for-small-websites.html
+│       adsense-approval-checklist-2026.html
+│       adsense-auto-ads-vs-manual-units.html
+│       adsense-revenue-100k-1m-views.html
+│       adsense-revenue-optimisation-guide-2026.html
+│       adsense-rpm-by-country.html
+│       adsense-vs-ezoic-vs-mediavine-2026.html
+│       affiliate-marketing-vs-display-ads-2026.html
+│       can-new-websites-make-money-with-adsense.html
+│       fixing-ads-txt-crawler-errors.html
+│       high-ctr-ad-placement-heatmap-secrets.html
+│       high-traffic-low-ad-revenue-fix.html
+│       highest-paying-adsense-niches.html
+│       how-much-does-adsense-pay.html
+│       how-to-stop-adsense-invalid-traffic.html
+│       informational-vs-buyer-intent-content.html
+│       low-value-content-fix.html
+│       scale-website-revenue-10k-month.html
+│       top-adsense-alternatives-2026.html
+│       website-traffic-value-2026-guide.html
+│
+├───ignore
+│   │   adstimate-seo-roadmap.html
+│   │
+│   ├───blog
+│   │       ad-density-rpm-guide.html
+│   │       ad-serving-limits.html
+│   │       adsense-alternatives-for-small-websites.html
+│   │       adsense-approval-checklist-2026.html
+│   │       adsense-auto-ads-vs-manual-units.html
+│   │       adsense-revenue-100k-1m-views.html
+│   │       adsense-revenue-optimisation-guide-2026.html
+│   │       adsense-rpm-by-country.html
+│   │       adsense-vs-ezoic-vs-mediavine-2026.html
+│   │       affiliate-marketing-vs-display-ads-2026.html
+│   │       can-new-websites-make-money-with-adsense.html
+│   │       fixing-ads-txt-crawler-errors.html
+│   │       high-ctr-ad-placement-heatmap-secrets.html
+│   │       high-traffic-low-ad-revenue-fix.html
+│   │       highest-paying-adsense-niches.html
+│   │       how-much-does-adsense-pay.html
+│   │       how-to-stop-adsense-invalid-traffic.html
+│   │       index.html
+│   │       informational-vs-buyer-intent-content.html
+│   │       low-value-content-fix.html
+│   │       scale-website-revenue-10k-month.html
+│   │       top-adsense-alternatives-2026.html
+│   │       website-traffic-value-2026-guide.html
+│   │
+│   └───GSC
+│
+├───public
+│   │   about.html
+│   │   adsense-rpm-matrix.html
+│   │   adstimate_logo.png
+│   │   blog.css
+│   │   contact.html
+│   │   custom.css
+│   │   deeplink_handler.js
+│   │   favicon.png
+│   │   guide.html
+│   │   index.html
+│   │   nav.js
+│   │   privacy.html
+│   │   robots.txt
+│   │   script.js
+│   │   sitemap.xml
+│   │   style.css
+│   │   terms.html
+│   │
+│   ├───blog
+│   │   │   ad-density-rpm-guide.html
+│   │   │   ad-serving-limits.html
+│   │   │   adsense-alternatives-for-small-websites.html
+│   │   │   adsense-approval-checklist-2026.html
+│   │   │   adsense-auto-ads-vs-manual-units.html
+│   │   │   adsense-revenue-100k-1m-views.html
+│   │   │   adsense-revenue-optimisation-guide-2026.html
+│   │   │   adsense-rpm-by-country.html
+│   │   │   adsense-vs-ezoic-vs-mediavine-2026.html
+│   │   │   affiliate-marketing-vs-display-ads-2026.html
+│   │   │   can-new-websites-make-money-with-adsense.html
+│   │   │   fixing-ads-txt-crawler-errors.html
+│   │   │   high-ctr-ad-placement-heatmap-secrets.html
+│   │   │   high-traffic-low-ad-revenue-fix.html
+│   │   │   highest-paying-adsense-niches.html
+│   │   │   how-much-does-adsense-pay.html
+│   │   │   how-to-stop-adsense-invalid-traffic.html
+│   │   │   index.html
+│   │   │   informational-vs-buyer-intent-content.html
+│   │   │   low-value-content-fix.html
+│   │   │   scale-website-revenue-10k-month.html
+│   │   │   top-adsense-alternatives-2026.html
+│   │   │   website-traffic-value-2026-guide.html
+│   │   │
+│   │   ├───country
+│   │   │       armenia-adsense-rpm.html
+│   │   │       australia-adsense-rpm.html
+│   │   │       azerbaijan-adsense-rpm.html
+│   │   │       belgium-adsense-rpm.html
+│   │   │       brazil-adsense-rpm.html
+│   │   │       bulgaria-adsense-rpm.html
+│   │   │       cambodia-adsense-rpm.html
+│   │   │       canada-adsense-rpm.html
+│   │   │       china-adsense-rpm.html
+│   │   │       costa-rica-adsense-rpm.html
+│   │   │       czech-republic-adsense-rpm.html
+│   │   │       denmark-adsense-rpm.html
+│   │   │       ecuador-adsense-rpm.html
+│   │   │       ethiopia-adsense-rpm.html
+│   │   │       france-adsense-rpm.html
+│   │   │       germany-adsense-rpm.html
+│   │   │       ghana-adsense-rpm.html
+│   │   │       greece-adsense-rpm.html
+│   │   │       hong-kong-adsense-rpm.html
+│   │   │       iceland-adsense-rpm.html
+│   │   │       index.html
+│   │   │       india-adsense-rpm.html
+│   │   │       italy-adsense-rpm.html
+│   │   │       japan-adsense-rpm.html
+│   │   │       kenya-adsense-rpm.html
+│   │   │       luxembourg-adsense-rpm.html
+│   │   │       morocco-adsense-rpm.html
+│   │   │       myanmar-adsense-rpm.html
+│   │   │       netherlands-adsense-rpm.html
+│   │   │       new-zealand-adsense-rpm.html
+│   │   │       nigeria-adsense-rpm.html
+│   │   │       norway-adsense-rpm.html
+│   │   │       pakistan-adsense-rpm.html
+│   │   │       philippines-adsense-rpm.html
+│   │   │       poland-adsense-rpm.html
+│   │   │       portugal-adsense-rpm.html
+│   │   │       qatar-adsense-rpm.html
+│   │   │       romania-adsense-rpm.html
+│   │   │       russia-adsense-rpm.html
+│   │   │       saudi-arabia-adsense-rpm.html
+│   │   │       singapore-adsense-rpm.html
+│   │   │       slovakia-adsense-rpm.html
+│   │   │       south-africa-adsense-rpm.html
+│   │   │       south-korea-adsense-rpm.html
+│   │   │       spain-adsense-rpm.html
+│   │   │       sweden-adsense-rpm.html
+│   │   │       switzerland-adsense-rpm.html
+│   │   │       tanzania-adsense-rpm.html
+│   │   │       thailand-adsense-rpm.html
+│   │   │       tunisia-adsense-rpm.html
+│   │   │       turkey-adsense-rpm.html
+│   │   │       uganda-adsense-rpm.html
+│   │   │       ukraine-adsense-rpm.html
+│   │   │       united-arab-emirates-adsense-rpm.html
+│   │   │       united-kingdom-adsense-rpm.html
+│   │   │       united-states-adsense-rpm.html
+│   │   │       uzbekistan-adsense-rpm.html
+│   │   │
+│   │   ├───niche
+│   │   │       automotive-adsense-rpm.html
+│   │   │       b2b-services-adsense-rpm.html
+│   │   │       business-adsense-rpm.html
+│   │   │       career-jobs-adsense-rpm.html
+│   │   │       celebrity-news-adsense-rpm.html
+│   │   │       cryptocurrency-adsense-rpm.html
+│   │   │       education-adsense-rpm.html
+│   │   │       entertainment-adsense-rpm.html
+│   │   │       fashion-beauty-adsense-rpm.html
+│   │   │       finance-adsense-rpm.html
+│   │   │       fitness-wellness-adsense-rpm.html
+│   │   │       food-cooking-adsense-rpm.html
+│   │   │       gaming-adsense-rpm.html
+│   │   │       health-medical-adsense-rpm.html
+│   │   │       home-improvement-adsense-rpm.html
+│   │   │       index.html
+│   │   │       insurance-adsense-rpm.html
+│   │   │       legal-adsense-rpm.html
+│   │   │       lifestyle-adsense-rpm.html
+│   │   │       marketing-adsense-rpm.html
+│   │   │       mobile-apps-adsense-rpm.html
+│   │   │       movies-tv-adsense-rpm.html
+│   │   │       music-adsense-rpm.html
+│   │   │       news-media-adsense-rpm.html
+│   │   │       parenting-adsense-rpm.html
+│   │   │       pets-adsense-rpm.html
+│   │   │       real-estate-adsense-rpm.html
+│   │   │       software-saas-adsense-rpm.html
+│   │   │       sports-adsense-rpm.html
+│   │   │       technology-adsense-rpm.html
+│   │   │       travel-adsense-rpm.html
+│   │   │
+│   │   └───niche-country
+│   │           b2b-services-canada-adsense-rpm.html
+│   │           b2b-services-germany-adsense-rpm.html
+│   │           b2b-services-iceland-adsense-rpm.html
+│   │           b2b-services-luxembourg-adsense-rpm.html
+│   │           b2b-services-qatar-adsense-rpm.html
+│   │           b2b-services-switzerland-adsense-rpm.html
+│   │           b2b-services-united-states-adsense-rpm.html
+│   │           business-iceland-adsense-rpm.html
+│   │           business-qatar-adsense-rpm.html
+│   │           business-united-arab-emirates-adsense-rpm.html
+│   │           cryptocurrency-canada-adsense-rpm.html
+│   │           cryptocurrency-germany-adsense-rpm.html
+│   │           cryptocurrency-iceland-adsense-rpm.html
+│   │           cryptocurrency-ireland-adsense-rpm.html
+│   │           cryptocurrency-israel-adsense-rpm.html
+│   │           cryptocurrency-netherlands-adsense-rpm.html
+│   │           cryptocurrency-qatar-adsense-rpm.html
+│   │           cryptocurrency-united-arab-emirates-adsense-rpm.html
+│   │           cryptocurrency-united-kingdom-adsense-rpm.html
+│   │           cryptocurrency-united-states-adsense-rpm.html
+│   │           education-iceland-adsense-rpm.html
+│   │           education-united-states-adsense-rpm.html
+│   │           finance-australia-adsense-rpm.html
+│   │           finance-belgium-adsense-rpm.html
+│   │           finance-canada-adsense-rpm.html
+│   │           finance-denmark-adsense-rpm.html
+│   │           finance-germany-adsense-rpm.html
+│   │           finance-iceland-adsense-rpm.html
+│   │           finance-luxembourg-adsense-rpm.html
+│   │           finance-new-zealand-adsense-rpm.html
+│   │           finance-norway-adsense-rpm.html
+│   │           finance-qatar-adsense-rpm.html
+│   │           finance-saudi-arabia-adsense-rpm.html
+│   │           finance-singapore-adsense-rpm.html
+│   │           finance-switzerland-adsense-rpm.html
+│   │           finance-united-arab-emirates-adsense-rpm.html
+│   │           finance-united-states-adsense-rpm.html
+│   │           fitness-wellness-iceland-adsense-rpm.html
+│   │           fitness-wellness-switzerland-adsense-rpm.html
+│   │           health-medical-australia-adsense-rpm.html
+│   │           health-medical-luxembourg-adsense-rpm.html
+│   │           health-medical-united-states-adsense-rpm.html
+│   │           index.html
+│   │           insurance-iceland-adsense-rpm.html
+│   │           insurance-ireland-adsense-rpm.html
+│   │           insurance-netherlands-adsense-rpm.html
+│   │           insurance-norway-adsense-rpm.html
+│   │           insurance-qatar-adsense-rpm.html
+│   │           insurance-united-arab-emirates-adsense-rpm.html
+│   │           insurance-united-states-adsense-rpm.html
+│   │           legal-australia-adsense-rpm.html
+│   │           legal-canada-adsense-rpm.html
+│   │           legal-iceland-adsense-rpm.html
+│   │           legal-luxembourg-adsense-rpm.html
+│   │           legal-netherlands-adsense-rpm.html
+│   │           legal-nigeria-adsense-rpm.html
+│   │           legal-singapore-adsense-rpm.html
+│   │           legal-united-arab-emirates-adsense-rpm.html
+│   │           legal-united-kingdom-adsense-rpm.html
+│   │           legal-united-states-adsense-rpm.html
+│   │           marketing-australia-adsense-rpm.html
+│   │           marketing-iceland-adsense-rpm.html
+│   │           real-estate-australia-adsense-rpm.html
+│   │           real-estate-iceland-adsense-rpm.html
+│   │           real-estate-ireland-adsense-rpm.html
+│   │           real-estate-netherlands-adsense-rpm.html
+│   │           real-estate-qatar-adsense-rpm.html
+│   │           real-estate-sweden-adsense-rpm.html
+│   │           real-estate-united-arab-emirates-adsense-rpm.html
+│   │           real-estate-united-kingdom-adsense-rpm.html
+│   │           real-estate-united-states-adsense-rpm.html
+│   │           software-saas-australia-adsense-rpm.html
+│   │           software-saas-iceland-adsense-rpm.html
+│   │           software-saas-ireland-adsense-rpm.html
+│   │           software-saas-norway-adsense-rpm.html
+│   │           software-saas-qatar-adsense-rpm.html
+│   │           software-saas-singapore-adsense-rpm.html
+│   │           software-saas-sweden-adsense-rpm.html
+│   │           software-saas-united-arab-emirates-adsense-rpm.html
+│   │           software-saas-united-states-adsense-rpm.html
+│   │           technology-iceland-adsense-rpm.html
+│   │           technology-luxembourg-adsense-rpm.html
+│   │           technology-qatar-adsense-rpm.html
+│   │           technology-switzerland-adsense-rpm.html
+│   │           technology-united-states-adsense-rpm.html
+│   │
+│   ├───data
+│   │       ad_benchmarks.json
+│   │       combo_phrase_map.json
+│   │       country_names.json
+│   │       country_rpm.json
+│   │       device_multiplier.json
+│   │       faqs.json
+│   │       intro_map.json
+│   │       link-map.json
+│   │       manual-posts.json
+│   │       niche_multiplier.json
+│   │       phrase_map.json
+│   │       seasonality.json
+│   │       sister_niches.json
+│   │
+│   ├───img
+│   │       ad-density-rpm-guide.png
+│   │       ads-txt-crawler-fix.png
+│   │       adsense-alternatives-switching-guide.png
+│   │
+│   └───scripts
+│           mini-calculator-widget.js
+│           related-articles-widget.js
+│           utils.js
+│
+├───settings
+│       adstimate-settings.json
+│       pseo_variables.json
+│
+└───templates
+    │   manual-posts-template.html
+    │
+    ├───combo
+    │       combo-basic.html
+    │       combo-premium.html
+    │       combo-standard.html
+    │
+    ├───country
+    │       country-basic.html
+    │       country-premium.html
+    │       country-standard.html
+    │
+    ├───index
+    │       combo-index.html
+    │       combo-index0000.html
+    │
+    └───niche
+            niche-basic.html
+            niche-premium.html
+            niche-standard.html
+

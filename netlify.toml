@@ -1,18 +1,92 @@
-# netlify.toml
-# Redirects no-extension URLs to their .html versions
-# Only targets the three blog subdirectories where GSC duplicates were found
+[plugins]
+
+[build]
+  publish = "public"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+
+# ============================================
+# ROOT-LEVEL PAGES
+# ============================================
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/adsense-rpm-matrix"
+  to = "/adsense-rpm-matrix.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guide"
+  to = "/guide.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 301
+  force = true
+
+
+# ============================================
+# BLOG PAGES (directly under /blog/)
+# ============================================
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog/:splat.html"
+  status = 301
+  force = true
+
+# ============================================
+# BLOG SUBDIRECTORIES
+# ============================================
 
 [[redirects]]
   from = "/blog/niche/*"
   to = "/blog/niche/:splat.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/blog/country/*"
   to = "/blog/country/:splat.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/blog/niche-country/*"
   to = "/blog/niche-country/:splat.html"
   status = 301
+  force = true
+
+

@@ -1,2 +1,0 @@
-# myadstimate
-myadstimate

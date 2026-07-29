@@ -1,0 +1,61 @@
+{
+  "generate_pages": {
+    "niche": [
+      "Business",
+      "Education",
+      "Finance",
+      "Music",
+      "Technology"
+    ],
+    "country": [
+      "Australia",
+      "Canada",
+      "New Zealand",
+      "Nigeria",
+      "United States"
+    ],
+  "niche_country": [
+      "Business|Iceland",
+      "Business|Qatar",
+      "Education|United States",
+      "Finance|United Arab Emirates",
+      "Finance|United States",
+      "Insurance|Ireland",
+      "Insurance|United States",
+      "Legal|Canada",
+      "Legal|United States",
+      "Real Estate|United Kingdom",
+      "Technology|United States"
+    ]
+  },
+  "template_mapping": {
+    "country-premium.html": [
+    ],
+    "country-standard.html": [
+      ],
+    "country-basic.html": [
+       ],
+    "niche-premium.html": [
+    ],
+    "niche-standard.html": [
+    ],
+    "niche-basic.html": [
+    ],
+    "combo-premium.html": [
+      "Business|Iceland",
+      "Business|Qatar"
+      ],
+    "combo-standard.html": [
+      "Finance|United Arab Emirates",
+      "Finance|United States"
+    ],
+    "combo-basic.html": [
+      "Legal|Canada",
+      "Legal|United States"
+    ]
+  },
+  "resource_hub": {
+    "blocked_slugs": [],
+    "blocked_tags": []
+  }
+}
