@@ -21,6 +21,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          local_path: './public/*'           # everything in repo root - adjust if index.html is in a subfolder
+          local_path: './public/*'          # everything in repo root - pls adjust if index.html is in a subfolder
           remote_path: '/public_html' # adjust if FileZilla shows a different path
           sftpArgs: '-o ConnectTimeout=5'
