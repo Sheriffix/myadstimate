@@ -5,14 +5,14 @@ const path = require("path");
 // CONFIGURATION
 // ============================================================================
 
-const POSTS_META = "./data/manual-posts.json"; // Single source of truth
-const FAQS_DATA = "./data/faqs.json"; // FAQ data (optional per post)
+const POSTS_META = "./public/data/manual-posts.json"; // Single source of truth
+const FAQS_DATA = "./public/data/faqs.json"; // FAQ data (optional per post)
 const DRAFTS_DIR = "./drafts"; // Body content files
 const TEMPLATE_FILE = "./templates/manual-posts-template.html"; // Layout wrapper
-const OUTPUT_DIR = "./blog"; // Final HTML output
+const OUTPUT_DIR = "./public/blog"; // Final HTML output
 
 // Load settings (for resource hub blocking rules)
-const SETTINGS_FILE = "./adstimate-settings.json";
+const SETTINGS_FILE = "./settings/adstimate-settings.json";
 const settings = fs.existsSync(SETTINGS_FILE)
   ? JSON.parse(fs.readFileSync(SETTINGS_FILE, "utf8"))
   : { resource_hub: { blocked_slugs: [], blocked_tags: [] } };
@@ -41,6 +41,73 @@ function toReadableDate(dateStr) {
   const [year, month, day] = dateStr.split("-").map(Number);
   return `${months[month - 1]} ${day}, ${year}`;
 }
+
+// ============================================================================
+// UTILITY: Get today's date as YYYY-MM-DD
+// ============================================================================
+
+function getCurrentDate() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+// ============================================================================
+// SMART WRITE FILE
+// Compares the newly generated page against the existing file on disk.
+// If nothing but the dates would differ, keeps the OLD dateModified.
+// If real content changed, bumps dateModified to today.
+// Returns true if a file was written, false if it was skipped (unchanged).
+// ============================================================================
+
+function smartWriteFile(filePath, htmlContent, fallbackPublishDate) {
+  const today = getCurrentDate();
+  let publishDate = fallbackPublishDate;
+  let modifiedDate = today;
+
+  if (fs.existsSync(filePath)) {
+    const existingHtml = fs.readFileSync(filePath, "utf8");
+
+    const pubMatch = existingHtml.match(/"datePublished":\s*"([^"]+)"/);
+    const modMatch = existingHtml.match(/"dateModified":\s*"([^"]+)"/);
+
+    if (pubMatch) publishDate = pubMatch[1];
+    if (modMatch) modifiedDate = modMatch[1];
+
+    const publishDatePretty = toReadableDate(publishDate);
+    const modifiedDatePretty = toReadableDate(modifiedDate);
+
+    let normalizedExisting = existingHtml
+      .replace(new RegExp(publishDate, "g"), "{{DATE_MASK}}")
+      .replace(new RegExp(modifiedDate, "g"), "{{DATE_MASK}}")
+      .replace(new RegExp(publishDatePretty, "g"), "{{DATE_MASK_PRETTY}}")
+      .replace(new RegExp(modifiedDatePretty, "g"), "{{DATE_MASK_PRETTY}}");
+
+    let normalizedNew = htmlContent
+      .replace(/{{DATE-PUBLISHED}}/g, "{{DATE_MASK}}")
+      .replace(/{{DATE-MODIFIED}}/g, "{{DATE_MASK}}")
+      .replace(/{{DATE-PUBLISHED-READABLE}}/g, "{{DATE_MASK_PRETTY}}")
+      .replace(/{{DATE-MODIFIED-READABLE}}/g, "{{DATE_MASK_PRETTY}}");
+
+    if (normalizedExisting === normalizedNew) {
+      return false;
+    }
+
+    modifiedDate = today;
+  }
+
+  const publishDatePretty = toReadableDate(publishDate);
+  const modifiedDatePretty = toReadableDate(modifiedDate);
+
+  const finalHtml = htmlContent
+    .replace(/{{DATE-PUBLISHED}}/g, publishDate)
+    .replace(/{{DATE-MODIFIED}}/g, modifiedDate)
+    .replace(/{{DATE-PUBLISHED-READABLE}}/g, publishDatePretty)
+    .replace(/{{DATE-MODIFIED-READABLE}}/g, modifiedDatePretty);
+
+  fs.writeFileSync(filePath, finalHtml, "utf8");
+  return true;
+}
+
 
 // ============================================================================
 // UTILITY: Ensure output directory exists
@@ -254,6 +321,7 @@ function generate() {
 
   const slugs = Object.keys(posts);
   let generated = 0;
+  let unchanged = 0;
   let skipped = 0;
   const skippedList = [];
 
@@ -278,9 +346,6 @@ function generate() {
     // Read body content
     const bodyContent = fs.readFileSync(draftPath, "utf8");
 
-    // Convert dates
-    const datePublishedReadable = toReadableDate(post.date_published);
-    const dateModifiedReadable = toReadableDate(post.date_modified);
 
     // -----------------------------------------------------------------------
     // TITLE DISPLAY
@@ -306,15 +371,15 @@ function generate() {
     }
 
     // Replace all placeholders
+    // Note: the 4 date tokens ({{DATE-PUBLISHED}}, {{DATE-MODIFIED}}, etc.)
+    // are deliberately NOT filled in here — smartWriteFile() fills them
+    // in below, after deciding whether dateModified should stay the same
+    // or bump to today.
     html = html
       .replace(/{{TITLE}}/g, post.title)
       .replace(/{{TITLE_DISPLAY}}/g, titleDisplay)
       .replace(/{{META-DESC}}/g, post.meta_description)
       .replace(/{{SLUG}}/g, post.slug)
-      .replace(/{{DATE-PUBLISHED}}/g, post.date_published)
-      .replace(/{{DATE-MODIFIED}}/g, post.date_modified)
-      .replace(/{{DATE-PUBLISHED-READABLE}}/g, datePublishedReadable)
-      .replace(/{{DATE-MODIFIED-READABLE}}/g, dateModifiedReadable)
       .replace(/{{BLOG-CONTENT}}/g, bodyContent)
       .replace(
         /{{RESOURCE-HUB}}/g,
@@ -323,20 +388,28 @@ function generate() {
       .replace(/{{FAQ_SECTION}}/g, faqHtml)
       .replace(/{{FAQ_SCHEMA}}/g, faqSchema);
 
-    // Write output file
+    // Write output file — smartWriteFile compares against the existing
+    // file and decides whether dateModified should change
     const outputPath = path.join(OUTPUT_DIR, `${slug}.html`);
-    fs.writeFileSync(outputPath, html, "utf8");
+    const wasWritten = smartWriteFile(outputPath, html, post.date_published);
 
     // Log whether this post had FAQs or not — helpful for debugging
     const hasFaqs = faqsData[slug] && faqsData[slug].length > 0;
-    console.log(`  ✓ ${slug}.html${hasFaqs ? " [FAQs ✓]" : ""}`);
-    generated++;
+    if (wasWritten) {
+      console.log(`  ✓ ${slug}.html${hasFaqs ? " [FAQs ✓]" : ""}`);
+      generated++;
+    } else {
+      console.log(`  • ${slug}.html [unchanged, dateModified kept]`);
+      unchanged++;
+    }
   });
 
   // --- Summary ---
 
   console.log("\n" + "=".repeat(60));
-  console.log(`✅ Done! ${generated} pages generated → /${OUTPUT_DIR}/`);
+  console.log(
+    `✅ Done! ${generated} pages generated, ${unchanged} unchanged → /${OUTPUT_DIR}/`,
+  );
 
   if (skipped > 0) {
     console.log(`\n⚠️  ${skipped} post(s) skipped (no draft file found):`);

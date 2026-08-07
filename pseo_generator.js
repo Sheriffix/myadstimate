@@ -548,7 +548,7 @@ for (const slug in manualPostsRaw) {
   const post = manualPostsRaw[slug];
   manualLinkMap[slug] = {
     title: post.title,
-    url: `/blog/${post.slug}`,
+    url: `/blog/${post.slug}.html`,
     type: post.type,
     tags: post.tags,
     description: post.meta_description,
@@ -1083,27 +1083,15 @@ function buildNicheMiniTable(niche, linkMap) {
     .map(
       (c) => `
         <tr>
-          <td><a class="c-link" href="/blog/niche-country/${nicheSlug}-${createSlug(c.name)}-adsense-rpm">${niche} in ${c.name}</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${nicheSlug}-${createSlug(c.name)}-adsense-rpm.html">${niche} in ${c.name}</a></td>
           <td>$${c.expectedRpm}</td>
-          <td><a class="c-link" href="/blog/niche-country/${nicheSlug}-${createSlug(c.name)}-adsense-rpm">View Analysis →</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${nicheSlug}-${createSlug(c.name)}-adsense-rpm.html">View Analysis →</a></td>
         </tr>`,
     )
     .join("");
 
-  // FALLBACK: if fewer than 3 real combos exist for this niche, fill the
-  // remaining row(s) with a link to the combo-index hub instead of a
-  // broken combo link.
-  const missingCount = 3 - top3Countries.length;
-  const fallbackRows = Array.from({ length: Math.max(missingCount, 0) })
-    .map(
-      () => `
-        <tr>
-          <td><a class="c-link" href="/blog/niche-country/">Browse All ${niche} Combinations</a></td>
-          <td>—</td>
-          <td><a class="c-link" href="/blog/niche-country/">View Index →</a></td>
-        </tr>`,
-    )
-    .join("");
+  // No fallback rows: only real generated combo pages are ever linked.
+  // If fewer than 3 exist for this niche, the table simply has fewer rows.
 
   // Row 4: Best matched manual blog (highest-paying-adsense-niches is most relevant)
   const manualBlogRow = `
@@ -1125,7 +1113,6 @@ function buildNicheMiniTable(niche, linkMap) {
           </thead>
           <tbody>
             ${countryRows}
-            ${fallbackRows}
             ${manualBlogRow}
           </tbody>
         </table>
@@ -1161,7 +1148,7 @@ function buildNicheCallout(niche) {
         <h3>Related Vertical:</h3>
         <p>
         While <span>${niche}</span> yields strong volume,
-        the <a class="c-link" href="/blog/niche/${sisterSlug}-adsense-rpm"><span>${sister}</span></a>
+        the <a class="c-link" href="/blog/niche/${sisterSlug}-adsense-rpm.html"><span>${sister}</span></a>
         vertical ${comparisonText}. Worth comparing before finalising your content strategy.
         </p>
       </div>`;
@@ -1199,28 +1186,15 @@ function buildCountryMiniTable(countryCode, countryName, rpm, linkMap) {
     .map(
       (n) => `
         <tr>
-          <td><a class="c-link" href="/blog/niche-country/${n.nicheSlug}-${countrySlug}-adsense-rpm">${n.niche} in ${countryName}</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${n.nicheSlug}-${countrySlug}-adsense-rpm.html">${n.niche} in ${countryName}</a></td>
           <td>$${n.expectedRpm}</td>
-          <td><a class="c-link" href="/blog/niche-country/${n.nicheSlug}-${countrySlug}-adsense-rpm">View Analysis →</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${n.nicheSlug}-${countrySlug}-adsense-rpm.html">View Analysis →</a></td>
         </tr>`,
     )
     .join("");
 
-  // FALLBACK: if fewer than 2 real combos exist for this country, fill
-  // the remaining row(s) with a link to the combo-index hub instead.
-  const missingNicheCount = 2 - top2Niches.length;
-  const fallbackNicheRows = Array.from({
-    length: Math.max(missingNicheCount, 0),
-  })
-    .map(
-      () => `
-        <tr>
-          <td><a class="c-link" href="/blog/niche-country/">Browse All ${countryName} Combinations</a></td>
-          <td>—</td>
-          <td><a class="c-link" href="/blog/niche-country/">View Index →</a></td>
-        </tr>`,
-    )
-    .join("");
+  // No fallback rows: only real generated combo pages are ever linked.
+  // If fewer than 2 exist for this country, the table simply has fewer rows.
 
   // Peer country: closest RPM, excluding current country
   // Fallback: second highest RPM country if no close peer found
@@ -1251,9 +1225,9 @@ function buildCountryMiniTable(countryCode, countryName, rpm, linkMap) {
 
   const peerRow = `
         <tr>
-          <td><a class="c-link" href="/blog/country/${createSlug(peer.name)}-adsense-rpm">Geo-Peer: ${peer.name}</a></td>
+          <td><a class="c-link" href="/blog/country/${createSlug(peer.name)}-adsense-rpm.html">Geo-Peer: ${peer.name}</a></td>
           <td>$${peer.rpm}</td>
-          <td><a class="c-link" href="/blog/country/${createSlug(peer.name)}-adsense-rpm">Compare Market →</a></td>
+          <td><a class="c-link" href="/blog/country/${createSlug(peer.name)}-adsense-rpm.html">Compare Market →</a></td>
         </tr>`;
 
   return `
@@ -1268,7 +1242,6 @@ function buildCountryMiniTable(countryCode, countryName, rpm, linkMap) {
           </thead>
           <tbody>
             ${nicheRows}
-            ${fallbackNicheRows}
             ${peerRow}
           </tbody>
         </table>
@@ -1285,7 +1258,7 @@ function buildCountryCallout(countryName, countryCode) {
         <h3>Publisher Tool:</h3>
         <p>
         Want to see how all 30 niches perform in <span>${countryName}</span>?
-        Use our <a class="c-link" href="/adsense-rpm-matrix?country=${countryCode}"><strong>AdSense RPM Matrix</strong></a>
+        Use our <a class="c-link" href="/adsense-rpm-matrix.html?country=${countryCode}"><strong>AdSense RPM Matrix</strong></a>
         to sort by highest multiplier and find your best content opportunity.
         </p>
       </div>`;
@@ -1340,20 +1313,15 @@ function buildComboMiniTable(
     ).toFixed(1);
     row1Html = `
         <tr>
-          <td><a class="c-link" href="/blog/niche-country/${betterNicheFound.comboSlug}">${betterNicheFound.niche} in ${countryName}</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${betterNicheFound.comboSlug}.html">${betterNicheFound.niche} in ${countryName}</a></td>
           <td>$${betterRpm}</td>
-          <td><a class="c-link" href="/blog/niche-country/${betterNicheFound.comboSlug}">Higher Value →</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${betterNicheFound.comboSlug}.html">Higher Value →</a></td>
         </tr>`;
   } else {
-    // Fallback: either the current niche IS the highest, or none of the
-    // better niches have a generated combo page for this country —
-    // either way, send to the combo index instead of a broken link.
-    row1Html = `
-        <tr>
-          <td><a class="c-link" href="/blog/niche-country/">Browse All Top Combinations</a></td>
-          <td>—</td>
-          <td><a class="c-link" href="/blog/niche-country/">View Index →</a></td>
-        </tr>`;
+    // No fallback row: either the current niche IS the highest, or none
+    // of the better niches have a generated combo page for this country.
+    // Either way, skip this row rather than link to a non-real page.
+    row1Html = "";
   }
 
   // --- ROW 2: Same niche in peer country (similar base RPM) ---
@@ -1380,9 +1348,9 @@ function buildComboMiniTable(
       const peerExpectedRpm = (peer.rpm * multiplier).toFixed(1);
       row2Html = `
         <tr>
-          <td><a class="c-link" href="/blog/niche-country/${peerComboSlug}">${niche} in ${peer.name}</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${peerComboSlug}.html">${niche} in ${peer.name}</a></td>
           <td>$${peerExpectedRpm}</td>
-          <td><a class="c-link" href="/blog/niche-country/${peerComboSlug}">Compare Market →</a></td>
+          <td><a class="c-link" href="/blog/niche-country/${peerComboSlug}.html">Compare Market →</a></td>
         </tr>`;
       peerFound = true;
       break;
@@ -1390,13 +1358,8 @@ function buildComboMiniTable(
   }
 
   if (!peerFound) {
-    // Fallback: link to combo index
-    row2Html = `
-        <tr>
-          <td><a class="c-link" href="/blog/niche-country/">Explore Similar Markets</a></td>
-          <td>—</td>
-          <td><a class="c-link" href="/blog/niche-country/">View Index →</a></td>
-        </tr>`;
+    // No fallback row: skip rather than link to a non-real page.
+    row2Html = "";
   }
 
   // --- ROW 3: Parent niche pillar — always exists, no fallback needed ---
@@ -1408,9 +1371,9 @@ function buildComboMiniTable(
 
   const row3Html = `
         <tr>
-          <td><a class="c-link" href="/blog/niche/${nicheSlug}-adsense-rpm">Global ${niche} Data</a></td>
+          <td><a class="c-link" href="/blog/niche/${nicheSlug}-adsense-rpm.html">Global ${niche} Data</a></td>
           <td>$${parentRpm} avg</td>
-          <td><a class="c-link" href="/blog/niche/${nicheSlug}-adsense-rpm">Niche Overview →</a></td>
+          <td><a class="c-link" href="/blog/niche/${nicheSlug}-adsense-rpm.html">Niche Overview →</a></td>
         </tr>`;
 
   return `
@@ -1476,7 +1439,7 @@ function buildPeerCountriesTable(
       const peerSlug = createSlug(peer.name);
       return `
         <tr>
-          <td><a href="/blog/country/${peerSlug}-adsense-rpm">${peer.name}</a></td>
+          <td><a href="/blog/country/${peerSlug}-adsense-rpm.html">${peer.name}</a></td>
           <td>$${peerExpectedRpm.toFixed(1)}</td>
           <td>${diffText}</td>
         </tr>`;
@@ -1496,8 +1459,8 @@ function buildComboCallout(niche, countryName) {
   <div class="mesh-callout-box">
             <h3>Publisher Note:</h3>
             <p>
-                <a class="c-link" href="/blog/niche/${nicheSlug}-adsense-rpm">${niche}</a> traffic in <a
-                    class="c-link" href="/blog/country/${countrySlug}-adsense-rpm">${countryName}</a>
+                <a class="c-link" href="/blog/niche/${nicheSlug}-adsense-rpm.html">${niche}</a> traffic in <a
+                    class="c-link" href="/blog/country/${countrySlug}-adsense-rpm.html">${countryName}</a>
                 is high-value, but competition is fierce. Check our guide on <a class="c-link"
                     href="/blog/how-much-does-adsense-pay">How Much AdSense Actually Pays</a> if your traffic is
                 under
@@ -1525,7 +1488,7 @@ topCombinations.forEach((combo) => {
 
   linkMap[currentSlug] = {
     title: `${niche} Website AdSense Earnings in ${countryName}`,
-    url: `/blog/niche-country/${currentSlug}`,
+    url: `/blog/niche-country/${currentSlug}.html`,
     type: "niche-country",
     niche: niche,
     country: countryName,
@@ -1609,7 +1572,7 @@ nicheList.forEach((niche, index) => {
   // Add to link-map
   linkMap[slug + "-adsense-rpm"] = {
     title: `AdSense RPM for ${niche} Websites`,
-    url: `/blog/niche/${slug}-adsense-rpm`,
+    url: `/blog/niche/${slug}-adsense-rpm.html`,
     type: "niche",
     niche: niche,
     related: related,
@@ -1696,7 +1659,7 @@ countryList.forEach((countryCode, index) => {
   // Add to link-map
   linkMap[slug + "-adsense-rpm"] = {
     title: `AdSense RPM in ${countryName}`,
-    url: `/blog/country/${slug}-adsense-rpm`,
+    url: `/blog/country/${slug}-adsense-rpm.html`,
     type: "country",
     country: countryName,
     related: related,
@@ -1765,7 +1728,7 @@ topCombinations.forEach((combo, index) => {
   // Store metadata needed for later related link generation
   linkMap[currentSlug] = {
     title: `${niche} Website AdSense Earnings in ${countryName}`,
-    url: `/blog/niche-country/${currentSlug}`,
+    url: `/blog/niche-country/${currentSlug}.html`,
     type: "niche-country",
     niche: niche,
     country: countryName,

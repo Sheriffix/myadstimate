@@ -13,7 +13,7 @@
   <meta name="description" content="{{META-DESC}}" />
   <meta name="robots" content="index, follow" />
   <!-- Canonical link -->
-  <link rel="canonical" href="https://adstimate.com/blog/{{SLUG}}" />
+  <link rel="canonical" href="https://adstimate.com/blog/{{SLUG}}.html" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
   <!-- Google Fonts and Icons -->
@@ -29,7 +29,7 @@
   <meta property="og:title" content="{{TITLE}}" />
   <meta property="og:description" content="{{META-DESC}}" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://adstimate.com/blog/{{SLUG}}" />
+  <meta property="og:url" content="https://adstimate.com/blog/{{SLUG}}.html" />
   <meta property="og:image" content="https://adstimate.com/img/{{SLUG}}.png" />
 
   <!-- BlogPosting + BreadcrumbList schema — always present on every post -->
@@ -40,6 +40,7 @@
         "@type": "BlogPosting",
         "headline": "{{TITLE}}",
         "description": "{{META-DESC}}",
+        "image": "https://adstimate.com/img/{{SLUG}}.png",
         "author": { "@type": "Organization", "name": "Adstimate" },
         "publisher": {
           "@type": "Organization",
@@ -73,7 +74,7 @@
             "@type": "ListItem",
             "position": 3,
             "name": "{{TITLE}}",
-            "item": "https://adstimate.com/blog/{{SLUG}}"
+            "item": "https://adstimate.com/blog/{{SLUG}}.html"
           }
         ]
       }
@@ -88,8 +89,7 @@
 
 <body>
   <header class="header">
-    <div id="site-header">
-    </div>
+    {{SITE_HEADER}}
   </header>
 
   <main class="page-content blog-page">
@@ -103,7 +103,7 @@
         <!-- The plain TITLE token is still used everywhere else (meta, schema, og) -->
         <h1 class="title">{{TITLE_DISPLAY}}</h1>
         <p class="subtitle">{{SUBTITLE}}</p>
-        <p class="post-meta">Published: {{DATE-PUBLISHED-READABLE}}</p>
+        <p class="post-meta">Updated: {{DATE-MODIFIED-READABLE}}</p>
       </section>
 
       <article class="main-article-text">
@@ -119,7 +119,7 @@
   </main>
 
   <footer class="footer">
-    <div id="site-footer"></div>
+    {{SITE_FOOTER}}
   </footer>
 
   <!-- Load widget script -->

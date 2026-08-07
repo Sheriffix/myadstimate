@@ -13,7 +13,6 @@
         content="{{NICHE_NAME}} sites earn ${{EXPECTED_RPM}} RPM from {{COUNTRY_NAME}} traffic in 2026 ({{COUNTRY_NAME}}'s ${{BASE_RPM}} base rate x {{NICHE_NAME}}'s {{MULTIPLIER}}x demand multiplier)." />
 
     <link rel="canonical" href="https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}.html" />
-    <meta name="robots" content="index, follow" />
     <link
         href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,600;1,600&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
@@ -26,8 +25,9 @@
     <meta property="og:title" content="{{NICHE_NAME}} AdSense RPM in {{COUNTRY_NAME}} 2026: ${{EXPECTED_RPM}}" />
     <meta property="og:description"
         content="{{NICHE_NAME}} sites earn ${{EXPECTED_RPM}} RPM from {{COUNTRY_NAME}} traffic in 2026." />
+    <meta property="og:image" content="https://adstimate.com/img/schema/schema-combo-basic.png" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}" />
+    <meta property="og:url" content="https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}.html" />
 
     <script type="application/ld+json">
         [
@@ -36,6 +36,7 @@
             "@type": "BlogPosting",
             "headline": "{{NICHE_NAME}} AdSense RPM in {{COUNTRY_NAME}} 2026: ${{EXPECTED_RPM}}",
             "description": "{{NICHE_NAME}} sites earn ${{EXPECTED_RPM}} RPM from {{COUNTRY_NAME}} traffic in 2026, calculated from {{COUNTRY_NAME}}'s ${{BASE_RPM}} base RPM and {{NICHE_NAME}}'s {{MULTIPLIER}}x demand multiplier.",
+            "image": "https://adstimate.com/img/schema/schema-combo-basic.png",
             "author": { "@type": "Organization", "name": "Adstimate" },
             "publisher": {
               "@type": "Organization",
@@ -46,7 +47,7 @@
             "dateModified": "{{MODIFIED_DATE}}",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}"
+              "@id": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}.html"
             }
           },
           {
@@ -56,7 +57,29 @@
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adstimate.com/" },
               { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://adstimate.com/blog/" },
               { "@type": "ListItem", "position": 3, "name": "Niche-Country", "item": "https://adstimate.com/blog/niche-country/" },
-              { "@type": "ListItem", "position": 4, "name": "{{NICHE_NAME}} in {{COUNTRY_NAME}}", "item": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}" }
+              { "@type": "ListItem", "position": 4, "name": "{{NICHE_NAME}} in {{COUNTRY_NAME}}", "item": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}.html" }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is {{NICHE_NAME}} AdSense RPM in {{COUNTRY_NAME}}?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "${{EXPECTED_RPM}} in 2026, calculated from {{COUNTRY_NAME}}'s ${{BASE_RPM}} base RPM multiplied by {{NICHE_NAME}}'s {{MULTIPLIER}}x multiplier."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is it worth targeting {{COUNTRY_NAME}} with {{NICHE_NAME}} content?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It can be, especially if you already have or expect meaningful traffic volume from {{COUNTRY_NAME}}. If you're choosing where to focus from scratch, check the comparison table above — a nearby market may offer a better return for the same effort."
+                }
+              }
             ]
           }
         ]

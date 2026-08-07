@@ -26,8 +26,9 @@
     <meta property="og:title" content="{{NICHE_NAME}} AdSense RPM in {{COUNTRY_NAME}} 2026: ${{EXPECTED_RPM}}" />
     <meta property="og:description"
         content="{{NICHE_NAME}} sites earn ${{EXPECTED_RPM}} RPM from {{COUNTRY_NAME}} traffic in 2026. Full breakdown, peer comparison, and revenue math." />
+    <meta property="og:image" content="https://adstimate.com/img/schema/schema-combo-premium.png" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}" />
+    <meta property="og:url" content="https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}.html" />
 
     <script type="application/ld+json">
         [
@@ -36,6 +37,7 @@
             "@type": "BlogPosting",
             "headline": "{{NICHE_NAME}} AdSense RPM in {{COUNTRY_NAME}} 2026: ${{EXPECTED_RPM}}",
             "description": "{{NICHE_NAME}} sites earn ${{EXPECTED_RPM}} RPM from {{COUNTRY_NAME}} traffic in 2026, calculated from {{COUNTRY_NAME}}'s ${{BASE_RPM}} base RPM and {{NICHE_NAME}}'s {{MULTIPLIER}}x demand multiplier.",
+            "image": "https://adstimate.com/img/schema/schema-combo-premium.png",
             "author": { "@type": "Organization", "name": "Adstimate" },
             "publisher": {
               "@type": "Organization",
@@ -46,7 +48,7 @@
             "dateModified": "{{MODIFIED_DATE}}",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}"
+              "@id": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}.html"
             }
           },
           {
@@ -56,7 +58,37 @@
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://adstimate.com/" },
               { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://adstimate.com/blog/" },
               { "@type": "ListItem", "position": 3, "name": "Niche-Country", "item": "https://adstimate.com/blog/niche-country/" },
-              { "@type": "ListItem", "position": 4, "name": "{{NICHE_NAME}} in {{COUNTRY_NAME}}", "item": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}" }
+              { "@type": "ListItem", "position": 4, "name": "{{NICHE_NAME}} in {{COUNTRY_NAME}}", "item": "https://adstimate.com/blog/niche-country/{{COMBINED_SLUG}}.html" }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is {{NICHE_NAME}} AdSense RPM in {{COUNTRY_NAME}}?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "${{EXPECTED_RPM}} in 2026, calculated from {{COUNTRY_NAME}}'s ${{BASE_RPM}} base RPM multiplied by {{NICHE_NAME}}'s {{MULTIPLIER}}x multiplier."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why does {{NICHE_NAME}} pay more than other niches in {{COUNTRY_NAME}}?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Advertisers in {{NICHE_NAME}} are bidding an average CPC of ${{CPC}} — higher advertiser competition for this audience is what drives the {{MULTIPLIER}}x multiplier above the content-wide average."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is {{COUNTRY_NAME}} worth targeting for {{NICHE_NAME}} content?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Given {{COUNTRY_NAME}}'s {{COUNTRY_TIER}} classification, this is one of the stronger pairings available — see the comparison table above to check nearby markets before committing dedicated content resources here."
+                }
+              }
             ]
           }
         ]
