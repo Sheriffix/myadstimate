@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { HEADER_HTML, FOOTER_HTML } = require("./public/scripts/utils.js");
 
 // ============================================================================
 // CONFIGURATION
@@ -386,7 +387,9 @@ function generate() {
         buildResourceHub(post.slug, posts, settings.resource_hub || {}),
       )
       .replace(/{{FAQ_SECTION}}/g, faqHtml)
-      .replace(/{{FAQ_SCHEMA}}/g, faqSchema);
+      .replace(/{{FAQ_SCHEMA}}/g, faqSchema)
+      .replace(/{{SITE_HEADER}}/g, HEADER_HTML)
+      .replace(/{{SITE_FOOTER}}/g, FOOTER_HTML);
 
     // Write output file — smartWriteFile compares against the existing
     // file and decides whether dateModified should change

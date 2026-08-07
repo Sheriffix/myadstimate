@@ -75,10 +75,62 @@ function seededShuffle(array, identityText) {
 }
 
 
+// ============================================================================
+// SHARED SITE HEADER & FOOTER
+// This is now the single source of truth for the header/footer HTML.
+// Both pseo_generator.js and manual_generator.js import these and write
+// them directly into every generated page's {{SITE_HEADER}} / {{SITE_FOOTER}}
+// placeholders at BUILD TIME — not injected later by nav.js in the browser.
+// This means the real navigation links exist in the page's raw HTML from
+// the start, so they're visible even if a crawler never runs JavaScript.
+// If the header/footer content ever needs to change, edit it here ONCE —
+// every generated page picks up the change on the next generator run.
+// ============================================================================
+
+const HEADER_HTML = `
+      <nav class="container header-content">
+          <a id="logo" href="/">
+            <div class="logo">
+              <span>ad</span>stimate
+            </div>
+            <p class="tagline">Ad Revenue Estimation</p>
+          </a>
+          <a id="logo-image" href="/">
+            <img src="/adstimate_logo.png" />
+          </a>
+          <a href="/adsense-rpm-matrix.html" class="navbar link matrix-tool">2026 Revenue Matrix</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+              <i class="material-icons theme-icon">dark_mode</i>
+          </button>
+      </nav>`;
+
+const FOOTER_HTML = `
+      <div class="container">
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li><a href="/index.html" class="nav-link">Home</a></li>
+            <li><a href="/about.html" class="nav-link">About</a></li>
+            <li><a href="/guide.html" class="nav-link">Calculator Guide</a></li>
+            <li><a href="/blog" class="nav-link">Blogs</a></li>
+            <li><a href="/terms.html" class="nav-link">Terms</a></li>
+            <li><a href="/privacy.html" class="nav-link">Privacy</a></li>
+            <li><a href="/contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="disclaimer">
+                  <strong>Disclaimer:</strong> For educational estimates only. Actual earnings may vary. Not affiliated
+                  with Google.
+        </p>
+        <p class="copyright">&copy; Adstimate.com - All rights reserved.</p>
+      </div>`;
+
+
 module.exports = {
   toReadableDate,
   seededNumber,
   seededPick,
   seededRandomGenerator,
-  seededShuffle
+  seededShuffle,
+  HEADER_HTML,
+  FOOTER_HTML
 };

@@ -4,6 +4,8 @@ const {
   toReadableDate,
   seededPick,
   seededShuffle,
+  HEADER_HTML,
+  FOOTER_HTML,
 } = require("./public/scripts/utils.js"); // From shared utilities
 
 // ============================================================================
@@ -1557,6 +1559,8 @@ nicheList.forEach((niche, index) => {
     ARTICLE_ID: slug + "-adsense-rpm",
     MINI_TABLE: miniTable,
     CALLOUT_BOX: calloutBox,
+    SITE_HEADER: HEADER_HTML,
+    SITE_FOOTER: FOOTER_HTML,
   };
 
   let html = fillTemplate(activeNicheTemplate, nicheVars);
@@ -1644,6 +1648,8 @@ countryList.forEach((countryCode, index) => {
     ARTICLE_ID: slug + "-adsense-rpm",
     MINI_TABLE: miniTable,
     CALLOUT_BOX: calloutBox,
+    SITE_HEADER: HEADER_HTML,
+    SITE_FOOTER: FOOTER_HTML,
   };
 
   let html = fillTemplate(activeCountryTemplate, countryVars);
@@ -1835,6 +1841,8 @@ topCombinations.forEach((combo, index) => {
     WHY_THIS_NUMBER: whyThisNumber,
     WHAT_THIS_NUMBER_BASIC: whatThisNumberBasic,
     BOTTOM_LINE: bottomLine,
+    SITE_HEADER: HEADER_HTML,
+    SITE_FOOTER: FOOTER_HTML,
   };
 
   let html = fillTemplate(activeNicheCountryTemplate, comboVars);
@@ -1908,7 +1916,9 @@ function generateIndexPage(topCombinations) {
       /{{\s*MODIFIED_DATE_PRETTY\s*}}/g,
       toReadableDate(getCurrentDate()),
     )
-    .replace(/{{\s*DATA_ARRAY\s*}}/g, dataArrayJS);
+    .replace(/{{\s*DATA_ARRAY\s*}}/g, dataArrayJS)
+    .replace(/{{\s*SITE_HEADER\s*}}/g, HEADER_HTML)
+    .replace(/{{\s*SITE_FOOTER\s*}}/g, FOOTER_HTML);
 
   // Write file
   fs.writeFileSync(path.join(OUTPUT_DIRS.nicheCountry, "index.html"), html);
