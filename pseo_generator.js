@@ -202,6 +202,9 @@ const introMap = JSON.parse(
 const comboPhraseMap = JSON.parse(
   fs.readFileSync(path.join(DATA_DIR, "combo_phrase_map.json"), "utf8"),
 );
+const phraseMap = JSON.parse(
+  fs.readFileSync(path.join(DATA_DIR, "phrase_map.json"), "utf8"),
+);
 
 console.log(
   `✓ Loaded ${Object.keys(adBenchmarks).length} niches from ad_benchmarks`,
@@ -536,6 +539,28 @@ if (
 console.log(
   `✓ Loaded ${Object.keys(sisterNiches).length} sister niche mappings`,
 );
+
+// Validate sister_niches.json against the REAL generated niche list.
+// This does not stop generation (a broken cross-promotion mapping is not
+// worth blocking the whole site over) — it just warns loudly so a typo or
+// stale entry doesn't silently ship as a real link that 404s. The actual
+// enforcement (never rendering a bad link) happens separately in
+// buildNicheCallout() below, regardless of whether this warning is seen.
+const nicheSet = new Set(nicheList);
+const badSisterEntries = Object.entries(sisterNiches).filter(
+  ([niche, sister]) => !nicheSet.has(sister),
+);
+if (badSisterEntries.length > 0) {
+  console.warn(
+    `\n⚠️  sister_niches.json has ${badSisterEntries.length} entr${badSisterEntries.length === 1 ? "y" : "ies"} pointing to a niche that isn't in generate_pages.niche:`,
+  );
+  badSisterEntries.forEach(([niche, sister]) => {
+    console.warn(`   - "${niche}" → "${sister}" (no such generated niche)`);
+  });
+  console.warn(
+    `   These callout boxes will be silently skipped on those pages. Fix sister_niches.json to restore them.\n`,
+  );
+}
 
 console.log("\n📖 Loading manual blog articles from manual-posts.json...");
 
@@ -953,10 +978,12 @@ function getRelatedNicheCountry(
 // never skipped) for one combo page — following the Internal Linking Guide.
 // ============================================================================
 
-// Picks one variant from a combo_phrase_map.json pool, consistently per
-// page (seeded), and fills in the {token} placeholders.
-function buildComboPhrase(poolName, identityText, tokens) {
-  const pool = comboPhraseMap[poolName];
+// Picks one variant from a given phrase-pool object (e.g. comboPhraseMap
+// or phraseMap), consistently per page (seeded), and fills in the {token}
+// placeholders. Generalized so both combo_phrase_map.json and
+// phrase_map.json can share one selection mechanism.
+function buildPhrase(phraseMapObj, poolName, identityText, tokens) {
+  const pool = phraseMapObj[poolName];
   if (!pool || pool.length === 0) return "";
   const index = seededPick(identityText, pool.length);
   let text = pool[index];
@@ -964,6 +991,11 @@ function buildComboPhrase(poolName, identityText, tokens) {
     text = text.replace(new RegExp(`{${key}}`, "g"), tokens[key]);
   }
   return text;
+}
+
+// Thin wrapper kept so existing combo-page call sites don't need to change.
+function buildComboPhrase(poolName, identityText, tokens) {
+  return buildPhrase(comboPhraseMap, poolName, identityText, tokens);
 }
 
 const UP_NICHE_HUB_ANCHORS = [
@@ -1053,73 +1085,87 @@ function buildComboLinkingVars(
 // TOPICAL MESH: MINI-TABLE & CALL-OUT BOX BUILDERS
 // ============================================================================
 
+// ============================================================================
+// MATRIX DEEP-LINK HELPER
+// Builds a URL to the Matrix Tool pre-filtered to a specific niche/country,
+// for use whenever a real static combo page doesn't exist yet. Per the
+// internal linking guide: hub pages (niche/country) must route to the
+// Matrix Tool as a fallback, never to a 404. deeplink_handler.js already
+// knows how to read these ?niche=&country= params and pre-fill the
+// calculator, so this lands the reader on something useful, not a dead end.
+// ============================================================================
+function buildMatrixDeepLink(niche, countryName) {
+  return `/adsense-rpm-matrix.html?niche=${encodeURIComponent(niche)}&country=${encodeURIComponent(countryName)}`;
+}
+
+// ============================================================================
+// TOPICAL MESH: MINI-TABLE & CALL-OUT BOX BUILDERS
+// ============================================================================
+
 /**
- * NICHE MINI-TABLE
- * Finds the top 3 countries by RPM for this niche and adds 1 manual blog row.
- * Each row links to the niche-country combo article.
+ * TOP COUNTRIES TABLE (niche pages)
+ * Ranks ALL countries by RPM for this niche (not just ones with a generated
+ * combo page) — the ranking itself should reflect real, complete data.
+ * Each row links to the real combo page if one exists, or to a deep-linked
+ * Matrix Tool URL if it doesn't — per the internal linking guide, every
+ * link must land on a real, working page; a row is never dropped and never
+ * points to a URL that 404s.
+ *
+ * Returns both the table HTML and the individual ranked values (top country,
+ * lowest country, etc.) so the calling code can use the same real numbers
+ * in prose/FAQ content elsewhere on the page, not just inside the table.
  */
-function buildNicheMiniTable(niche, linkMap) {
+function buildTopCountriesTable(niche, multiplier, avgCountryRpm, linkMap, count) {
   const nicheSlug = createSlug(niche);
-  const multiplier = nicheMultiplier[niche] || 1.0;
+  const nicheGlobalAvgRpm = avgCountryRpm * multiplier;
 
-  // Sort ALL countries by base RPM descending, but only keep the ones
-  // where a real combo page actually exists for this niche — otherwise
-  // the row would link to a page that was never generated (404).
-  const rankedCountries = countryList
-    .map((code) => ({
-      code,
-      name: COUNTRY_NAMES[code] || code,
-      baseRpm: countryRpm[code],
-      expectedRpm: (countryRpm[code] * multiplier).toFixed(1),
-    }))
-    .sort((a, b) => b.baseRpm - a.baseRpm);
-
-  const top3Countries = rankedCountries
-    .filter((c) => {
-      const comboSlug = `${nicheSlug}-${createSlug(c.name)}-adsense-rpm`;
-      return linkMap[comboSlug] && linkMap[comboSlug].type === "niche-country";
+  const ranked = countryList
+    .map((code) => {
+      const name = COUNTRY_NAMES[code] || code;
+      const expectedRpm = countryRpm[code] * multiplier;
+      const pctDiff = (
+        ((expectedRpm - nicheGlobalAvgRpm) / nicheGlobalAvgRpm) *
+        100
+      ).toFixed(0);
+      return { code, name, expectedRpm, pctDiff };
     })
-    .slice(0, 3);
+    .sort((a, b) => b.expectedRpm - a.expectedRpm);
 
-  // Build table rows for the real combos found above
-  const countryRows = top3Countries
-    .map(
-      (c) => `
+  const topRows = ranked.slice(0, count);
+  const lowest = ranked[ranked.length - 1];
+
+  const tableRows = topRows
+    .map((c) => {
+      const comboSlug = `${nicheSlug}-${createSlug(c.name)}-adsense-rpm`;
+      const hasRealPage =
+        linkMap[comboSlug] && linkMap[comboSlug].type === "niche-country";
+      const href = hasRealPage
+        ? `/blog/niche-country/${comboSlug}.html`
+        : buildMatrixDeepLink(niche, c.name);
+      const diffText =
+        c.pctDiff > 0
+          ? `+${c.pctDiff}%`
+          : c.pctDiff < 0
+            ? `${c.pctDiff}%`
+            : "avg";
+      return `
         <tr>
-          <td><a class="c-link" href="/blog/niche-country/${nicheSlug}-${createSlug(c.name)}-adsense-rpm.html">${niche} in ${c.name}</a></td>
-          <td>$${c.expectedRpm}</td>
-          <td><a class="c-link" href="/blog/niche-country/${nicheSlug}-${createSlug(c.name)}-adsense-rpm.html">View Analysis →</a></td>
-        </tr>`,
-    )
+          <td><a class="c-link" href="${href}">${c.name}</a></td>
+          <td>$${c.expectedRpm.toFixed(1)}</td>
+          <td>${diffText}</td>
+        </tr>`;
+    })
     .join("");
 
-  // No fallback rows: only real generated combo pages are ever linked.
-  // If fewer than 3 exist for this niche, the table simply has fewer rows.
-
-  // Row 4: Best matched manual blog (highest-paying-adsense-niches is most relevant)
-  const manualBlogRow = `
-        <tr>
-          <td><a class="c-link" href="/blog/highest-paying-adsense-niches">Highest Paying AdSense Niches</a></td>
-          <td>—</td>
-          <td><a class="c-link" href="/blog/highest-paying-adsense-niches">Strategy Guide →</a></td>
-        </tr>`;
-
-  return `
-      <div class="mesh-mini-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Top Markets for ${niche}</th>
-              <th>Expected RPM</th>
-              <th>Detailed Analysis</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${countryRows}
-            ${manualBlogRow}
-          </tbody>
-        </table>
-      </div>`;
+  return {
+    tableHtml: tableRows,
+    topCountryName: topRows[0].name,
+    topCountryRpm: topRows[0].expectedRpm,
+    topCountryPctDiff: topRows[0].pctDiff,
+    topCountryMultiplier: (topRows[0].expectedRpm / nicheGlobalAvgRpm).toFixed(1),
+    lowRpm: lowest.expectedRpm,
+    nicheGlobalAvgRpm,
+  };
 }
 
 /**
@@ -1129,8 +1175,12 @@ function buildNicheMiniTable(niche, linkMap) {
 function buildNicheCallout(niche) {
   const sister = sisterNiches[niche];
 
-  // If no sister niche mapped, skip the callout gracefully
-  if (!sister) return "";
+  // If no sister niche mapped, OR the mapped sister isn't actually a real
+  // generated niche page (see the startup validation warning above), skip
+  // the callout gracefully rather than ever link to a page that doesn't
+  // exist — this is the actual hard guarantee, independent of whether
+  // anyone reads the startup warning.
+  if (!sister || !nicheList.includes(sister)) return "";
 
   const sisterSlug = createSlug(sister);
   const sisterMultiplier = nicheMultiplier[sister] || 1.0;
@@ -1589,9 +1639,31 @@ console.log("✓ All pSEO related links populated");
 // GENERATE NICHE ARTICLES
 // ============================================================================
 
+// ============================================================================
+// ACTIVE NICHE TIER HELPER
+// Determines which of niche-basic/standard/premium.html is ACTUALLY the
+// active template for a given niche (from template_mapping), not the
+// separately-computed multiplier-based tier — these could disagree, and
+// content depth (table row count, extra analysis paragraphs) needs to
+// match whichever template is really being rendered.
+// ============================================================================
+function getActiveNicheTierName(niche) {
+  const templateName = testPageMap[niche];
+  if (!templateName) return "standard"; // matches the default fallback template
+  if (templateName.includes("premium")) return "premium";
+  if (templateName.includes("basic")) return "basic";
+  return "standard";
+}
+
 console.log("\n🔨 Generating niche articles...");
 
 ensureDir(OUTPUT_DIRS.niche);
+
+// Computed once — same baseline for every niche. Matches the precedent
+// already used elsewhere in this file (buildComboMiniTable's row3Html).
+const avgCountryRpm =
+  Object.values(countryRpm).reduce((a, b) => a + b, 0) /
+  Object.values(countryRpm).length;
 
 nicheList.forEach((niche, index) => {
   const data = adBenchmarks[niche];
@@ -1617,9 +1689,50 @@ nicheList.forEach((niche, index) => {
   else if (multiplier >= 1.0) perfDesc = "positioned as a mid-tier niche";
   else perfDesc = "categorized as an entry-level niche";
 
-  // Build mini-table and call-out box
-  const miniTable = buildNicheMiniTable(niche, linkMap);
+  // Determine which tier template is actually active for this niche —
+  // drives table row count and how much analysis content gets included
+  const activeTier = getActiveNicheTierName(niche);
+  const tableRowCount = activeTier === "premium" ? 5 : 3;
+
+  // Build the unified top-countries table (real ranking, real links —
+  // real combo page if one exists, deep-linked Matrix Tool if not)
+  const topCountries = buildTopCountriesTable(
+    niche,
+    multiplier,
+    avgCountryRpm,
+    linkMap,
+    tableRowCount,
+  );
+
+  // Revenue at common traffic levels, using the niche's real global-average
+  // RPM (not a fabricated "US" assumption)
+  const calculated10k = (topCountries.nicheGlobalAvgRpm * 10).toFixed(2);
+  const calculated50k = (topCountries.nicheGlobalAvgRpm * 50).toFixed(2);
+  const calculated100k = (topCountries.nicheGlobalAvgRpm * 100).toFixed(2);
+  // Same math, but using the REAL top-performing country's RPM instead —
+  // replaces the old fabricated "US traffic" multiplier claim
+  const calculatedTop10k = (topCountries.topCountryRpm * 10).toFixed(2);
+
   const calloutBox = buildNicheCallout(niche);
+
+  // Phrase-pool analysis content — standard and premium only (basic stays
+  // lean by design). Seeded per-niche so each niche gets a consistent,
+  // deterministic variant (not the same sentence on every page).
+  const phraseTokens = {
+    niche,
+    tier,
+    multiplier,
+    cpc: data.cpc,
+    ctr: data.ctr,
+  };
+  const whyThisNumber =
+    activeTier !== "basic"
+      ? buildPhrase(phraseMap, "niche_why_this_number", slug + "-why", phraseTokens)
+      : "";
+  const advertiserDemand =
+    activeTier === "premium"
+      ? buildPhrase(phraseMap, "niche_advertiser_demand", slug + "-demand", phraseTokens)
+      : "";
 
   // Build the static related-articles HTML from the .related array that
   // was already computed above (before this write loop ran)
@@ -1646,7 +1759,18 @@ nicheList.forEach((niche, index) => {
     NICHE_TIER: tier,
     PERFORMANCE_DESC: perfDesc,
     ARTICLE_ID: slug + "-adsense-rpm",
-    MINI_TABLE: miniTable,
+    TOP_COUNTRIES_TABLE: topCountries.tableHtml,
+    TOP_COUNTRY_NAME: topCountries.topCountryName,
+    TOP_COUNTRY_RPM: topCountries.topCountryRpm.toFixed(1),
+    PERCENT_DIFF: Math.abs(topCountries.topCountryPctDiff),
+    TOP_COUNTRY_MULTIPLIER: topCountries.topCountryMultiplier,
+    RPM_LOW: topCountries.lowRpm.toFixed(1),
+    CALCULATED_10K: calculated10k,
+    CALCULATED_50K: calculated50k,
+    CALCULATED_100K: calculated100k,
+    CALCULATED_TOP_10K: calculatedTop10k,
+    WHY_THIS_NUMBER: whyThisNumber,
+    ADVERTISER_DEMAND: advertiserDemand,
     CALLOUT_BOX: calloutBox,
     SITE_HEADER: HEADER_HTML,
     SITE_FOOTER: FOOTER_HTML,

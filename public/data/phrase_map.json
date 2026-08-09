@@ -19,5 +19,17 @@
     "Publishers often fixate on the RPM number and stop there. But traffic source matters just as much: {{COUNTRY_NAME}} ({{COUNTRY_TIER}}) is dependable, though US traffic consistently commands a higher rate.",
     "An RPM figure is only half the picture — traffic geography is the other half. {{COUNTRY_NAME}} ({{COUNTRY_TIER}}) traffic performs reliably, but nothing beats US traffic for raw earning power.",
     "It's easy to look at RPM and call it done, but traffic mix deserves equal attention. {{COUNTRY_NAME}} falls in the {{COUNTRY_TIER}} bracket — solid, though US visitors will typically out-earn it."
+  ],
+  "niche_why_this_number": [
+    "{niche} sits in the {tier} tier, with a {multiplier}x demand multiplier — advertisers are bidding an average of ${cpc} per click to reach this audience, well above the cost of generic content. That advertiser competition is what drives RPM above the site-wide baseline.",
+    "The {multiplier}x multiplier behind {niche} isn't arbitrary — it reflects real advertiser demand, with an average CPC of ${cpc} in this category. Businesses in this space are actively competing for placement, not just filling inventory cheaply.",
+    "What puts {niche} in the {tier} bracket is advertiser willingness to pay: a {ctr}% click-through rate paired with a ${cpc} average CPC signals a category where clicks convert into real business value, not just impressions.",
+    "{niche} content commands a {multiplier}x multiplier because the audience itself is valuable to advertisers — a ${cpc} average CPC means businesses are paying a real premium to reach these visitors, not settling for remnant ad inventory."
+  ],
+  "niche_advertiser_demand": [
+    "Dig one level deeper and the pattern holds: a {ctr}% CTR alongside ${cpc} CPC means this isn't just a high price tag, it's genuine engagement. Advertisers keep paying because visitors keep clicking — that combination is what sustains the multiplier over time, rather than it being a one-off spike.",
+    "The CPC and CTR numbers aren't independent of each other. At ${cpc} per click and {ctr}% CTR, advertisers are getting enough engagement to justify the spend — which is exactly why the {multiplier}x multiplier has stayed structurally elevated rather than eroding as more publishers enter the space.",
+    "It's worth separating price from demand here. ${cpc} CPC shows advertisers are willing to pay more; {ctr}% CTR shows visitors are willing to click. Both moving together is what makes the {multiplier}x multiplier durable, not just a temporary pricing anomaly.",
+    "The reason this multiplier holds up over time comes down to unit economics on the advertiser's side: at ${cpc} per click and {ctr}% CTR, the return still pencils out for them. That's a more durable foundation than a niche that's merely trending."
   ]
 }

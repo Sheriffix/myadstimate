@@ -1,0 +1,20 @@
+Fix to show country names instead of abbreviations:
+
+- Validating test pages...
+❌ template_mapping "country-premium.html": "CH" is not listed in generate_pages
+❌ template_mapping "combo-premium.html": "Cryptocurrency|US" is not listed in generate_pages
+❌ template_mapping "combo-premium.html": "Finance|CH" is not listed in generate_page
+Generation stopped. Every template_mapping entry must also exist in generate_pages.
+
+
+
+One pre-existing (harmless) thing worth knowing about
+
+There are two functions each named getTopNichesForCountry and getTopCountriesForNiche — a simple version near the top of the file, and a more detailed version further down that actually gets used. This isn't a bug (JavaScript just quietly uses whichever one was declared last, so the real one wins), and it was already like this before any of our changes — but the two unused simple versions are just dead code sitting in the file. Not urgent, but worth cleaning up sometime so it's not confusing later.
+
+
+Fix
+Updated: {{MODIFIED_DATE_PRETTY}} on combo-index
+
+Fix
+/img/schema/ have same exact 9 images, I just renamed them differently. I will have to create a distinct image for each category as the names reflect
