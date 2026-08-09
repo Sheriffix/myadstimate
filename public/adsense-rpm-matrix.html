@@ -27,68 +27,6 @@
         content="Stop guessing. Use the 2026 AdSense Matrix to find high-RPM niche/country combinations.">
     <meta property="twitter:image" content="https://adstimate.com/img/matrix-preview.png">
 
-    <script type="application/ld+json">
-    [
-        {
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Adstimate Revenue Matrix Tool",
-            "url": "https://adstimate.com/adsense-rpm-matrix.html",
-            "description": "An interactive tool calculating AdSense RPM potential across 2,520 combinations of niches and countries using proprietary multipliers.",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "All",
-            "author": {
-            "@type": "Organization",
-            "name": "Adstimate",
-            "url": "https://adstimate.com/"
-            },
-            "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-            }
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": "Dataset",
-            "name": "Global AdSense RPM Benchmarks 2026",
-            "description": "A comprehensive dataset of 84 countries and 30 niche multipliers used to estimate display advertising revenue potential and arbitrage opportunities.",
-            "url": "https://adstimate.com/adsense-rpm-matrix.html",
-            "license": "https://creativecommons.org/licenses/by/4.0/",
-            "isAccessibleForFree": true,
-            "variableMeasured": [
-            "Country Base RPM",
-            "Niche Multiplier",
-            "Estimated Final RPM",
-            "Average CPC",
-            "Average CTR"
-            ],
-            "publisher": {
-            "@type": "Organization",
-            "name": "Adstimate"
-            }
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Adstimate Home",
-                "item": "https://adstimate.com/index.html"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Revenue Matrix Tool",
-                "item": "https://adstimate.com/adsense-rpm-matrix.html"
-            }
-            ]
-        }
-    ]
-</script>
-
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <!-- Google Icons -->
@@ -156,6 +94,97 @@
             margin-bottom: -10px;
         }
     </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://adstimate.com/adsense-rpm-matrix.html#webpage",
+              "url": "https://adstimate.com/adsense-rpm-matrix.html",
+              "name": "AdSense RPM Matrix - 2,520 Niche-Country Revenue Combos",
+              "description": "Explore the definitive 2026 AdSense RPM Matrix. Calculate revenue potential for 30+ niches across 80+ countries using our interactive discovery tool.",
+              "isPartOf": {
+                "@type": "WebSite",
+                "@id": "https://adstimate.com/#website",
+                "name": "Adstimate",
+                "url": "https://adstimate.com/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "@id": "https://adstimate.com/#organization",
+                "name": "Adstimate",
+                "url": "https://adstimate.com/",
+                "logo": "https://adstimate.com/adstimate_logo.png"
+              },
+              "mainEntity": [
+                {
+                  "@id": "https://adstimate.com/adsense-rpm-matrix.html#webapp"
+                },
+                {
+                  "@id": "https://adstimate.com/adsense-rpm-matrix.html#dataset"
+                }
+              ]
+            },
+            {
+              "@type": "WebApplication",
+              "@id": "https://adstimate.com/adsense-rpm-matrix.html#webapp",
+              "name": "Adstimate Revenue Matrix Tool",
+              "url": "https://adstimate.com/adsense-rpm-matrix.html",
+              "description": "An interactive tool calculating AdSense RPM potential across 2,520 combinations of niches and countries using proprietary multipliers.",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "All",
+              "author": {
+                "@id": "https://adstimate.com/#organization"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@type": "Dataset",
+              "@id": "https://adstimate.com/adsense-rpm-matrix.html#dataset",
+              "name": "Global AdSense RPM Benchmarks 2026",
+              "description": "A comprehensive dataset of 84 countries and 30 niche multipliers used to estimate display advertising revenue potential and arbitrage opportunities.",
+              "url": "https://adstimate.com/adsense-rpm-matrix.html",
+              "license": "https://creativecommons.org/licenses/by/4.0/",
+              "isAccessibleForFree": true,
+              "variableMeasured": [
+                "Country Base RPM",
+                "Niche Multiplier",
+                "Estimated Final RPM",
+                "Average CPC",
+                "Average CTR"
+              ],
+              "publisher": {
+                "@id": "https://adstimate.com/#organization"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://adstimate.com/adsense-rpm-matrix.html#breadcrumb",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Adstimate Home",
+                  "item": "https://adstimate.com/index.html"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Revenue Matrix Tool",
+                  "item": "https://adstimate.com/adsense-rpm-matrix.html"
+                }
+              ]
+            }
+          ]
+        }
+    </script>
 </head>
 
 <body>

@@ -130,11 +130,6 @@ a.c-link,
     font-style: normal;
   }
 
-  div {
-    border-bottom: 1px solid #c8c8c8;
-    padding-block: 10px;
-    margin-block: 10px;
-  }
 }
 
 .mini-calc-cta {
@@ -148,6 +143,8 @@ a.c-link,
   grid-template-columns: 1fr 1fr 1fr;
   gap: var(--spacing-xs);
   align-items: end;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .blog-niche-index {

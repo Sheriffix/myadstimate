@@ -322,13 +322,7 @@
     "url": "/blog/niche/music-adsense-rpm.html",
     "type": "niche",
     "niche": "Music",
-    "related": [
-      "united-states-adsense-rpm",
-      "canada-adsense-rpm",
-      "australia-adsense-rpm",
-      "new-zealand-adsense-rpm",
-      "nigeria-adsense-rpm"
-    ],
+    "related": [],
     "tags": [
       "music",
       "low-tier",
@@ -354,11 +348,7 @@
     "url": "/blog/country/australia-adsense-rpm.html",
     "type": "country",
     "country": "Australia",
-    "related": [
-      "finance-adsense-rpm",
-      "technology-adsense-rpm",
-      "business-adsense-rpm"
-    ],
+    "related": [],
     "tags": [
       "australia",
       "tier-1",
@@ -384,11 +374,7 @@
     "url": "/blog/country/new-zealand-adsense-rpm.html",
     "type": "country",
     "country": "New Zealand",
-    "related": [
-      "finance-adsense-rpm",
-      "technology-adsense-rpm",
-      "business-adsense-rpm"
-    ],
+    "related": [],
     "tags": [
       "new-zealand",
       "tier-2",
@@ -400,11 +386,7 @@
     "url": "/blog/country/nigeria-adsense-rpm.html",
     "type": "country",
     "country": "Nigeria",
-    "related": [
-      "finance-adsense-rpm",
-      "technology-adsense-rpm",
-      "business-adsense-rpm"
-    ],
+    "related": [],
     "tags": [
       "nigeria",
       "tier-4",

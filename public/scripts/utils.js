@@ -125,6 +125,47 @@ const FOOTER_HTML = `
       </div>`;
 
 
+// ============================================================================
+// BUILD RELATED ARTICLES HTML (STATIC)
+// Takes a page's already-computed `related` array (a list of linkMap IDs)
+// plus the full linkMap (or combinedMap for manual posts) and returns real
+// <a href> HTML — the same markup related-articles-widget.js used to build
+// in the browser, now built once at generation time so it's in the raw
+// HTML from the start (crawlable without JS, no flash of content on load).
+// Any ID with no matching linkMap entry is silently skipped, same as the
+// old widget's behavior.
+// ============================================================================
+
+function buildRelatedArticlesHtml(relatedIds, linkMap) {
+  if (!relatedIds || relatedIds.length === 0) {
+    return "<p>No related articles available.</p>";
+  }
+
+  const cards = relatedIds
+    .slice(0, 6)
+    .map((id) => {
+      const article = linkMap[id];
+      if (!article) return "";
+      return `
+        <div class="related-article-card">
+          <ul>
+            <li>
+              <a href="${article.url}">${article.title}</a>
+            </li>
+          </ul>
+        </div>`;
+    })
+    .filter(Boolean)
+    .join("");
+
+  if (!cards) {
+    return "<p>No related articles available.</p>";
+  }
+
+  return `<div class="related-articles-grid">${cards}</div>`;
+}
+
+
 module.exports = {
   toReadableDate,
   seededNumber,
@@ -132,5 +173,6 @@ module.exports = {
   seededRandomGenerator,
   seededShuffle,
   HEADER_HTML,
-  FOOTER_HTML
+  FOOTER_HTML,
+  buildRelatedArticlesHtml
 };

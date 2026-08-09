@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { HEADER_HTML, FOOTER_HTML } = require("./public/scripts/utils.js");
+const { HEADER_HTML, FOOTER_HTML, buildRelatedArticlesHtml } = require("./public/scripts/utils.js");
 
 // ============================================================================
 // CONFIGURATION
@@ -11,6 +11,7 @@ const FAQS_DATA = "./public/data/faqs.json"; // FAQ data (optional per post)
 const DRAFTS_DIR = "./drafts"; // Body content files
 const TEMPLATE_FILE = "./templates/manual-posts-template.html"; // Layout wrapper
 const OUTPUT_DIR = "./public/blog"; // Final HTML output
+const LINK_MAP_FILE = "./public/data/link-map.json"; // Written by pseo_generator.js
 
 // Load settings (for resource hub blocking rules)
 const SETTINGS_FILE = "./settings/adstimate-settings.json";
@@ -320,6 +321,37 @@ function generate() {
 
   ensureDir(OUTPUT_DIR);
 
+  // -----------------------------------------------------------------------
+  // BUILD COMBINED LINK MAP (for resolving related-article links)
+  // Each post's `related` array (in manual-posts.json) can reference EITHER
+  // another manual post OR a pSEO page (niche/country/combo). This merges
+  // both into one lookup: manual posts (already loaded above) + pSEO pages
+  // (from link-map.json, written by pseo_generator.js). If link-map.json
+  // doesn't exist yet — e.g. this script was run before pseo_generator.js
+  // has ever run — related links to pSEO pages are simply skipped rather
+  // than crashing; related links between manual posts still work fine.
+  // -----------------------------------------------------------------------
+  let pseoMap = {};
+  if (fs.existsSync(LINK_MAP_FILE)) {
+    pseoMap = JSON.parse(fs.readFileSync(LINK_MAP_FILE, "utf8"));
+  } else {
+    console.warn(
+      `⚠️  ${LINK_MAP_FILE} not found — related links to pSEO pages will be skipped.\n` +
+      `   Run pseo_generator.js first to enable those links.\n`,
+    );
+  }
+
+  const normalizedManual = {};
+  for (const s in posts) {
+    const p = posts[s];
+    normalizedManual[s] = {
+      title: p.related_title || p.title,
+      url: `/blog/${p.slug}.html`,
+    };
+  }
+
+  const combinedLinkMap = { ...pseoMap, ...normalizedManual };
+
   const slugs = Object.keys(posts);
   let generated = 0;
   let unchanged = 0;
@@ -389,7 +421,11 @@ function generate() {
       .replace(/{{FAQ_SECTION}}/g, faqHtml)
       .replace(/{{FAQ_SCHEMA}}/g, faqSchema)
       .replace(/{{SITE_HEADER}}/g, HEADER_HTML)
-      .replace(/{{SITE_FOOTER}}/g, FOOTER_HTML);
+      .replace(/{{SITE_FOOTER}}/g, FOOTER_HTML)
+      .replace(
+        /{{RELATED_ARTICLES_HTML}}/g,
+        buildRelatedArticlesHtml(post.related, combinedLinkMap),
+      );
 
     // Write output file — smartWriteFile compares against the existing
     // file and decides whether dateModified should change

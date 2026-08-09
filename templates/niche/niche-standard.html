@@ -28,6 +28,7 @@
     <meta property="og:title" content="{{NICHE_NAME}} AdSense RPM 2026: ${{RPM_RANGE}} Per 1,000 Views" />
     <meta property="og:description"
         content="{{NICHE_NAME}} websites earn ${{RPM_RANGE}} RPM in 2026. See average CPC, CTR, and top-paying countries." />
+    <meta property="og:image" content="https://adstimate.com/img/schema/schema-niche-standard.png" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://adstimate.com/blog/niche/{{NICHE_SLUG}}.html" />
 
@@ -37,10 +38,11 @@
             "@type": "BlogPosting",
             "headline": "{{NICHE_NAME}} AdSense RPM 2026: ${{RPM_RANGE}} Per 1,000 Views",
             "description": "{{NICHE_NAME}} websites earn ${{RPM_RANGE}} RPM in 2026. See average CPC, CTR, and top-paying countries.",
+            "image": "https://adstimate.com/img/schema/schema-niche-standard.png",
             "author": { "@type": "Organization", "name": "Adstimate" },
             "publisher": { "@type": "Organization", "name": "Adstimate", "logo": { "@type": "ImageObject", "url": "https://adstimate.com/adstimate_logo.png" } },
             "datePublished": "{{PUBLISH_DATE}}",
-            "dateModified": "{{PUBLISH_DATE}}",
+            "dateModified": "{{MODIFIED_DATE}}",
             "mainEntityOfPage": { "@type": "WebPage", "@id": "https://adstimate.com/blog/niche/{{NICHE_SLUG}}.html" }
         }
     </script>
@@ -48,7 +50,7 @@
 
 <body>
     <header class="header">
-        <div id="site-header"></div>
+        {{SITE_HEADER}}
     </header>
 
     <main class="page-content blog-page">
@@ -61,7 +63,7 @@
                 </nav>
 
                 <h1>What is the AdSense RPM for {{NICHE_NAME}} Websites? (2026 Data)</h1>
-                <p class="post-meta">Updated: {{MODIFIED_DATE}} • {{NICHE_TIER}} Niche</p>
+                <p class="post-meta">Updated: {{MODIFIED_DATE_PRETTY}}</p>
             </section>
 
             <article class="main-article-text">
@@ -220,7 +222,7 @@
             <!-- Related Articles -->
             <section class="related-articles-section">
                 <h2>Related Articles</h2>
-                <div id="related-articles-container"></div>
+                {{RELATED_ARTICLES_HTML}}
             </section>
 
         </div>
@@ -228,17 +230,12 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div id="site-footer"></div>
+        {{SITE_FOOTER}}
     </footer>
 
     <script src="/scripts/mini-calculator-widget.js"></script>
     <script src="/script.js" defer></script>
     <script src="/nav.js" defer></script>
-    <script src="/scripts/related-articles-widget.js"></script>
-    <script>
-        loadRelatedArticles('{{ARTICLE_ID}}');
-    </script>
-
 </body>
 
 </html>

@@ -63,6 +63,69 @@
             opacity: 0.9;
         }
     </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "@id": "https://adstimate.com/contact.html#webpage",
+          "url": "https://adstimate.com/contact.html",
+          "name": "Contact Us - Adstimate",
+          "description": "Get in touch with the Adstimate team for sponsorships, affiliate inquiries, business partnerships, or general AdSense calculator support.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://adstimate.com/#website",
+            "name": "Adstimate",
+            "url": "https://adstimate.com/"
+          },
+          "publisher": {
+            "@id": "https://adstimate.com/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://adstimate.com/#contact-point"
+          }
+        },
+        {
+          "@type": "ContactPoint",
+          "@id": "https://adstimate.com/contact.html#contact-point",
+          "contactType": "Customer Support & Partnerships",
+          "email": "buffetgame@gmail.com",
+          "url": "https://adstimate.com/contact.html",
+          "availableLanguage": ["en"]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://adstimate.com/#organization",
+          "name": "Adstimate",
+          "url": "https://adstimate.com/",
+          "contactPoint": {
+            "@id": "https://adstimate.com/contact.html#contact-point"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://adstimate.com/contact.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://adstimate.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact Us",
+              "item": "https://adstimate.com/contact.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>

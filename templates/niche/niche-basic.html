@@ -28,6 +28,7 @@
     <meta property="og:title" content="{{NICHE_NAME}} AdSense RPM 2026: ${{RPM_RANGE}} (CPC ${{CPC}} & {{CTR}}% CTR)" />
     <meta property="og:description"
         content="{{NICHE_NAME}} AdSense RPM is ${{RPM_RANGE}} in 2026. CPC averages ${{CPC}} with a {{CTR}}% CTR. See the top 3 countries that pay the most." />
+    <meta property="og:image" content="https://adstimate.com/img/schema/schema-niche-basic.png" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://adstimate.com/blog/niche/{{NICHE_SLUG}}.html" />
 
@@ -37,10 +38,11 @@
             "@type": "BlogPosting",
             "headline": "{{NICHE_NAME}} AdSense RPM 2026: ${{RPM_RANGE}} (CPC ${{CPC}} & {{CTR}}% CTR)",
             "description": "{{NICHE_NAME}} AdSense RPM is ${{RPM_RANGE}} in 2026. CPC averages ${{CPC}} with a {{CTR}}% CTR. See the top 3 countries that pay the most.",
+            "image": "https://adstimate.com/img/schema/schema-niche-basic.png",
             "author": { "@type": "Organization", "name": "Adstimate" },
             "publisher": { "@type": "Organization", "name": "Adstimate", "logo": { "@type": "ImageObject", "url": "https://adstimate.com/adstimate_logo.png" } },
             "datePublished": "{{PUBLISH_DATE}}",
-            "dateModified": "{{PUBLISH_DATE}}",
+            "dateModified": "{{MODIFIED_DATE}}",
             "mainEntityOfPage": { "@type": "WebPage", "@id": "https://adstimate.com/blog/niche/{{NICHE_SLUG}}.html" }
         }
     </script>
@@ -48,7 +50,7 @@
 
 <body>
     <header class="header">
-        <div id="site-header"></div>
+        {{SITE_HEADER}}
     </header>
 
     <main class="page-content blog-page">
@@ -64,7 +66,7 @@
                   H1: The exact keyword + answer. No fluff.
                 -->
                 <h1>{{NICHE_NAME}} AdSense RPM 2026: ${{RPM_RANGE}} ({{MULTIPLIER}}x Multiplier)</h1>
-                <p class="post-meta">Updated: {{MODIFIED_DATE}}</p>
+                <p class="post-meta">Updated: {{MODIFIED_DATE_PRETTY}}</p>
             </section>
 
             <article class="main-article-text">
@@ -290,7 +292,7 @@
             <!-- Related Articles -->
             <section class="related-articles-section">
                 <h2>Related Articles</h2>
-                <div id="related-articles-container"></div>
+                {{RELATED_ARTICLES_HTML}}
             </section>
 
         </div>
@@ -298,17 +300,12 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div id="site-footer"></div>
+        {{SITE_FOOTER}}
     </footer>
 
     <script src="/scripts/mini-calculator-widget.js"></script>
     <script src="/script.js" defer></script>
     <script src="/nav.js" defer></script>
-    <script src="/scripts/related-articles-widget.js"></script>
-    <script>
-        loadRelatedArticles('{{ARTICLE_ID}}');
-    </script>
-
 </body>
 
 </html>

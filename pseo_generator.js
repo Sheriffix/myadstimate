@@ -6,6 +6,7 @@ const {
   seededShuffle,
   HEADER_HTML,
   FOOTER_HTML,
+  buildRelatedArticlesHtml,
 } = require("./public/scripts/utils.js"); // From shared utilities
 
 // ============================================================================
@@ -1501,6 +1502,89 @@ topCombinations.forEach((combo) => {
   };
 });
 
+// Minimal skeleton entries for niche and country pages too — just enough
+// (an existing linkMap key) for Phase 2 below to compute their `.related`
+// arrays. Full title/url/tags get filled in when each page is actually
+// written further down; that later assignment preserves `.related` rather
+// than overwriting it, so nothing computed here gets lost.
+nicheList.forEach((niche) => {
+  const slug = createSlug(niche) + "-adsense-rpm";
+  if (!linkMap[slug]) linkMap[slug] = { related: [] };
+});
+countryList.forEach((countryCode) => {
+  const countryName = COUNTRY_NAMES[countryCode] || countryCode;
+  const slug = createSlug(countryName) + "-adsense-rpm";
+  if (!linkMap[slug]) linkMap[slug] = { related: [] };
+});
+
+// ============================================================================
+// POPULATE ALL RELATED LINKS (moved up from "Phase 2")
+// This now runs BEFORE any page is written, so each page's own `.related`
+// array is already correct by the time its HTML gets generated — needed
+// so related-article links can be written as real, static <a href> tags
+// instead of being fetched and built later by client-side JavaScript.
+// ============================================================================
+
+console.log("\n🔗 Populating related links for all pSEO articles...");
+
+// -------------------------------------------------------------------
+// NICHE ARTICLES: 5 niche-country combos
+// -------------------------------------------------------------------
+
+nicheList.forEach((niche) => {
+  const slug = createSlug(niche) + "-adsense-rpm";
+  if (!linkMap[slug]) return;
+  const topCombos = getTopCountriesForNiche(niche, linkMap, 5);
+  linkMap[slug].related = topCombos;
+});
+
+// -------------------------------------------------------------------
+// COUNTRY ARTICLES: 3 niche-country combos
+// -------------------------------------------------------------------
+countryList.forEach((countryCode) => {
+  const countryName = COUNTRY_NAMES[countryCode] || countryCode;
+  const slug = createSlug(countryName) + "-adsense-rpm";
+  if (!linkMap[slug]) return;
+
+  const topCombos = getTopNichesForCountry(countryName, linkMap, 3);
+  linkMap[slug].related = topCombos;
+});
+
+// -------------------------------------------------------------------
+// NICHE-COUNTRY ARTICLES: 1 parent country + 1 parent niche + 2 similar
+// -------------------------------------------------------------------
+topCombinations.forEach((combo) => {
+  const { niche, countryCode } = combo;
+  const countryName = COUNTRY_NAMES[countryCode] || countryCode;
+  const nicheSlug = createSlug(niche);
+  const countrySlug = createSlug(countryName);
+  const slug = `${nicheSlug}-${countrySlug}-adsense-rpm`;
+
+  if (!linkMap[slug]) return;
+
+  const related = [];
+
+  // 1. Parent country page
+  related.push(countrySlug + "-adsense-rpm");
+
+  // 2. Parent niche page
+  related.push(nicheSlug + "-adsense-rpm");
+
+  // 3. Two similar niche-country combos
+  const relatedCombos = getRelatedNicheCountry(
+    niche,
+    countryName,
+    slug,
+    linkMap,
+    2,
+  );
+  relatedCombos.forEach((c) => related.push(c));
+
+  linkMap[slug].related = related;
+});
+
+console.log("✓ All pSEO related links populated");
+
 // ============================================================================
 // GENERATE NICHE ARTICLES
 // ============================================================================
@@ -1525,9 +1609,6 @@ nicheList.forEach((niche, index) => {
     .replace(/{rpm_range}/g, data.typical_rpm_range)
     .replace(/{multiplier}/g, multiplier);
 
-  // Related links will be populated after all articles are generated
-  const related = [];
-
   // Performance description
   let perfDesc = "";
   if (multiplier >= 2.0)
@@ -1539,6 +1620,14 @@ nicheList.forEach((niche, index) => {
   // Build mini-table and call-out box
   const miniTable = buildNicheMiniTable(niche, linkMap);
   const calloutBox = buildNicheCallout(niche);
+
+  // Build the static related-articles HTML from the .related array that
+  // was already computed above (before this write loop ran)
+  const nicheSlugKey = slug + "-adsense-rpm";
+  const relatedArticlesHtml = buildRelatedArticlesHtml(
+    linkMap[nicheSlugKey] ? linkMap[nicheSlugKey].related : [],
+    linkMap,
+  );
 
   // Use test template if this niche is listed in template_mapping, otherwise use default
   const activeNicheTemplate = testPageMap[niche]
@@ -1561,6 +1650,7 @@ nicheList.forEach((niche, index) => {
     CALLOUT_BOX: calloutBox,
     SITE_HEADER: HEADER_HTML,
     SITE_FOOTER: FOOTER_HTML,
+    RELATED_ARTICLES_HTML: relatedArticlesHtml,
   };
 
   let html = fillTemplate(activeNicheTemplate, nicheVars);
@@ -1573,13 +1663,17 @@ nicheList.forEach((niche, index) => {
     getPublishDate(),
   );
 
-  // Add to link-map
-  linkMap[slug + "-adsense-rpm"] = {
+  // Add full title/url/tags to link-map — preserve the .related array
+  // that was already computed before this loop ran, rather than wiping it
+  const priorRelated = linkMap[nicheSlugKey]
+    ? linkMap[nicheSlugKey].related
+    : [];
+  linkMap[nicheSlugKey] = {
     title: `AdSense RPM for ${niche} Websites`,
     url: `/blog/niche/${slug}-adsense-rpm.html`,
     type: "niche",
     niche: niche,
-    related: related,
+    related: priorRelated,
     tags: [createSlug(niche), tier, "niche-guide"],
   };
 
@@ -1612,9 +1706,6 @@ countryList.forEach((countryCode, index) => {
 
   intro = intro.replace(/{country}/g, countryName).replace(/{rpm}/g, rpm);
 
-  // Related links will be populated after all articles are generated
-  const related = [];
-
   // Tier description
   let tierDesc = "";
   if (tier === "tier-1") tierDesc = "top-tier";
@@ -1630,6 +1721,14 @@ countryList.forEach((countryCode, index) => {
     linkMap,
   );
   const calloutBox = buildCountryCallout(countryName, countryCode);
+
+  // Build the static related-articles HTML from the .related array that
+  // was already computed above (before this write loop ran)
+  const countrySlugKey = slug + "-adsense-rpm";
+  const relatedArticlesHtml = buildRelatedArticlesHtml(
+    linkMap[countrySlugKey] ? linkMap[countrySlugKey].related : [],
+    linkMap,
+  );
 
   // Use test template if this country is listed in template_mapping, otherwise use default
   const activeCountryTemplate = testPageMap[countryCode]
@@ -1650,6 +1749,7 @@ countryList.forEach((countryCode, index) => {
     CALLOUT_BOX: calloutBox,
     SITE_HEADER: HEADER_HTML,
     SITE_FOOTER: FOOTER_HTML,
+    RELATED_ARTICLES_HTML: relatedArticlesHtml,
   };
 
   let html = fillTemplate(activeCountryTemplate, countryVars);
@@ -1662,13 +1762,17 @@ countryList.forEach((countryCode, index) => {
     getPublishDate(),
   );
 
-  // Add to link-map
-  linkMap[slug + "-adsense-rpm"] = {
+  // Add full title/url/tags to link-map — preserve the .related array
+  // that was already computed before this loop ran, rather than wiping it
+  const priorCountryRelated = linkMap[countrySlugKey]
+    ? linkMap[countrySlugKey].related
+    : [];
+  linkMap[countrySlugKey] = {
     title: `AdSense RPM in ${countryName}`,
     url: `/blog/country/${slug}-adsense-rpm.html`,
     type: "country",
     country: countryName,
-    related: related,
+    related: priorCountryRelated,
     tags: [slug, tier, "country-guide"],
   };
 
@@ -1725,13 +1829,15 @@ topCombinations.forEach((combo, index) => {
     .replace(/{multiplier}/g, multiplier)
     .replace(/{expected_rpm}/g, expectedRpm);
 
-  // Related links will be populated after all articles are generated
-  const related = [];
-
   // Current article slug for self-link prevention
   const currentSlug = slug + "-adsense-rpm";
 
-  // Store metadata needed for later related link generation
+  // Store metadata needed for later related link generation — preserve
+  // the .related array already computed before this loop ran (by the
+  // pre-pass + related-links step above), rather than wiping it with [].
+  const priorComboRelated = linkMap[currentSlug]
+    ? linkMap[currentSlug].related
+    : [];
   linkMap[currentSlug] = {
     title: `${niche} Website AdSense Earnings in ${countryName}`,
     url: `/blog/niche-country/${currentSlug}.html`,
@@ -1740,7 +1846,7 @@ topCombinations.forEach((combo, index) => {
     country: countryName,
     parentNiche: nicheSlug + "-adsense-rpm",
     parentCountry: countrySlug + "-adsense-rpm",
-    related: [],
+    related: priorComboRelated,
     tags: [nicheSlug, countrySlug, "combo-guide"],
   };
 
@@ -1797,6 +1903,13 @@ topCombinations.forEach((combo, index) => {
     linkMap,
   );
 
+  // Build the static related-articles HTML from the .related array that
+  // was already computed above (before this write loop ran)
+  const relatedArticlesHtml = buildRelatedArticlesHtml(
+    linkMap[currentSlug].related,
+    linkMap,
+  );
+
   if (linkingVars.sidewaysCount < 2) {
     weakSidewaysPages.push({
       slug: currentSlug,
@@ -1843,6 +1956,7 @@ topCombinations.forEach((combo, index) => {
     BOTTOM_LINE: bottomLine,
     SITE_HEADER: HEADER_HTML,
     SITE_FOOTER: FOOTER_HTML,
+    RELATED_ARTICLES_HTML: relatedArticlesHtml,
   };
 
   let html = fillTemplate(activeNicheCountryTemplate, comboVars);
@@ -1936,70 +2050,6 @@ generateIndexPage(topCombinations);
 // Manual blog related links are managed in manual-posts.json
 // The generator does not touch them - edit that file directly to update them
 console.log("\n📖 Manual blog related links are managed in manual-posts.json");
-
-// ==========================================
-// POPULATE ALL RELATED LINKS (PHASE 2)
-// ==========================================
-
-console.log("\n🔗 Populating related links for all pSEO articles...");
-
-// -------------------------------------------------------------------
-// NICHE ARTICLES: 5 niche-country combos
-// -------------------------------------------------------------------
-
-nicheList.forEach((niche) => {
-  const slug = createSlug(niche) + "-adsense-rpm";
-  if (!linkMap[slug]) return;
-  const topCombos = getTopCountriesForNiche(niche, linkMap, 5);
-  linkMap[slug].related = topCombos;
-});
-
-// -------------------------------------------------------------------
-// COUNTRY ARTICLES: 3 niche-country combos
-// -------------------------------------------------------------------
-countryList.forEach((countryCode) => {
-  const countryName = COUNTRY_NAMES[countryCode] || countryCode;
-  const slug = createSlug(countryName) + "-adsense-rpm";
-  if (!linkMap[slug]) return;
-
-  const topCombos = getTopNichesForCountry(countryName, linkMap, 3);
-  linkMap[slug].related = topCombos;
-});
-
-// -------------------------------------------------------------------
-// NICHE-COUNTRY ARTICLES: 1 parent country + 1 parent niche + 2 similar
-// -------------------------------------------------------------------
-topCombinations.forEach((combo) => {
-  const { niche, countryCode } = combo;
-  const countryName = COUNTRY_NAMES[countryCode] || countryCode;
-  const nicheSlug = createSlug(niche);
-  const countrySlug = createSlug(countryName);
-  const slug = `${nicheSlug}-${countrySlug}-adsense-rpm`;
-
-  if (!linkMap[slug]) return;
-
-  const related = [];
-
-  // 1. Parent country page
-  related.push(countrySlug + "-adsense-rpm");
-
-  // 2. Parent niche page
-  related.push(nicheSlug + "-adsense-rpm");
-
-  // 3. Two similar niche-country combos
-  const relatedCombos = getRelatedNicheCountry(
-    niche,
-    countryName,
-    slug,
-    linkMap,
-    2,
-  );
-  relatedCombos.forEach((c) => related.push(c));
-
-  linkMap[slug].related = related;
-});
-
-console.log("✓ All pSEO related links populated");
 
 console.log("\n💾 Saving link-map.json...");
 
