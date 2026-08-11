@@ -98,7 +98,7 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.6;
   transition:
     background 0.3s ease,
     color 0.3s ease;

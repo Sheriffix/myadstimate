@@ -202,8 +202,11 @@ const introMap = JSON.parse(
 const comboPhraseMap = JSON.parse(
   fs.readFileSync(path.join(DATA_DIR, "combo_phrase_map.json"), "utf8"),
 );
-const phraseMap = JSON.parse(
-  fs.readFileSync(path.join(DATA_DIR, "phrase_map.json"), "utf8"),
+const nichePhraseMap = JSON.parse(
+  fs.readFileSync(path.join(DATA_DIR, "niche_phrase_map.json"), "utf8"),
+);
+const countryPhraseMap = JSON.parse(
+  fs.readFileSync(path.join(DATA_DIR, "country_phrase_map.json"), "utf8"),
 );
 
 console.log(
@@ -979,9 +982,10 @@ function getRelatedNicheCountry(
 // ============================================================================
 
 // Picks one variant from a given phrase-pool object (e.g. comboPhraseMap
-// or phraseMap), consistently per page (seeded), and fills in the {token}
-// placeholders. Generalized so both combo_phrase_map.json and
-// phrase_map.json can share one selection mechanism.
+// or nichePhraseMap/countryPhraseMap), consistently per page (seeded), and
+// fills in the {token} placeholders. Generalized so combo_phrase_map.json,
+// niche_phrase_map.json, and country_phrase_map.json can all share one
+// selection mechanism.
 function buildPhrase(phraseMapObj, poolName, identityText, tokens) {
   const pool = phraseMapObj[poolName];
   if (!pool || pool.length === 0) return "";
@@ -1169,6 +1173,68 @@ function buildTopCountriesTable(niche, multiplier, avgCountryRpm, linkMap, count
 }
 
 /**
+ * TOP NICHES TABLE (country pages)
+ * Mirror of buildTopCountriesTable, ranking the other direction: ranks ALL
+ * niches by calculated RPM for this one country (not just niches with a
+ * generated combo page). Same fallback rule — real combo page if one
+ * exists, deep-linked Matrix Tool if not. A row is never dropped and never
+ * points to a URL that 404s.
+ */
+function buildTopNichesTable(countryCode, countryName, rpm, avgMultiplier, linkMap, count) {
+  const countrySlug = createSlug(countryName);
+  const countryTypicalRpm = rpm * avgMultiplier;
+
+  const ranked = nicheList
+    .filter((n) => nicheMultiplier[n])
+    .map((n) => {
+      const expectedRpm = rpm * nicheMultiplier[n];
+      const pctDiff = (
+        ((expectedRpm - countryTypicalRpm) / countryTypicalRpm) *
+        100
+      ).toFixed(0);
+      return { niche: n, expectedRpm, pctDiff, multiplier: nicheMultiplier[n] };
+    })
+    .sort((a, b) => b.expectedRpm - a.expectedRpm);
+
+  const topRows = ranked.slice(0, count);
+  const lowest = ranked[ranked.length - 1];
+
+  const tableRows = topRows
+    .map((n) => {
+      const nicheSlug = createSlug(n.niche);
+      const comboSlug = `${nicheSlug}-${countrySlug}-adsense-rpm`;
+      const hasRealPage =
+        linkMap[comboSlug] && linkMap[comboSlug].type === "niche-country";
+      const href = hasRealPage
+        ? `/blog/niche-country/${comboSlug}.html`
+        : buildMatrixDeepLink(n.niche, countryName);
+      const diffText =
+        n.pctDiff > 0
+          ? `+${n.pctDiff}%`
+          : n.pctDiff < 0
+            ? `${n.pctDiff}%`
+            : "avg";
+      return `
+        <tr>
+          <td><a class="c-link" href="${href}">${n.niche}</a></td>
+          <td>$${n.expectedRpm.toFixed(1)}</td>
+          <td>${diffText}</td>
+        </tr>`;
+    })
+    .join("");
+
+  return {
+    tableHtml: tableRows,
+    topNicheName: topRows[0].niche,
+    topNicheRpm: topRows[0].expectedRpm,
+    topNichePctDiff: topRows[0].pctDiff,
+    topNicheMultiplier: topRows[0].multiplier,
+    lowRpm: lowest.expectedRpm,
+    countryTypicalRpm,
+  };
+}
+
+/**
  * NICHE CALL-OUT BOX
  * Promotes the sister niche as a cross-niche pivot.
  */
@@ -1204,100 +1270,6 @@ function buildNicheCallout(niche) {
         the <a class="c-link" href="/blog/niche/${sisterSlug}-adsense-rpm.html"><span>${sister}</span></a>
         vertical ${comparisonText}. Worth comparing before finalising your content strategy.
         </p>
-      </div>`;
-}
-
-/**
- * COUNTRY MINI-TABLE
- * Shows top 2 niches in this country + 1 peer country row.
- * Peer country = closest RPM match. Fallback = second highest RPM country.
- */
-function buildCountryMiniTable(countryCode, countryName, rpm, linkMap) {
-  const countrySlug = createSlug(countryName);
-
-  // Rank ALL niches by multiplier, but only keep the ones where a real
-  // combo page actually exists for this country — otherwise the row
-  // would link to a page that was never generated (404).
-  const rankedNiches = nicheList
-    .filter((n) => nicheMultiplier[n])
-    .map((n) => ({
-      niche: n,
-      multiplier: nicheMultiplier[n],
-      expectedRpm: (rpm * nicheMultiplier[n]).toFixed(1),
-      nicheSlug: createSlug(n),
-    }))
-    .sort((a, b) => b.multiplier - a.multiplier);
-
-  const top2Niches = rankedNiches
-    .filter((n) => {
-      const comboSlug = `${n.nicheSlug}-${countrySlug}-adsense-rpm`;
-      return linkMap[comboSlug] && linkMap[comboSlug].type === "niche-country";
-    })
-    .slice(0, 2);
-
-  const nicheRows = top2Niches
-    .map(
-      (n) => `
-        <tr>
-          <td><a class="c-link" href="/blog/niche-country/${n.nicheSlug}-${countrySlug}-adsense-rpm.html">${n.niche} in ${countryName}</a></td>
-          <td>$${n.expectedRpm}</td>
-          <td><a class="c-link" href="/blog/niche-country/${n.nicheSlug}-${countrySlug}-adsense-rpm.html">View Analysis →</a></td>
-        </tr>`,
-    )
-    .join("");
-
-  // No fallback rows: only real generated combo pages are ever linked.
-  // If fewer than 2 exist for this country, the table simply has fewer rows.
-
-  // Peer country: closest RPM, excluding current country
-  // Fallback: second highest RPM country if no close peer found
-  const sortedByRpm = countryList
-    .filter((code) => code !== countryCode)
-    .map((code) => ({
-      code,
-      name: COUNTRY_NAMES[code] || code,
-      rpm: countryRpm[code],
-      diff: Math.abs(countryRpm[code] - rpm),
-    }))
-    .sort((a, b) => a.diff - b.diff);
-
-  // Use closest peer — if the closest peer RPM diff is too large (>10), use second highest RPM instead
-  let peer = sortedByRpm[0];
-  if (peer.diff > 10) {
-    // Fallback: second highest RPM country
-    const byRpm = countryList
-      .filter((code) => code !== countryCode)
-      .map((code) => ({
-        code,
-        name: COUNTRY_NAMES[code] || code,
-        rpm: countryRpm[code],
-      }))
-      .sort((a, b) => b.rpm - a.rpm);
-    peer = byRpm[1] || byRpm[0]; // second highest, or highest if only one exists
-  }
-
-  const peerRow = `
-        <tr>
-          <td><a class="c-link" href="/blog/country/${createSlug(peer.name)}-adsense-rpm.html">Geo-Peer: ${peer.name}</a></td>
-          <td>$${peer.rpm}</td>
-          <td><a class="c-link" href="/blog/country/${createSlug(peer.name)}-adsense-rpm.html">Compare Market →</a></td>
-        </tr>`;
-
-  return `
-      <div class="mesh-mini-table">
-        <table>
-          <thead>
-            <tr>
-              <th>${countryName} Revenue Segments</th>
-              <th>RPM Estimate</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${nicheRows}
-            ${peerRow}
-          </tbody>
-        </table>
       </div>`;
 }
 
@@ -1370,10 +1342,22 @@ function buildComboMiniTable(
           <td>$${betterRpm}</td>
           <td><a class="c-link" href="/blog/niche-country/${betterNicheFound.comboSlug}.html">Higher Value →</a></td>
         </tr>`;
+  } else if (betterNiches.length > 0) {
+    // Current niche isn't the highest, but none of the better niches have
+    // a generated combo page for this country yet. Deep-link to the Matrix
+    // Tool (pre-filtered) instead of dropping the row — matches the same
+    // "never dead-end" rule niche/country pages already follow.
+    const bestCandidate = betterNiches[0];
+    const bestCandidateRpm = (baseRpm * nicheMultiplier[bestCandidate]).toFixed(1);
+    const deepLink = buildMatrixDeepLink(bestCandidate, countryName);
+    row1Html = `
+        <tr>
+          <td><a class="c-link" href="${deepLink}">${bestCandidate} in ${countryName}</a></td>
+          <td>$${bestCandidateRpm}</td>
+          <td><a class="c-link" href="${deepLink}">Check on Matrix →</a></td>
+        </tr>`;
   } else {
-    // No fallback row: either the current niche IS the highest, or none
-    // of the better niches have a generated combo page for this country.
-    // Either way, skip this row rather than link to a non-real page.
+    // Current niche genuinely IS the highest-multiplier option — no row needed.
     row1Html = "";
   }
 
@@ -1411,8 +1395,22 @@ function buildComboMiniTable(
   }
 
   if (!peerFound) {
-    // No fallback row: skip rather than link to a non-real page.
-    row2Html = "";
+    // None of the top-5 closest-RPM peer countries have a generated combo
+    // page for this niche yet. Deep-link to the Matrix Tool (pre-filtered
+    // to the single closest peer) instead of dropping the row.
+    const closestPeer = peerCountries[0];
+    if (closestPeer) {
+      const closestPeerRpm = (closestPeer.rpm * multiplier).toFixed(1);
+      const deepLink = buildMatrixDeepLink(niche, closestPeer.name);
+      row2Html = `
+        <tr>
+          <td><a class="c-link" href="${deepLink}">${niche} in ${closestPeer.name}</a></td>
+          <td>$${closestPeerRpm}</td>
+          <td><a class="c-link" href="${deepLink}">Check on Matrix →</a></td>
+        </tr>`;
+    } else {
+      row2Html = "";
+    }
   }
 
   // --- ROW 3: Parent niche pillar — always exists, no fallback needed ---
@@ -1515,7 +1513,7 @@ function buildComboCallout(niche, countryName) {
                 <a class="c-link" href="/blog/niche/${nicheSlug}-adsense-rpm.html">${niche}</a> traffic in <a
                     class="c-link" href="/blog/country/${countrySlug}-adsense-rpm.html">${countryName}</a>
                 is high-value, but competition is fierce. Check our guide on <a class="c-link"
-                    href="/blog/how-much-does-adsense-pay">How Much AdSense Actually Pays</a> if your traffic is
+                    href="/blog/how-much-does-adsense-pay.html">How Much AdSense Actually Pays</a> if your traffic is
                 under
                 10k monthly visitors — it covers realistic expectations at every stage of growth.
             </p>
@@ -1647,6 +1645,14 @@ console.log("✓ All pSEO related links populated");
 // content depth (table row count, extra analysis paragraphs) needs to
 // match whichever template is really being rendered.
 // ============================================================================
+function getActiveCountryTierName(countryCode) {
+  const templateName = testPageMap[countryCode];
+  if (!templateName) return "standard"; // matches the default fallback template
+  if (templateName.includes("premium")) return "premium";
+  if (templateName.includes("basic")) return "basic";
+  return "standard";
+}
+
 function getActiveNicheTierName(niche) {
   const templateName = testPageMap[niche];
   if (!templateName) return "standard"; // matches the default fallback template
@@ -1727,11 +1733,11 @@ nicheList.forEach((niche, index) => {
   };
   const whyThisNumber =
     activeTier !== "basic"
-      ? buildPhrase(phraseMap, "niche_why_this_number", slug + "-why", phraseTokens)
+      ? buildPhrase(nichePhraseMap, "why_this_number", slug + "-why", phraseTokens)
       : "";
   const advertiserDemand =
     activeTier === "premium"
-      ? buildPhrase(phraseMap, "niche_advertiser_demand", slug + "-demand", phraseTokens)
+      ? buildPhrase(nichePhraseMap, "advertiser_demand", slug + "-demand", phraseTokens)
       : "";
 
   // Build the static related-articles HTML from the .related array that
@@ -1815,6 +1821,13 @@ console.log("\n✓ Niche articles generated");
 console.log("\n🌍 Generating country articles...");
 ensureDir(OUTPUT_DIRS.country);
 
+// Computed once — same baseline for every country, mirroring avgCountryRpm
+// used on the niche side. Used as the "typical niche mix" reference point
+// so each country's top-niches table can show a meaningful % difference.
+const avgNicheMultiplier =
+  Object.values(nicheMultiplier).reduce((a, b) => a + b, 0) /
+  Object.values(nicheMultiplier).length;
+
 countryList.forEach((countryCode, index) => {
   const rpm = countryRpm[countryCode];
   const countryName = COUNTRY_NAMES[countryCode] || countryCode;
@@ -1837,14 +1850,55 @@ countryList.forEach((countryCode, index) => {
   else if (tier === "tier-3") tierDesc = "developing";
   else tierDesc = "emerging";
 
-  // Build mini-table and call-out box
-  const miniTable = buildCountryMiniTable(
+  // Determine which tier template is actually active for this country —
+  // drives table row count and how much analysis content gets included
+  const activeTier = getActiveCountryTierName(countryCode);
+  const tableRowCount = activeTier === "premium" ? 5 : 3;
+
+  // Build the unified top-niches table (real ranking, real links — real
+  // combo page if one exists, deep-linked Matrix Tool if not)
+  const topNiches = buildTopNichesTable(
     countryCode,
     countryName,
     rpm,
+    avgNicheMultiplier,
     linkMap,
+    tableRowCount,
   );
+
+  // Revenue at common traffic levels, using this country's real typical
+  // RPM (a country-average niche mix), not a single arbitrary niche
+  const calculated10k = (topNiches.countryTypicalRpm * 10).toFixed(2);
+  const calculated50k = (topNiches.countryTypicalRpm * 50).toFixed(2);
+  const calculated100k = (topNiches.countryTypicalRpm * 100).toFixed(2);
+  // Same math, but using the REAL top-performing niche's RPM instead
+  const calculatedTop10k = (topNiches.topNicheRpm * 10).toFixed(2);
+
   const calloutBox = buildCountryCallout(countryName, countryCode);
+
+  // Peer countries table — premium tier only. Reuses the same ranking
+  // function combo pages already use (closest base RPM); passing
+  // multiplier=1 shows each peer's own raw base RPM, since country pages
+  // aren't tied to any one niche. All 56 countries have a real generated
+  // page, so — unlike the niche/combo tables — no fallback check is
+  // needed here; every peer link is always real.
+  const peerCountriesTable =
+    activeTier === "premium"
+      ? buildPeerCountriesTable(null, countryCode, rpm, 1, 4)
+      : "";
+
+  // Phrase-pool analysis content — standard and premium only (basic stays
+  // lean by design). Seeded per-country so each country gets a
+  // consistent, deterministic variant.
+  const phraseTokens = { country: countryName, tier: tierDesc, rpm: rpm };
+  const whyThisNumber =
+    activeTier !== "basic"
+      ? buildPhrase(countryPhraseMap, "why_this_number", slug + "-why", phraseTokens)
+      : "";
+  const marketStrength =
+    activeTier === "premium"
+      ? buildPhrase(countryPhraseMap, "market_strength", slug + "-strength", phraseTokens)
+      : "";
 
   // Build the static related-articles HTML from the .related array that
   // was already computed above (before this write loop ran)
@@ -1869,7 +1923,19 @@ countryList.forEach((countryCode, index) => {
     COUNTRY_TIER: tier,
     TIER_DESC: tierDesc,
     ARTICLE_ID: slug + "-adsense-rpm",
-    MINI_TABLE: miniTable,
+    TOP_NICHES_TABLE: topNiches.tableHtml,
+    TOP_NICHE_NAME: topNiches.topNicheName,
+    TOP_NICHE_RPM: topNiches.topNicheRpm.toFixed(1),
+    PERCENT_DIFF: Math.abs(topNiches.topNichePctDiff),
+    TOP_NICHE_MULTIPLIER: topNiches.topNicheMultiplier,
+    RPM_LOW: topNiches.lowRpm.toFixed(1),
+    CALCULATED_10K: calculated10k,
+    CALCULATED_50K: calculated50k,
+    CALCULATED_100K: calculated100k,
+    CALCULATED_TOP_10K: calculatedTop10k,
+    PEER_COUNTRIES_TABLE: peerCountriesTable,
+    WHY_THIS_NUMBER: whyThisNumber,
+    MARKET_STRENGTH: marketStrength,
     CALLOUT_BOX: calloutBox,
     SITE_HEADER: HEADER_HTML,
     SITE_FOOTER: FOOTER_HTML,

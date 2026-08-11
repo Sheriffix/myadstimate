@@ -1,0 +1,14 @@
+{
+  "why_this_number": [
+    "{country} sits in our {tier} bracket, which reflects real advertiser spend and audience purchasing power in this market — not just traffic volume. That classification is what sets the ${rpm} baseline before any niche is even factored in.",
+    "The ${rpm} figure for {country} comes from its {tier} standing: a measure of how much local advertisers are willing to pay to reach an audience here, independent of what that audience is reading.",
+    "What puts {country} at ${rpm} RPM is market maturity — {tier} countries have deeper digital ad ecosystems, and that shows up directly in the baseline rate before any content-specific multiplier applies.",
+    "{country}'s ${rpm} baseline reflects its {tier} classification, which is built from real advertiser demand and purchasing power in this market — the same factors that would hold regardless of the specific content a visitor is viewing."
+  ],
+  "market_strength": [
+    "That baseline isn't static across content types, though — the right niche can meaningfully outperform it. Pairing {country} traffic with a higher-multiplier niche compounds rather than just adds, which is why the top-earning niche in the table above can run well above this page's own baseline.",
+    "Worth noting: this RPM is a starting point, not a ceiling. {country}'s market strength combines with niche-specific advertiser demand — the two factors multiply together, so the right content focus can push results meaningfully past the baseline shown here.",
+    "The baseline shown here reflects the market, not the content. Layer in a niche with strong advertiser competition and the combined RPM can run well past this number — that's the same compounding effect visible in the top-niches table above.",
+    "One thing publishers often miss: {country}'s classification sets the floor, not the outcome. The niches with the strongest advertiser demand in this market will always outperform the baseline — sometimes substantially, as the table above shows."
+  ]
+}
